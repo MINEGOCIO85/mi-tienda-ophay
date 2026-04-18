@@ -3,7 +3,7 @@ import streamlit as st
 # Configuración de la página
 st.set_page_config(page_title="Catálogo Ophay", layout="wide")
 
-# Estilo visual para que NO se vea fea
+# Estilo visual pro
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
@@ -30,7 +30,7 @@ st.markdown("""
 st.title("📦 Catálogo Ophay Import")
 st.write("Selecciona lo que te guste y dale al botón de WhatsApp")
 
-# PRODUCTOS CON FOTOS QUE NO SE ROMPEN
+# PRODUCTOS CON FOTOS ESTABLES
 productos = [
     {"n": "Smartwatch Ultra", "p": "45€", "img": "https://images.unsplash.com/photo-1544117518-2b47c874382d?w=500"},
     {"n": "Proyector 4K", "p": "150€", "img": "https://images.unsplash.com/photo-1535016120720-40c646bebbbb?w=500"},
@@ -45,7 +45,7 @@ for i, p in enumerate(productos):
         st.image(p['img'], use_container_width=True)
         st.subheader(p['n'])
         st.write(f"### {p['p']}")
-        # AQUÍ CAMBIARÁS TU NÚMERO LUEGO
+        # CAMBIA EL 34600000000 POR TU MÓVIL CUANDO QUIERAS
         link = f"https://wa.me/34600000000?text=Hola, quiero el {p['n']}"
         st.link_button("💬 Pedir por WhatsApp", link)
         st.markdown('</div>', unsafe_allow_html=True)
