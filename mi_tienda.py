@@ -1,54 +1,50 @@
 import streamlit as st
+import pandas as pd
 
-# Configuración básica
-st.set_page_config(page_title="Mi Tienda Ophay", layout="wide")
+# Configuración de la página
+st.set_page_config(page_title="Catálogo Ophay", layout="wide")
 
-# ESTILO VISUAL (El maquillaje)
+# ESTILO PARA PONERLA GUAPA
 st.markdown("""
     <style>
-    .main { background-color: #f5f7f9; }
-    .stButton>button {
+    .main { background-color: #f8f9fa; }
+    div.stButton > button {
+        background-color: #25D366 !important;
+        color: white !important;
+        border-radius: 20px;
+        border: none;
+        height: 45px;
         width: 100%;
-        background-color: #25D366;
-        color: white;
-        border-radius: 10px;
-        height: 3em;
         font-weight: bold;
     }
-    .producto-card {
-        background-color: white;
-        padding: 15px;
-        border-radius: 10px;
-        border: 1px solid #e0e0e0;
-        text-align: center;
-        margin-bottom: 20px;
+    .img-container {
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🛍️ Catálogo Exclusivo Ophay")
-st.write("---")
+st.title("📦 Mi Catálogo Ophay")
+st.write("Selecciona un producto para hacer tu pedido por WhatsApp.")
 
-# Lista de productos (Nombre, Precio, Foto)
+# Tus productos
 productos = [
-    {"nombre": "Smartwatch Ultra", "precio": "45€", "img": "https://images.unsplash.com/photo-1544117518-2b47c874382d?w=400"},
-    {"nombre": "Proyector 4K", "precio": "150€", "img": "https://images.unsplash.com/photo-1535016120720-40c646bebbbb?w=400"},
-    {"nombre": "Dron Explorer", "precio": "250€", "img": "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=400"},
-    {"nombre": "Auriculares Gamer", "precio": "35€", "img": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400"}
+    {"nombre": "Smartwatch Ultra", "precio": "45.00€", "img": "https://images.unsplash.com/photo-1544117518-2b47c874382d?w=400"},
+    {"nombre": "Proyector 4K", "precio": "150.00€", "img": "https://images.unsplash.com/photo-1535016120720-40c646bebbbb?w=400"},
+    {"nombre": "Dron Explorer", "precio": "250.00€", "img": "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=400"},
+    {"nombre": "Auriculares Gamer", "precio": "35.00€", "img": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400"}
 ]
 
-# Crear la cuadrícula (2 columnas)
+# Mostrar en cuadrícula
 cols = st.columns(2)
-
 for i, p in enumerate(productos):
     with cols[i % 2]:
-        # Contenedor del producto
-        st.markdown(f'<div class="producto-card">', unsafe_allow_html=True)
         st.image(p['img'], use_container_width=True)
         st.subheader(p['nombre'])
-        st.write(f"### {p['precio']}")
+        st.write(f"💰 Precio: **{p['precio']}**")
         
-        # Botón de WhatsApp
-        link = f"https://wa.me/34600000000?text=Hola, quiero el {p['nombre']}"
-        st.link_button("💬 Pedir por WhatsApp", link)
-        st.markdown('</div>', unsafe_allow_html=True)
+        # EL BOTÓN DE WHATSAPP (Acuérdate de cambiar el número luego)
+        link_ws = f"https://wa.me/34600000000?text=Hola, quiero el {p['nombre']}"
+        st.link_button("💬 Pedir por WhatsApp", link_ws)
+        st.write("---")
