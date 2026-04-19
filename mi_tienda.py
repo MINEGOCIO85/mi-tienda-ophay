@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN DE LA PÁGINA
 st.set_page_config(page_title="Ophay Luxury Boutique", page_icon="💎", layout="centered")
 
-# 2. SISTEMA DE ESTILO CSS
+# 2. SISTEMA DE ESTILO CSS (Verificado y Cerrado)
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@200;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
@@ -72,7 +72,7 @@ st.markdown("""
         border-bottom: 1px solid #f3f4f6;
         align-items: center;
     }
-    img { transition: 0.8s; }
+    img { transition: 0.8s; border-radius: 4px; }
     img:hover { transform: scale(1.03); }
     </style>
     """, unsafe_allow_html=True)
@@ -89,16 +89,4 @@ def item_lujo(img, nom, precio, txt, link):
     with c2:
         st.subheader(nom)
         st.markdown(f'<p class="desc">{txt}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p class="precio">{precio} €</p>', unsafe_allow_html=True)
-        st.link_button("SOLICITAR INFORMACIÓN", link)
-
-# 5. LISTADO DE PRODUCTOS (Revisado línea por línea)
-item_lujo("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700", "AURICULARES NOIRE PRESTIGE", "35", "Pureza acústica excepcional y confort premium.", "https://wa.me/34600000000")
-
-item_lujo("https://images.unsplash.com/photo-1473963342623-0c5379bb8982?w=700", "DRON EXPLORER HORIZON", "250", "Perspectiva privilegiada y aerodinámica de vanguardia.", "https://wa.me/34600000000")
-
-item_lujo("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700", "SMARTWATCH PLATINUM CORE", "45", "La fusión definitiva entre tecnología y alta relojería.", "https://wa.me/34600000000")
-
-item_lujo("https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700", "PROYECTOR LUMIÈRE 4K", "150", "Nitidez cinematográfica en un diseño minimalista.", "https://wa.me/34600000000")
-
-st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY LUXURY RETAIL • 2024</p></center>", unsafe_allow_html=True)
+        st.markdown(f'<p class="precio">{precio} €</p>', unsafe
