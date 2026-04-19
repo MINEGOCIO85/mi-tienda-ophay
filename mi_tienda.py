@@ -1,57 +1,30 @@
 import streamlit as st
 
-# 1. Configuración de datos de productos
-# Asegúrate de que las URLs de las imágenes sean enlaces directos (que terminen en .jpg, .png, etc.)
+# Configuración de la página
+st.set_page_config(page_title="Catálogo Ophay", layout="wide")
+
+# Título de la tienda
+st.title("📦 Catálogo Ophay Import")
+st.write("Bienvenido a nuestra tienda. Elige tu producto y contacta por WhatsApp.")
+
+# Lista de productos (revisada)
 productos = [
-    {
-        "nombre": "Producto 1",
-        "precio": 25.99,
-        "imagen": "https://via.placeholder.com/300", # Sustituir por URL real
-        "descripcion": "Descripción breve del producto 1."
-    },
-    {
-        "nombre": "Producto 2",
-        "precio": 40.00,
-        "imagen": "https://via.placeholder.com/300",
-        "descripcion": "Descripción breve del producto 2."
-    },
-    {
-        "nombre": "Producto 3",
-        "precio": 15.50,
-        "imagen": "https://via.placeholder.com/300",
-        "descripcion": "Descripción breve del producto 3."
-    },
-    {
-        "nombre": "Producto 4",
-        "precio": 60.00,
-        "imagen": "https://via.placeholder.com/300",
-        "descripcion": "Descripción breve del producto 4."
-    }
+    {"n": "Smartwatch Ultra", "p": "45€", "img": "https://m.media-amazon.com/images/I/718Vv7H96PL._AC_SL1500_.jpg"},
+    {"n": "Proyector 4K", "p": "150€", "img": "https://m.media-amazon.com/images/I/61y49CjPq9L._AC_SL1500_.jpg"},
+    {"n": "Dron Explorer", "p": "250€", "img": "https://m.media-amazon.com/images/I/61S-Yf2oFzL._AC_SL1200_.jpg"},
+    {"n": "Auriculares Gamer", "p": "35€", "img": "https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SL1500_.jpg"}
 ]
 
-st.title("🛍️ Mi Tienda Ophay")
-st.markdown("---")
-
-# 2. Creación de la cuadrícula (2 columnas por fila para que se vea bien en móvil y PC)
+# Crear 2 columnas para que se vea ordenado
 cols = st.columns(2)
 
-for i, producto in enumerate(productos):
-    # Usamos el operador módulo % para alternar entre la columna 0 y 1
-    col = cols[i % 2]
-    
-    with col:
-        st.subheader(producto["nombre"])
-        
-        # Intentamos cargar la imagen, si falla ponemos un texto
-        try:
-            st.image(producto["imagen"], use_container_width=True)
-        except:
-            st.error("No se pudo cargar la imagen")
-            
-        st.write(f"**Precio:** {producto['precio']}€")
-        st.caption(producto["descripcion"])
-        
-        if st.button(f"Añadir al carrito", key=f"btn_{i}"):
-            st.success(f"¡{producto['nombre']} añadido!")
-        
-        st.markdown("---")
+for i, p in enumerate(productos):
+    with cols[i % 2]:
+        # Mostramos la foto
+        st.image(p['img'], caption=p['n'], use_container_width=True)
+        # Nombre y precio
+        st.subheader(f"{p['n']} - {p['p']}")
+        # Botón de WhatsApp
+        link = f"https://wa.me/34600000000?text=Hola, quiero el {p['n']}"
+        st.link_button(f"💬 Comprar {p['n']}", link)
+        st.write("---")
