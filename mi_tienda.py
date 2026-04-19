@@ -1,98 +1,110 @@
 import streamlit as st
 
 # 1. Configuración de la página
-st.set_page_config(page_title="Ophay VIP", page_icon="🛍️")
+st.set_page_config(page_title="Ophay Luxury", page_icon="✨")
 
-# 2. ESTILO PERSONALIZADO (Color de fondo y fuentes)
+# 2. ESTILO DORADO DE LUJO
 st.markdown("""
     <style>
-    /* Fondo con degradado profesional */
+    /* Fondo Negro Profundo */
     .stApp {
-        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        background-color: #000000;
     }
     
-    /* Títulos en blanco brillante */
+    /* Título con efecto Dorado */
     h1 {
-        color: #f8fafc !important;
+        background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align: center;
-        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: bold;
+        font-size: 50px !important;
     }
 
-    /* Subtítulos de productos */
+    /* Subtítulos de productos en Dorado suave */
     h3 {
-        color: #38bdf8 !important; /* Azul cian suave */
+        color: #D4AF37 !important; /* Oro Clásico */
+        font-family: 'Playfair Display', serif;
     }
     
-    /* Color de los textos normales */
+    /* Textos en blanco hueso para elegancia */
     p, span, label {
-        color: #cbd5e1 !important;
+        color: #E5E5E5 !important;
     }
     
-    /* Estilo para las tarjetas de producto (separadores) */
+    /* Líneas divisorias doradas */
     hr {
         border: 0;
         height: 1px;
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+        background-image: linear-gradient(to right, rgba(0,0,0,0), #D4AF37, rgba(0,0,0,0));
     }
 
-    /* Botón de WhatsApp mejorado */
+    /* Botón VIP Dorado */
     div.stButton > button {
-        background-color: #0284c7;
-        color: white;
-        border-radius: 8px;
-        border: none;
-        padding: 10px;
+        background: linear-gradient(to bottom, #D4AF37 0%, #B38728 100%);
+        color: black !important;
+        border-radius: 5px;
+        border: 1px solid #FCF6BA;
+        padding: 12px;
         font-weight: bold;
-        transition: 0.3s;
+        font-size: 16px;
+        transition: 0.4s;
     }
     
     div.stButton > button:hover {
-        background-color: #0ea5e9;
-        border: 1px solid white;
+        background: #FCF6BA;
+        transform: scale(1.02);
+        color: black !important;
+    }
+
+    /* Bordes de las imágenes en dorado */
+    img {
+        border: 2px solid #D4AF37;
+        border-radius: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🚀 TIENDA OPHAY")
+st.title("✨ OPHAY LUXURY ✨")
 st.write("---")
 
 # PRODUCTO 1: DRON
 col1, col2 = st.columns([1, 2])
 with col1:
-    st.image("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", caption="Dron Explorer")
+    st.image("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400")
 with col2:
-    st.subheader("1. Dron Explorer - 250€")
-    st.link_button("💬 PEDIR POR WHATSAPP", "https://wa.me/34600000000?text=Hola,quiero+el+Dron")
+    st.subheader("🛸 Dron Explorer - 250€")
+    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
 
 st.write("---")
 
 # PRODUCTO 2: SMARTWATCH
 col3, col4 = st.columns([1, 2])
 with col3:
-    st.image("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", caption="Smartwatch Ultra")
+    st.image("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400")
 with col4:
-    st.subheader("2. Smartwatch Ultra - 45€")
-    st.link_button("💬 PEDIR POR WHATSAPP", "https://wa.me/34600000000?text=Hola,quiero+el+Smartwatch")
+    st.subheader("⌚ Smartwatch Ultra - 45€")
+    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
 
 st.write("---")
 
 # PRODUCTO 3: PROYECTOR
 col5, col6 = st.columns([1, 2])
 with col5:
-    st.image("https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400", caption="Proyector 4K")
+    st.image("https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400")
 with col6:
-    st.subheader("3. Proyector 4K - 150€")
-    st.link_button("💬 PEDIR POR WHATSAPP", "https://wa.me/34600000000?text=Hola,quiero+el+Proyector")
+    st.subheader("📽️ Proyector 4K - 150€")
+    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
 
 st.write("---")
 
 # PRODUCTO 4: AURICULARES
 col7, col8 = st.columns([1, 2])
 with col7:
-    st.image("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", caption="Auriculares Gamer")
+    st.image("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400")
 with col8:
-    st.subheader("4. Auriculares Gamer - 35€")
-    st.link_button("💬 PEDIR POR WHATSAPP", "https://wa.me/34600000000?text=Hola,quiero+los+Auriculares")
+    st.subheader("🎧 Auriculares Gamer - 35€")
+    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
 
 st.write("---")
-st.info("📦 Envíos rápidos y pago seguro.")
+st.info("💎 Selección exclusiva de productos de alta gama.")
