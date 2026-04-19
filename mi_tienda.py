@@ -1,71 +1,73 @@
 import streamlit as st
 
 # 1. Configuración de la página
-st.set_page_config(page_title="Ophay Luxury", page_icon="✨")
+st.set_page_config(page_title="Ophay Luxury Silver", page_icon="🥈")
 
-# 2. ESTILO DORADO DE LUJO
+# 2. ESTILO PLATA Y DORADO
 st.markdown("""
     <style>
-    /* Fondo Negro Profundo */
+    /* Fondo Plata Claro */
     .stApp {
-        background-color: #000000;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
     }
     
-    /* Título con efecto Dorado */
+    /* Título con efecto Dorado sobre fondo claro */
     h1 {
-        background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        background: linear-gradient(to right, #B38728, #AA771C, #D4AF37);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-align: center;
         font-weight: bold;
         font-size: 50px !important;
+        padding-bottom: 20px;
     }
 
-    /* Subtítulos de productos en Dorado suave */
+    /* Subtítulos de productos en Gris Oscuro Elegante */
     h3 {
-        color: #D4AF37 !important; /* Oro Clásico */
-        font-family: 'Playfair Display', serif;
+        color: #1e293b !important; 
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: bold;
     }
     
-    /* Textos en blanco hueso para elegancia */
+    /* Textos descriptivos en Gris Carbón */
     p, span, label {
-        color: #E5E5E5 !important;
+        color: #334155 !important;
     }
     
-    /* Líneas divisorias doradas */
+    /* Líneas divisorias en gris metalizado */
     hr {
         border: 0;
         height: 1px;
-        background-image: linear-gradient(to right, rgba(0,0,0,0), #D4AF37, rgba(0,0,0,0));
+        background-image: linear-gradient(to right, rgba(0,0,0,0), #94a3b8, rgba(0,0,0,0));
     }
 
-    /* Botón VIP Dorado */
+    /* Botón Dorado (resalta mucho sobre el plata) */
     div.stButton > button {
         background: linear-gradient(to bottom, #D4AF37 0%, #B38728 100%);
-        color: black !important;
-        border-radius: 5px;
-        border: 1px solid #FCF6BA;
+        color: white !important;
+        border-radius: 8px;
+        border: none;
         padding: 12px;
         font-weight: bold;
         font-size: 16px;
-        transition: 0.4s;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     }
     
     div.stButton > button:hover {
-        background: #FCF6BA;
-        transform: scale(1.02);
-        color: black !important;
+        background: #1e293b; /* Cambia a oscuro al pasar el ratón */
+        color: #D4AF37 !important;
+        transform: translateY(-2px);
     }
 
-    /* Bordes de las imágenes en dorado */
+    /* Bordes de las imágenes limpios */
     img {
-        border: 2px solid #D4AF37;
-        border-radius: 10px;
+        border-radius: 15px;
+        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.title("✨ OPHAY LUXURY ✨")
+st.title("🥈 OPHAY SILVER EDITION")
 st.write("---")
 
 # PRODUCTO 1: DRON
@@ -74,7 +76,7 @@ with col1:
     st.image("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400")
 with col2:
     st.subheader("🛸 Dron Explorer - 250€")
-    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
+    st.link_button("🔱 PEDIR POR WHATSAPP", "https://wa.me/34600000000")
 
 st.write("---")
 
@@ -84,7 +86,7 @@ with col3:
     st.image("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400")
 with col4:
     st.subheader("⌚ Smartwatch Ultra - 45€")
-    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
+    st.link_button("🔱 PEDIR POR WHATSAPP", "https://wa.me/34600000000")
 
 st.write("---")
 
@@ -94,7 +96,7 @@ with col5:
     st.image("https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400")
 with col6:
     st.subheader("📽️ Proyector 4K - 150€")
-    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
+    st.link_button("🔱 PEDIR POR WHATSAPP", "https://wa.me/34600000000")
 
 st.write("---")
 
@@ -104,7 +106,7 @@ with col7:
     st.image("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400")
 with col8:
     st.subheader("🎧 Auriculares Gamer - 35€")
-    st.link_button("🔱 PEDIR EXCLUSIVIDAD", "https://wa.me/34600000000")
+    st.link_button("🔱 PEDIR POR WHATSAPP", "https://wa.me/34600000000")
 
 st.write("---")
-st.info("💎 Selección exclusiva de productos de alta gama.")
+st.info("📦 Calidad garantizada en cada pedido.")
