@@ -45,9 +45,9 @@ st.markdown("""
         font-size: 20px;
     }
     
-    /* EL BOTÓN DE LOS MUÑEQUITOS (VERDE Y AZUL) */
+    /* BOTÓN MSN CON TEXTO CLARO */
     div.stButton > button {
-        background: linear-gradient(to right, #00AEEF 0%, #8CC63F 100%) !important; /* Azul y Verde MSN */
+        background: linear-gradient(to right, #00AEEF 0%, #8CC63F 100%) !important;
         color: white !important;
         font-family: 'Montserrat', sans-serif !important;
         text-transform: uppercase;
@@ -63,8 +63,7 @@ st.markdown("""
     
     div.stButton > button:hover {
         transform: scale(1.05);
-        box-shadow: 0px 0px 20px #00AEEF, 0px 0px 20px #8CC63F; /* Brillo doble */
-        letter-spacing: 2px;
+        box-shadow: 0px 0px 20px #00AEEF, 0px 0px 20px #8CC63F;
     }
 
     img {
@@ -86,11 +85,11 @@ def item(img, name, text, price, link):
         st.subheader(name)
         st.markdown(f'<p class="desc">{text}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="precio">{price}€</p>', unsafe_allow_html=True)
-        # Los muñequitos azul y verde en emoji 👥
-        st.link_button(f"👥 INICIAR CHAT MSN", link)
+        # El botón con los muñequitos y la instrucción clara
+        st.link_button(f"👥 PEDIR POR WHATSAPP", link)
     st.write("---")
 
-# LISTA DE PRODUCTOS
+# LISTA DE PRODUCTOS (Recuerda poner tu número real en el link)
 item("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", 
      "Dron Explorer", "Tecnología de vuelo avanzada para capturas épicas.", "250", "https://wa.me/34600000000")
 
