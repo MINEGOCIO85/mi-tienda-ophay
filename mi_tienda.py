@@ -1,6 +1,6 @@
 import streamlit as st
 
-# 1. Configuración de la página (Layout centrado para exclusividad)
+# 1. Configuración de la página
 st.set_page_config(page_title="Ophay Luxury Boutique", page_icon="💎", layout="centered")
 
 # 2. SISTEMA DE ESTILO "OPHAY LUXE"
@@ -8,12 +8,10 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@200;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
 
-    /* Fondo Blanco Galería */
     .stApp {
         background-color: #ffffff;
     }
     
-    /* Título en Oro Líquido */
     .title-gold {
         font-family: 'Cinzel', serif !important;
         background: linear-gradient(to right, #B38728, #D4AF37, #AA771C);
@@ -37,7 +35,6 @@ st.markdown("""
         margin-bottom: 80px;
     }
 
-    /* Nombre del Producto */
     h3 {
         font-family: 'Inter', sans-serif !important;
         color: #111827 !important; 
@@ -48,7 +45,6 @@ st.markdown("""
         margin-bottom: 10px !important;
     }
     
-    /* Descripción Estilo Editorial */
     .desc {
         font-family: 'Playfair Display', serif !important;
         color: #4b5563 !important;
@@ -59,7 +55,6 @@ st.markdown("""
         margin-bottom: 20px !important;
     }
 
-    /* Precio Minimalista */
     .precio {
         font-family: 'Inter', sans-serif !important;
         color: #111827 !important; 
@@ -69,7 +64,6 @@ st.markdown("""
         margin-bottom: 25px !important;
     }
     
-    /* Botón de Acción Elegante (Sin colores chillones) */
     div.stButton > button {
         background-color: #ffffff !important;
         color: #111827 !important;
@@ -92,13 +86,11 @@ st.markdown("""
         letter-spacing: 6px;
     }
 
-    /* Separación entre piezas de la colección */
     [data-testid="stHorizontalBlock"] {
         padding: 80px 0px;
         border-bottom: 1px solid #f3f4f6;
     }
 
-    /* Ajuste de imágenes */
     img {
         transition: all 1s ease;
     }
@@ -109,11 +101,9 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- ENCABEZADO ---
 st.markdown('<p class="title-gold">OPHAY</p>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle-luxury">Édition Limitée • Silver & Gold</p>', unsafe_allow_html=True)
 
-# --- CREADOR DE PRODUCTOS ---
 def producto_lujo(img, nombre, precio, texto, link):
     c1, c2 = st.columns([1, 1.2]) 
     with c1:
@@ -124,8 +114,7 @@ def producto_lujo(img, nombre, precio, texto, link):
         st.markdown(f'<p class="precio">{precio} €</p>', unsafe_allow_html=True)
         st.link_button(f"SOLICITAR INFORMACIÓN", link)
 
-# --- COLECCIÓN ---
-
+# PRODUCTOS
 producto_lujo(
     "https://images.unsplash.com/photo-1599669454699-248893623440?w=800&q=80", 
     "AURICULARES NOIRE PRESTIGE", 
@@ -150,13 +139,13 @@ producto_lujo(
     "https://wa.me/34600000000"
 )
 
+# NUEVA FOTO PARA EL PROYECTOR
 producto_lujo(
-    "https://images.unsplash.com/photo-1601053163359-99433433364f?w=800&q=80", 
+    "https://images.unsplash.com/photo-1535016120720-40c646bebbbb?w=800&q=80", 
     "PROYECTOR LUMIÈRE 4K", 
     "150", 
     "Redefina su santuario privado. Nitidez cinematográfica y diseño minimalista para una inmersión sensorial sin precedentes.", 
     "https://wa.me/34600000000"
 )
 
-# --- PIE DE PÁGINA ---
 st.markdown("<br><br><center><p style='color:#94a3b8; font-family:Inter,sans-serif; letter-spacing:5px; font-size:9px;'>OPHAY LUXURY RETAIL • DISPONIBILIDAD EXCLUSIVA</p></center>", unsafe_allow_html=True)
