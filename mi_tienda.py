@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Catálogo Ophay", layout="centered")
+st.set_page_config(page_title="Catalogo Ophay", layout="centered")
 
 st.title("🚀 MI NUEVA TIENDA OPHAY")
 st.write("Haz clic en el botón de cada producto para pedirlo por WhatsApp.")
