@@ -6,14 +6,12 @@ st.set_page_config(page_title="Ophay Luxury", page_icon="✨")
 # 2. ESTILO: FONDO PLATA + TÍTULO ORO + LETRA DESCRIPCIÓN REFINADA
 st.markdown("""
     <style>
-    /* Importamos fuentes elegantes de Google */
     @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap');
 
     .stApp {
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     }
     
-    /* Título ORO */
     .title-gold {
         font-family: 'Playfair Display', serif !important;
         background: linear-gradient(to right, #B38728, #D4AF37, #AA771C);
@@ -25,7 +23,6 @@ st.markdown("""
         margin-bottom: 5px;
     }
 
-    /* Títulos de productos */
     h3 {
         font-family: 'Montserrat', sans-serif !important;
         color: #1e293b !important; 
@@ -35,10 +32,9 @@ st.markdown("""
         font-size: 20px !important;
     }
     
-    /* LA NUEVA LETRA DE LA DESCRIPCIÓN */
     .desc {
-        font-family: 'Libre Baskerville', serif !important; /* Fuente tipo libro antiguo/lujo */
-        color: #475569 !important; /* Gris pizarra elegante */
+        font-family: 'Libre Baskerville', serif !important;
+        color: #475569 !important;
         font-size: 15px !important;
         font-style: italic;
         line-height: 1.6;
@@ -53,7 +49,6 @@ st.markdown("""
         margin-top: 5px;
     }
     
-    /* Botón MSN */
     div.stButton > button {
         background: linear-gradient(to right, #25D366, #128C7E) !important;
         color: white !important;
@@ -64,6 +59,7 @@ st.markdown("""
         border-radius: 10px;
         border: none;
         padding: 12px;
+        width: 100%;
         transition: 0.3s;
     }
     
@@ -84,11 +80,9 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# CABECERA
 st.markdown('<p class="title-gold">OPHAY SILVER</p>', unsafe_allow_html=True)
 st.write("---")
 
-# Función para los productos
 def item(id_prod, img, nombre, precio, texto, link):
     c1, c2 = st.columns([1.2, 2])
     with c1:
@@ -100,7 +94,7 @@ def item(id_prod, img, nombre, precio, texto, link):
         st.link_button(f"👥 PEDIR POR WHATSAPP", link)
     st.write("---")
 
-# PRODUCTOS
+# LISTADO DE PRODUCTOS (Revisado para evitar errores)
 item("1", "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", 
      "Dron Explorer", "250", 
      "Domine el horizonte con una perspectiva cinematográfica sin precedentes y estabilidad profesional.", 
@@ -111,4 +105,14 @@ item("2", "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
      "La perfecta convergencia entre la ingeniería de precisión y el estilo vanguardista para su día a día.", 
      "https://wa.me/34600000000")
 
-item("3", "
+item("3", "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400", 
+     "Proyector 4K", "150", 
+     "Sumerja sus sentidos en una experiencia visual de gran formato con una pureza de imagen excepcional.", 
+     "https://wa.me/34600000000")
+
+item("4", "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", 
+     "Auriculares Gamer", "35", 
+     "Arquitectura sonora diseñada para ofrecer una inmersión absoluta y un confort acústico inigualable.", 
+     "https://wa.me/34600000000")
+
+st.markdown("<center>👥 <b style='color:#64748b;'>Estado: Conectado</b> 🟢</center>", unsafe_allow_html=True)
