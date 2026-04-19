@@ -3,10 +3,10 @@ import streamlit as st
 # 1. Configuración de la página
 st.set_page_config(page_title="Ophay Luxury", page_icon="✨")
 
-# 2. ESTILO: FONDO PLATA + TÍTULO ORO + LETRA DESCRIPCIÓN REFINADA
+# 2. ESTILO: FONDO PLATA + TÍTULO ORO + BOTÓN ULTRA MODERNO
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Montserrat:wght@300;600;800&family=Playfair+Display:wght@700&display=swap');
 
     .stApp {
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -44,38 +44,49 @@ st.markdown("""
     .precio {
         font-family: 'Montserrat', sans-serif !important;
         color: #B38728 !important; 
-        font-weight: 600;
-        font-size: 22px;
+        font-weight: 800;
+        font-size: 24px;
         margin-top: 5px;
     }
     
+    /* EL BOTÓN "WAPO" - ESTILO PREMIUM */
     div.stButton > button {
-        background: linear-gradient(to right, #25D366, #128C7E) !important;
+        background: linear-gradient(45deg, #25D366, #075E54, #128C7E) !important;
         color: white !important;
         font-family: 'Montserrat', sans-serif !important;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 700;
-        border-radius: 10px;
-        border: none;
-        padding: 12px;
+        letter-spacing: 2px;
+        font-weight: 800;
+        border-radius: 50px; /* Redondeado moderno */
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+        padding: 15px 30px;
         width: 100%;
-        transition: 0.3s;
+        transition: all 0.4s ease;
+        box-shadow: 0px 8px 20px rgba(37, 211, 102, 0.4);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
     
     div.stButton > button:hover {
-        background: #00AEEF !important;
-        transform: scale(1.02);
+        background: linear-gradient(45deg, #00AEEF, #0078FF) !important; /* Cambio a Azul MSN */
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0px 12px 25px rgba(0, 174, 239, 0.5);
+        border-color: white !important;
+    }
+
+    /* Animación sutil de los bloques */
+    [data-testid="stHorizontalBlock"] {
+        padding: 20px;
+        border-radius: 15px;
+        transition: background 0.3s ease;
     }
 
     [data-testid="stHorizontalBlock"]:hover {
-        transform: translateY(-5px);
-        transition: all 0.3s ease-in-out;
+        background: rgba(255, 255, 255, 0.4);
     }
 
     img {
-        border-radius: 10px;
-        box-shadow: 0px 8px 15px rgba(0,0,0,0.08);
+        border-radius: 15px;
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
     }
     </style>
     """, unsafe_allow_html=True)
@@ -91,10 +102,11 @@ def item(id_prod, img, nombre, precio, texto, link):
         st.subheader(f"{id_prod}. {nombre}")
         st.markdown(f'<p class="desc">{texto}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="precio">{precio}€</p>', unsafe_allow_html=True)
-        st.link_button(f"👥 PEDIR POR WHATSAPP", link)
+        # El letrero renovado
+        st.link_button(f"👥 PEDIR POR WHATSAPP ➔", link)
     st.write("---")
 
-# LISTADO DE PRODUCTOS (Revisado para evitar errores)
+# LISTADO DE PRODUCTOS
 item("1", "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", 
      "Dron Explorer", "250", 
      "Domine el horizonte con una perspectiva cinematográfica sin precedentes y estabilidad profesional.", 
