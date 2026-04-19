@@ -90,3 +90,12 @@ st.markdown("""
         padding: 60px 0px;
         border-bottom: 1px solid #f3f4f6;
         align-items: center;
+    }
+
+    img {
+        transition: all 1s ease;
+        border: 1px solid #f8fafc;
+    }
+
+    img:hover {
+        transform: scale(1
