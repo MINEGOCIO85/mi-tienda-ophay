@@ -1,12 +1,37 @@
 import streamlit as st
 
+# 1. Configuración de la página
 st.set_page_config(page_title="Ophay VIP", page_icon="🛍️")
 
+# 2. TRUCO DE COLOR: Aquí cambiamos el fondo y el color del texto
+st.markdown("""
+    <style>
+    /* Esto cambia el fondo de la página entera */
+    .stApp {
+        background-color: #1E1E26; /* Color azul noche/gris oscuro */
+    }
+    
+    /* Esto hace que todos los textos sean blancos para que se lean bien */
+    h1, h2, h3, p, span {
+        color: #FFFFFF !important;
+    }
+    
+    /* Estilo para que los botones de WhatsApp sean más llamativos */
+    div.stButton > button {
+        background-color: #007bff;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        height: 3em;
+        width: 100%;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 st.title("🚀 MI NUEVA TIENDA OPHAY")
-st.markdown("### Catálogo Profesional")
 st.write("---")
 
-# PRODUCTO 1: DRON (FOTO REAL Y ENLACE SEGURO)
+# PRODUCTO 1: DRON
 col1, col2 = st.columns([1, 2])
 with col1:
     st.image("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", caption="Dron Explorer")
