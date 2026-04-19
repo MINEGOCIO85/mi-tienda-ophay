@@ -1,105 +1,138 @@
 import streamlit as st
 
-# 1. Configuración de la página
-st.set_page_config(page_title="Ophay MSN Edition", page_icon="👥")
+# Configuración básica de la página
+st.set_page_config(page_title="Catálogo Ophay", page_icon="🛍️", layout="centered")
 
-# 2. ESTILO: FONDO PLATA + BOTÓN DUO-COLOR (AZUL Y VERDE)
+# --- ESTILO PERSONALIZADO CON CSS ---
+# Esto replica el diseño de la imagen: fondo gris, títulos negros, botones verdes.
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
-
-    /* Fondo Plata suave */
+    /* Fondo de la página entero */
     .stApp {
-        background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+        background-color: #f0f2f5;
     }
     
-    h1 {
-        font-family: 'Playfair Display', serif !important;
-        background: linear-gradient(to right, #B38728, #D4AF37, #AA771C);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    /* Título principal 'OPHAY SILVER' */
+    .title-ophay {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #000000;
         text-align: center;
-        font-weight: 700;
+        font-weight: 200; /* Letra fina y elegante */
         font-size: 50px !important;
+        padding-bottom: 20px;
     }
 
-    h3 {
-        font-family: 'Montserrat', sans-serif !important;
-        color: #243b53 !important; 
-        font-weight: 700;
-        text-transform: uppercase;
+    /* Subtítulo de descripción elegante */
+    .subtitle-ophay {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #666666;
+        text-align: center;
+        font-weight: 300;
         font-size: 18px !important;
-    }
-    
-    .desc {
-        font-family: 'Montserrat', sans-serif !important;
-        color: #486581 !important;
-        font-size: 14px !important;
-        font-style: italic;
+        margin-top: -20px;
+        padding-bottom: 30px;
     }
 
-    .precio {
-        font-family: 'Montserrat', sans-serif !important;
-        color: #102a43 !important;
-        font-weight: 700;
-        font-size: 20px;
+    /* Nombres de productos y precios */
+    h3 {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
+        font-size: 24px !important;
     }
     
-    /* BOTÓN MSN CON TEXTO CLARO */
-    div.stButton > button {
-        background: linear-gradient(to right, #00AEEF 0%, #8CC63F 100%) !important;
-        color: white !important;
-        font-family: 'Montserrat', sans-serif !important;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 700;
-        border-radius: 25px;
-        border: 2px solid white !important;
+    /* Descripción de productos */
+    .product-desc {
+        color: #333333;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    /* Estilo del botón verde de WhatsApp */
+    div.stButton > button:first-child {
+        background-color: #25D366; /* Verde WhatsApp */
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
         padding: 10px 20px;
         width: 100%;
-        transition: 0.4s;
-        box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
     }
     
-    div.stButton > button:hover {
-        transform: scale(1.05);
-        box-shadow: 0px 0px 20px #00AEEF, 0px 0px 20px #8CC63F;
+    /* Efecto al pasar el ratón por encima del botón */
+    div.stButton > button:first-child:hover {
+        background-color: #128C7E; /* Verde más oscuro */
+        border: none;
+        color: white;
     }
-
-    img {
-        border-radius: 12px;
-        border: 2px solid #bcccdc;
+    
+    /* Separador horizontal sutil */
+    hr {
+        border: 0;
+        height: 1px;
+        background: #dddddd;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    /* Marco para las fotos de producto */
+    [data-testid="stImage"] img {
+        border: 1px solid #eeeeee;
+        border-radius: 5px;
+        background-color: white;
+        padding: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.title("OPHAY SILVER")
+# --- CABECERA ---
+st.markdown('<p class="title-ophay">OPHAY SILVER</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle-ophay">Experience freedom with our exclusive collection</p>', unsafe_allow_html=True)
 st.write("---")
 
-# Función para los productos
-def item(img, name, text, price, link):
-    c1, c2 = st.columns([1, 2])
-    with c1:
-        st.image(img)
-    with c2:
-        st.subheader(name)
-        st.markdown(f'<p class="desc">{text}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p class="precio">{price}€</p>', unsafe_allow_html=True)
-        # El botón con los muñequitos y la instrucción clara
-        st.link_button(f"👥 PEDIR POR WHATSAPP", link)
-    st.write("---")
+# --- FUNCION PARA MOSTRAR PRODUCTOS (Para no repetir código) ---
+def mostrar_producto(id_prod, imagen_url, nombre, precio, descripcion, url_wa):
+    col1, col2 = st.columns([1.2, 2]) # Columna de imagen y columna de texto
+    
+    with col1:
+        # Mostramos la imagen del producto
+        st.image(imagen_url, use_column_width=True)
+        
+    with col2:
+        # Nombre y precio en negrita
+        st.subheader(f"{id_prod}. {nombre} - {precio}")
+        
+        # Descripción del producto
+        st.markdown(f'<p class="product-desc">{descripcion}</p>', unsafe_allow_html=True)
+        
+        # Botón de WhatsApp (con icono 💬 integrado)
+        st.link_button(f"💬 PEDIR POR WHATSAPP", url_wa)
 
-# LISTA DE PRODUCTOS (Recuerda poner tu número real en el link)
-item("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", 
-     "Dron Explorer", "Tecnología de vuelo avanzada para capturas épicas.", "250", "https://wa.me/34600000000")
+# --- LISTADO DE PRODUCTOS (Replicando la imagen) ---
 
-item("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", 
-     "Smartwatch Ultra", "Estilo y salud conectados en tu muñeca.", "45", "https://wa.me/34600000000")
+# 1. DRON EXPLORER
+mostrar_producto(
+    id_prod="1",
+    imagen_url="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400",
+    nombre="Dron Explorer",
+    precio="250€",
+    descripcion="Experience freedom with this cinematic drone, designed for stunning aerial photography.",
+    url_wa="https://wa.me/34600000000?text=Hola,quiero+informacion+sobre+el+Dron+Explorer"
+)
 
-item("https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400", 
-     "Proyector 4K", "Tu cine personal con la máxima resolución.", "150", "https://wa.me/34600000000")
+# 2. SMARTWATCH ULTRA
+mostrar_producto(
+    id_prod="2",
+    imagen_url="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
+    nombre="Smartwatch Ultra",
+    precio="45€",
+    descripcion="Stay connected and track your fitness with this rugged and stylish smartwatch.",
+    url_wa="https://wa.me/34600000000?text=Hola,quiero+informacion+sobre+el+Smartwatch+Ultra"
+)
 
-item("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", 
-     "Auriculares Gamer", "Sonido envolvente para una victoria total.", "35", "https://wa.me/34600000000")
+# Puedes añadir más productos aquí siguiendo el mismo formato.
 
-st.markdown("<center><p style='color:#486581;'><b>Estado: Conectado</b> 🟢</p></center>", unsafe_allow_html=True)
+st.write("---")
+st.caption("OPHAY SILVER © 2024 - Envíos rápidos y pago seguro.")
