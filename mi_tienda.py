@@ -3,7 +3,7 @@ import streamlit as st
 # 1. Configuración de la página
 st.set_page_config(page_title="Ophay Luxury Silver", page_icon="🥈")
 
-# 2. ESTILO (Manteniendo el lujo Silver & Gold)
+# 2. ESTILO: FONDO PLATA + BOTÓN VERDE WHATSAPP OFICIAL
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,300&family=Playfair+Display:wght@700&display=swap');
@@ -35,43 +35,39 @@ st.markdown("""
         color: #64748b !important;
         font-size: 14px !important;
         font-style: italic;
-        line-height: 1.4;
     }
 
     .precio {
         font-family: 'Montserrat', sans-serif !important;
         color: #1e293b !important;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 20px;
     }
     
-    /* Botón Dorado VIP con ajuste para el icono */
+    /* BOTÓN VERDE WHATSAPP OFICIAL */
     div.stButton > button {
-        background: linear-gradient(to bottom, #D4AF37 0%, #B38728 100%);
+        background-color: #25D366 !important; /* Verde oficial */
         color: white !important;
         font-family: 'Montserrat', sans-serif !important;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
-        border-radius: 4px;
+        border-radius: 30px; /* Bordes redondeados tipo botón de app */
         border: none;
-        padding: 12px;
+        padding: 10px 20px;
         width: 100%;
-        transition: 0.4s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        transition: 0.3s;
+        box-shadow: 0px 4px 10px rgba(37, 211, 102, 0.3);
     }
     
     div.stButton > button:hover {
-        background: #25D366; /* Color verde WhatsApp al pasar el ratón */
-        color: white !important;
-        transform: scale(1.02);
+        background-color: #128C7E !important; /* Verde oscuro de WhatsApp */
+        transform: translateY(-2px);
+        box-shadow: 0px 6px 15px rgba(37, 211, 102, 0.4);
     }
 
     img {
-        border-radius: 4px;
-        box-shadow: 5px 5px 20px rgba(0,0,0,0.05);
+        border-radius: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -79,50 +75,30 @@ st.markdown("""
 st.title("OPHAY SILVER")
 st.write("---")
 
-# --- FUNCION PARA MOSTRAR PRODUCTO ---
-def mostrar_producto(imagen, titulo, descripcion, precio, link_wa):
-    col1, col2 = st.columns([1, 2])
-    with col1:
-        st.image(imagen)
-    with col2:
-        st.subheader(titulo)
-        st.markdown(f'<p class="desc">{descripcion}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p class="precio">{precio}€</p>', unsafe_allow_html=True)
-        # Añadimos el icono de WhatsApp directamente en el texto del botón
-        st.link_button(f"💬 ADQUIRIR POR WHATSAPP", link_wa)
+# Función para los productos
+def item(img, name, text, price, link):
+    c1, c2 = st.columns([1, 2])
+    with c1:
+        st.image(img)
+    with c2:
+        st.subheader(name)
+        st.markdown(f'<p class="desc">{text}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p class="precio">{price}€</p>', unsafe_allow_html=True)
+        # El emoji de WhatsApp integrado
+        st.link_button(f"✅ PEDIR POR WHATSAPP", link)
     st.write("---")
 
-# LISTA DE PRODUCTOS
-mostrar_producto(
-    "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400",
-    "Dron Explorer",
-    "Libertad absoluta en el aire con captura de imagen cinematográfica de alta precisión.",
-    "250",
-    "https://wa.me/34600000000?text=Hola,quiero+el+Dron"
-)
+# LISTA DE PRODUCTOS (Cambia los links de WA con tu número real)
+item("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", 
+     "Dron Explorer", "Libertad absoluta en el aire con captura cinematográfica.", "250", "https://wa.me/34600000000")
 
-mostrar_producto(
-    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
-    "Smartwatch Ultra",
-    "La perfecta armonía entre el diseño vanguardista y el control total de tu bienestar diario.",
-    "45",
-    "https://wa.me/34600000000?text=Hola,quiero+el+Smartwatch"
-)
+item("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", 
+     "Smartwatch Ultra", "Diseño vanguardista y control total de tu bienestar.", "45", "https://wa.me/34600000000")
 
-mostrar_producto(
-    "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400",
-    "Proyector 4K",
-    "Transforma cualquier espacio en una experiencia visual inmersiva con nitidez incomparable.",
-    "150",
-    "https://wa.me/34600000000?text=Hola,quiero+el+Proyector"
-)
+item("https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400", 
+     "Proyector 4K", "Transforma tu hogar en una experiencia visual inmersiva.", "150", "https://wa.me/34600000000")
 
-mostrar_producto(
-    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
-    "Auriculares Gamer",
-    "Pureza acústica y confort premium diseñados para las sesiones más exigentes.",
-    "35",
-    "https://wa.me/34600000000?text=Hola,quiero+los+Auriculares"
-)
+item("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", 
+     "Auriculares Gamer", "Pureza acústica y confort premium profesional.", "35", "https://wa.me/34600000000")
 
-st.caption("OPHAY LUXURY © 2026 - EXCLUSIVE SELECTION")
+st.caption("OPHAY LUXURY © 2026")
