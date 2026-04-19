@@ -3,13 +3,11 @@ import streamlit as st
 # 1. CONFIGURACIÓN DE LA PÁGINA
 st.set_page_config(page_title="Ophay Luxury Boutique", page_icon="💎", layout="centered")
 
-# 2. SISTEMA DE ESTILO CSS (Verificado cierre en línea 85)
+# 2. SISTEMA DE ESTILO CSS
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@200;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
-
     .stApp { background-color: #ffffff; }
-    
     .title-gold {
         font-family: 'Cinzel', serif !important;
         background: linear-gradient(to right, #B38728, #D4AF37, #AA771C);
@@ -17,22 +15,19 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         text-align: center;
         font-weight: 400;
-        font-size: 52px !important;
-        letter-spacing: 12px;
-        margin-top: 60px;
-        margin-bottom: 5px;
+        font-size: 45px !important;
+        letter-spacing: 10px;
+        margin-top: 40px;
     }
-
     .subtitle-luxury {
         font-family: 'Inter', sans-serif;
         color: #94a3b8;
         text-align: center;
-        letter-spacing: 5px;
+        letter-spacing: 4px;
         font-size: 10px;
         text-transform: uppercase;
-        margin-bottom: 80px;
+        margin-bottom: 50px;
     }
-
     h3 {
         font-family: 'Inter', sans-serif !important;
         color: #111827 !important; 
@@ -41,54 +36,44 @@ st.markdown("""
         font-size: 16px !important;
         text-transform: uppercase;
     }
-    
     .desc {
         font-family: 'Playfair Display', serif !important;
         color: #4b5563 !important;
         font-size: 14px !important;
         font-style: italic;
-        line-height: 2;
-        font-weight: 300;
+        line-height: 1.8;
     }
-
     .precio {
         font-family: 'Inter', sans-serif !important;
         color: #111827 !important; 
         font-weight: 400;
         font-size: 19px;
-        letter-spacing: 1px;
     }
-    
     div.stButton > button {
         background-color: #ffffff !important;
         color: #111827 !important;
         font-family: 'Inter', sans-serif !important;
         text-transform: uppercase;
-        letter-spacing: 4px;
-        font-weight: 400;
+        letter-spacing: 3px;
         font-size: 11px;
         border-radius: 0px !important;
         border: 1px solid #e5e7eb !important;
-        padding: 20px 40px;
+        padding: 15px;
         width: 100%;
-        transition: all 0.5s ease;
+        transition: 0.4s;
     }
-    
     div.stButton > button:hover {
         background-color: #111827 !important;
         color: #ffffff !important;
-        border-color: #111827 !important;
-        letter-spacing: 6px;
+        letter-spacing: 5px;
     }
-
     [data-testid="stHorizontalBlock"] {
-        padding: 60px 0px;
+        padding: 40px 0px;
         border-bottom: 1px solid #f3f4f6;
         align-items: center;
     }
-
-    img { transition: all 1s ease; }
-    img:hover { transform: scale(1.05); }
+    img { transition: 0.8s; }
+    img:hover { transform: scale(1.03); }
     </style>
     """, unsafe_allow_html=True)
 
@@ -97,16 +82,23 @@ st.markdown('<p class="title-gold">OPHAY</p>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle-luxury">Édition Limitée • Silver & Gold</p>', unsafe_allow_html=True)
 
 # 4. FUNCIÓN DE PRODUCTO
-def producto_lujo(img_url, nombre, precio, texto, link):
+def item_lujo(img, nom, precio, txt, link):
     c1, c2 = st.columns([1, 1.2]) 
     with c1:
-        st.image(img_url, use_container_width=True)
+        st.image(img, use_container_width=True)
     with c2:
-        st.subheader(nombre)
-        st.markdown(f'<p class="desc">{texto}</p>', unsafe_allow_html=True)
+        st.subheader(nom)
+        st.markdown(f'<p class="desc">{txt}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="precio">{precio} €</p>', unsafe_allow_html=True)
         st.link_button("SOLICITAR INFORMACIÓN", link)
 
-# 5. LISTADO DE PRODUCTOS
-producto_lujo(
-    "
+# 5. LISTADO DE PRODUCTOS (Revisado línea por línea)
+item_lujo("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700", "AURICULARES NOIRE PRESTIGE", "35", "Pureza acústica excepcional y confort premium.", "https://wa.me/34600000000")
+
+item_lujo("https://images.unsplash.com/photo-1473963342623-0c5379bb8982?w=700", "DRON EXPLORER HORIZON", "250", "Perspectiva privilegiada y aerodinámica de vanguardia.", "https://wa.me/34600000000")
+
+item_lujo("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700", "SMARTWATCH PLATINUM CORE", "45", "La fusión definitiva entre tecnología y alta relojería.", "https://wa.me/34600000000")
+
+item_lujo("https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700", "PROYECTOR LUMIÈRE 4K", "150", "Nitidez cinematográfica en un diseño minimalista.", "https://wa.me/34600000000")
+
+st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY LUXURY RETAIL • 2024</p></center>", unsafe_allow_html=True)
