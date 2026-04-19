@@ -1,36 +1,57 @@
 import streamlit as st
 
-st.set_page_config(page_title="Catálogo Ophay", layout="wide")
-
-st.markdown("""
-    <style>
-    .producto-card {
-        background-color: white; padding: 20px; border-radius: 15px;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; text-align: center;
-    }
-    div.stButton > button {
-        background-color: #25D366 !important; color: white !important;
-        border-radius: 10px; font-weight: bold; width: 100%;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-st.title("📦 Catálogo Ophay Import")
-
+# 1. Configuración de datos de productos
+# Asegúrate de que las URLs de las imágenes sean enlaces directos (que terminen en .jpg, .png, etc.)
 productos = [
-    {"n": "Smartwatch Ultra", "p": "45€", "img": "https://m.media-amazon.com/images/I/718Vv7H96PL._AC_SL1500_.jpg"},
-    {"n": "Proyector 4K", "p": "150€", "img": "https://m.media-amazon.com/images/I/61y49CjPq9L._AC_SL1500_.jpg"},
-    {"n": "Dron Explorer", "p": "250€", "img": "https://m.media-amazon.com/images/I/61S-Yf2oFzL._AC_SL1200_.jpg"},
-    {"n": "Auriculares Gamer", "p": "35€", "img": "https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SL1500_.jpg"}
+    {
+        "nombre": "Producto 1",
+        "precio": 25.99,
+        "imagen": "https://via.placeholder.com/300", # Sustituir por URL real
+        "descripcion": "Descripción breve del producto 1."
+    },
+    {
+        "nombre": "Producto 2",
+        "precio": 40.00,
+        "imagen": "https://via.placeholder.com/300",
+        "descripcion": "Descripción breve del producto 2."
+    },
+    {
+        "nombre": "Producto 3",
+        "precio": 15.50,
+        "imagen": "https://via.placeholder.com/300",
+        "descripcion": "Descripción breve del producto 3."
+    },
+    {
+        "nombre": "Producto 4",
+        "precio": 60.00,
+        "imagen": "https://via.placeholder.com/300",
+        "descripcion": "Descripción breve del producto 4."
+    }
 ]
 
+st.title("🛍️ Mi Tienda Ophay")
+st.markdown("---")
+
+# 2. Creación de la cuadrícula (2 columnas por fila para que se vea bien en móvil y PC)
 cols = st.columns(2)
-for i, p in enumerate(productos):
-    with cols[i % 2]:
-        st.markdown('<div class="producto-card">', unsafe_allow_html=True)
-        st.image(p['img'], use_container_width=True)
-        st.subheader(p['n'])
-        st.write(f"### {p['p']}")
-        link = f"https://wa.me/34600000000?text=Hola, quiero el {p['n']}"
-        st.link_button("💬 Pedir por WhatsApp", link)
-        st.markdown('</div>', unsafe_allow_html=True)
+
+for i, producto in enumerate(productos):
+    # Usamos el operador módulo % para alternar entre la columna 0 y 1
+    col = cols[i % 2]
+    
+    with col:
+        st.subheader(producto["nombre"])
+        
+        # Intentamos cargar la imagen, si falla ponemos un texto
+        try:
+            st.image(producto["imagen"], use_container_width=True)
+        except:
+            st.error("No se pudo cargar la imagen")
+            
+        st.write(f"**Precio:** {producto['precio']}€")
+        st.caption(producto["descripcion"])
+        
+        if st.button(f"Añadir al carrito", key=f"btn_{i}"):
+            st.success(f"¡{producto['nombre']} añadido!")
+        
+        st.markdown("---")
