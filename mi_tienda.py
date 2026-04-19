@@ -3,32 +3,57 @@ import streamlit as st
 # 1. Configuración de la página
 st.set_page_config(page_title="Ophay VIP", page_icon="🛍️")
 
-# 2. TRUCO DE COLOR: Aquí cambiamos el fondo y el color del texto
+# 2. ESTILO PERSONALIZADO (Color de fondo y fuentes)
 st.markdown("""
     <style>
-    /* Esto cambia el fondo de la página entera */
+    /* Fondo con degradado profesional */
     .stApp {
-        background-color: #1E1E26; /* Color azul noche/gris oscuro */
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
     }
     
-    /* Esto hace que todos los textos sean blancos para que se lean bien */
-    h1, h2, h3, p, span {
-        color: #FFFFFF !important;
+    /* Títulos en blanco brillante */
+    h1 {
+        color: #f8fafc !important;
+        text-align: center;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    /* Subtítulos de productos */
+    h3 {
+        color: #38bdf8 !important; /* Azul cian suave */
     }
     
-    /* Estilo para que los botones de WhatsApp sean más llamativos */
+    /* Color de los textos normales */
+    p, span, label {
+        color: #cbd5e1 !important;
+    }
+    
+    /* Estilo para las tarjetas de producto (separadores) */
+    hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    }
+
+    /* Botón de WhatsApp mejorado */
     div.stButton > button {
-        background-color: #007bff;
+        background-color: #0284c7;
         color: white;
-        border-radius: 10px;
+        border-radius: 8px;
         border: none;
-        height: 3em;
-        width: 100%;
+        padding: 10px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    div.stButton > button:hover {
+        background-color: #0ea5e9;
+        border: 1px solid white;
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🚀 MI NUEVA TIENDA OPHAY")
+st.title("🚀 TIENDA OPHAY")
 st.write("---")
 
 # PRODUCTO 1: DRON
