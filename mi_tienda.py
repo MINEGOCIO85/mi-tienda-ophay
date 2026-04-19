@@ -1,9 +1,9 @@
 import streamlit as st
 
 # 1. Configuración de la página
-st.set_page_config(page_title="Ophay Luxury Silver", page_icon="🥈")
+st.set_page_config(page_title="Ophay Nostalgia", page_icon="⚡")
 
-# 2. ESTILO: FONDO PLATA + BOTÓN VERDE WHATSAPP OFICIAL
+# 2. ESTILO: FONDO PLATA + BOTÓN AZUL MESSENGER
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,300&family=Playfair+Display:wght@700&display=swap');
@@ -44,26 +44,26 @@ st.markdown("""
         font-size: 20px;
     }
     
-    /* BOTÓN VERDE WHATSAPP OFICIAL */
+    /* BOTÓN AZUL MESSENGER CLÁSICO */
     div.stButton > button {
-        background-color: #25D366 !important; /* Verde oficial */
+        background: linear-gradient(135deg, #0084FF 0%, #0078FF 100%) !important; /* El azul de Messenger */
         color: white !important;
         font-family: 'Montserrat', sans-serif !important;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
-        border-radius: 30px; /* Bordes redondeados tipo botón de app */
+        border-radius: 20px;
         border: none;
         padding: 10px 20px;
         width: 100%;
         transition: 0.3s;
-        box-shadow: 0px 4px 10px rgba(37, 211, 102, 0.3);
+        box-shadow: 0px 4px 15px rgba(0, 132, 255, 0.3);
     }
     
     div.stButton > button:hover {
-        background-color: #128C7E !important; /* Verde oscuro de WhatsApp */
+        background: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%) !important; /* Brillo al pasar el ratón */
         transform: translateY(-2px);
-        box-shadow: 0px 6px 15px rgba(37, 211, 102, 0.4);
+        box-shadow: 0px 6px 20px rgba(0, 132, 255, 0.5);
     }
 
     img {
@@ -84,11 +84,11 @@ def item(img, name, text, price, link):
         st.subheader(name)
         st.markdown(f'<p class="desc">{text}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="precio">{price}€</p>', unsafe_allow_html=True)
-        # El emoji de WhatsApp integrado
-        st.link_button(f"✅ PEDIR POR WHATSAPP", link)
+        # El rayo de Messenger ⚡
+        st.link_button(f"⚡ ADQUIRIR POR MESSENGER", link)
     st.write("---")
 
-# LISTA DE PRODUCTOS (Cambia los links de WA con tu número real)
+# LISTA DE PRODUCTOS (He puesto el link a WhatsApp pero con el estilo visual de Messenger)
 item("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", 
      "Dron Explorer", "Libertad absoluta en el aire con captura cinematográfica.", "250", "https://wa.me/34600000000")
 
