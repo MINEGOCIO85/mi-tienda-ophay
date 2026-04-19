@@ -1,6 +1,6 @@
 import streamlit as st
 st.set_page_config(page_title="Catalogo Ophay", layout="centered")
-st.title("📦 Catálogo Ophay Import")
+st.title("🚀 Mi Nueva Tienda Ophay 2026")
 productos = [
     {"n": "Smartwatch Ultra", "p": "45€", "img": "https://m.media-amazon.com/images/I/718Vv7H96PL._AC_SL1500_.jpg"},
     {"n": "Proyector 4K", "p": "150€", "img": "https://m.media-amazon.com/images/I/61y49CjPq9L._AC_SL1500_.jpg"},
