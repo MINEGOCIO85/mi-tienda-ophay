@@ -1,16 +1,16 @@
 import streamlit as st
 
 # 1. Configuración de la página
-st.set_page_config(page_title="Ophay Messenger Edition", page_icon="👥")
+st.set_page_config(page_title="Ophay MSN Edition", page_icon="👥")
 
-# 2. ESTILO: FONDO PLATA + BOTÓN RETRO MSN MESSENGER
+# 2. ESTILO: FONDO PLATA + BOTÓN DUO-COLOR (AZUL Y VERDE)
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,300&family=Playfair+Display:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
-    /* Fondo Plata Brillante estilo interfaz clásica */
+    /* Fondo Plata suave */
     .stApp {
-        background: linear-gradient(135deg, #eef2f7 0%, #d1d9e6 100%);
+        background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
     }
     
     h1 {
@@ -20,57 +20,56 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         text-align: center;
         font-weight: 700;
-        font-size: 55px !important;
+        font-size: 50px !important;
     }
 
     h3 {
         font-family: 'Montserrat', sans-serif !important;
-        color: #2c3e50 !important; 
+        color: #243b53 !important; 
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 18px !important;
     }
     
     .desc {
         font-family: 'Montserrat', sans-serif !important;
-        color: #5d6d7e !important;
+        color: #486581 !important;
         font-size: 14px !important;
         font-style: italic;
     }
 
     .precio {
         font-family: 'Montserrat', sans-serif !important;
-        color: #2c3e50 !important;
+        color: #102a43 !important;
         font-weight: 700;
         font-size: 20px;
     }
     
-    /* BOTÓN RETRO MSN (Azul y Verde) */
+    /* EL BOTÓN DE LOS MUÑEQUITOS (VERDE Y AZUL) */
     div.stButton > button {
-        background: white !important;
-        color: #2c3e50 !important;
+        background: linear-gradient(to right, #00AEEF 0%, #8CC63F 100%) !important; /* Azul y Verde MSN */
+        color: white !important;
         font-family: 'Montserrat', sans-serif !important;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
-        border-radius: 50px; /* Muy redondeado como las burbujas de antes */
-        border: 2px solid #3498db !important; /* Borde azul Messenger */
+        border-radius: 25px;
+        border: 2px solid white !important;
         padding: 10px 20px;
         width: 100%;
-        transition: 0.3s;
+        transition: 0.4s;
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
     }
     
     div.stButton > button:hover {
-        background: #3498db !important; /* Se vuelve azul al pasar */
-        color: white !important;
-        border-color: #2ecc71 !important; /* Y el borde verde */
-        transform: scale(1.03);
+        transform: scale(1.05);
+        box-shadow: 0px 0px 20px #00AEEF, 0px 0px 20px #8CC63F; /* Brillo doble */
+        letter-spacing: 2px;
     }
 
     img {
-        border-radius: 15px;
-        border: 3px solid white;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        border: 2px solid #bcccdc;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -87,21 +86,21 @@ def item(img, name, text, price, link):
         st.subheader(name)
         st.markdown(f'<p class="desc">{text}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="precio">{price}€</p>', unsafe_allow_html=True)
-        # El icono de los muñequitos 👥
-        st.link_button(f"👥 ADQUIRIR (ABRIR CHAT)", link)
+        # Los muñequitos azul y verde en emoji 👥
+        st.link_button(f"👥 INICIAR CHAT MSN", link)
     st.write("---")
 
 # LISTA DE PRODUCTOS
 item("https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400", 
-     "Dron Explorer", "Tecnología de vanguardia para capturas aéreas.", "250", "https://wa.me/34600000000")
+     "Dron Explorer", "Tecnología de vuelo avanzada para capturas épicas.", "250", "https://wa.me/34600000000")
 
 item("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", 
-     "Smartwatch Ultra", "Control y elegancia en tu muñeca.", "45", "https://wa.me/34600000000")
+     "Smartwatch Ultra", "Estilo y salud conectados en tu muñeca.", "45", "https://wa.me/34600000000")
 
 item("https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=400", 
-     "Proyector 4K", "Cine premium en la comodidad de tu hogar.", "150", "https://wa.me/34600000000")
+     "Proyector 4K", "Tu cine personal con la máxima resolución.", "150", "https://wa.me/34600000000")
 
 item("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", 
-     "Auriculares Gamer", "Inmersión total y sonido de alta fidelidad.", "35", "https://wa.me/34600000000")
+     "Auriculares Gamer", "Sonido envolvente para una victoria total.", "35", "https://wa.me/34600000000")
 
-st.caption("OPHAY LUXURY • ESTADO: DISPONIBLE 🟢")
+st.markdown("<center><p style='color:#486581;'><b>Estado: Conectado</b> 🟢</p></center>", unsafe_allow_html=True)
