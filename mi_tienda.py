@@ -1,16 +1,14 @@
 import streamlit as st
 
-# 1. Configuración de la página
+# 1. CONFIGURACIÓN DE LA PÁGINA
 st.set_page_config(page_title="Ophay Luxury Boutique", page_icon="💎", layout="centered")
 
-# 2. SISTEMA DE ESTILO "OPHAY LUXE"
+# 2. SISTEMA DE ESTILO CSS (Verificado cierre en línea 85)
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@200;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
 
-    .stApp {
-        background-color: #ffffff;
-    }
+    .stApp { background-color: #ffffff; }
     
     .title-gold {
         font-family: 'Cinzel', serif !important;
@@ -42,7 +40,6 @@ st.markdown("""
         letter-spacing: 2px;
         font-size: 16px !important;
         text-transform: uppercase;
-        margin-bottom: 10px !important;
     }
     
     .desc {
@@ -52,7 +49,6 @@ st.markdown("""
         font-style: italic;
         line-height: 2;
         font-weight: 300;
-        margin-bottom: 20px !important;
     }
 
     .precio {
@@ -61,7 +57,6 @@ st.markdown("""
         font-weight: 400;
         font-size: 19px;
         letter-spacing: 1px;
-        margin-bottom: 25px !important;
     }
     
     div.stButton > button {
@@ -92,10 +87,26 @@ st.markdown("""
         align-items: center;
     }
 
-    img {
-        transition: all 1s ease;
-        border: 1px solid #f8fafc;
-    }
+    img { transition: all 1s ease; }
+    img:hover { transform: scale(1.05); }
+    </style>
+    """, unsafe_allow_html=True)
 
-    img:hover {
-        transform: scale(1
+# 3. CABECERA
+st.markdown('<p class="title-gold">OPHAY</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle-luxury">Édition Limitée • Silver & Gold</p>', unsafe_allow_html=True)
+
+# 4. FUNCIÓN DE PRODUCTO
+def producto_lujo(img_url, nombre, precio, texto, link):
+    c1, c2 = st.columns([1, 1.2]) 
+    with c1:
+        st.image(img_url, use_container_width=True)
+    with c2:
+        st.subheader(nombre)
+        st.markdown(f'<p class="desc">{texto}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p class="precio">{precio} €</p>', unsafe_allow_html=True)
+        st.link_button("SOLICITAR INFORMACIÓN", link)
+
+# 5. LISTADO DE PRODUCTOS
+producto_lujo(
+    "
