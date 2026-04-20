@@ -1,10 +1,10 @@
 import streamlit as st
 import os
 
-# 1. CONFIGURACIÓN
+# 1. CONFIGURACIÓN DE LA PÁGINA
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO ORO METÁLICO
+# 2. DISEÑO DE LUJO (CSS)
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
@@ -15,7 +15,7 @@ st.markdown("""
         -webkit-text-fill-color: transparent;
         font-family: 'Cinzel', serif; font-weight: 700;
     }
-    .header-box { text-align: center; padding: 40px 0; border-bottom: 1px solid rgba(191,149,63,0.4); margin-bottom: 40px; }
+    .header-box { text-align: center; padding: 40px 0; border-bottom: 1px solid rgba(191, 149, 63, 0.4); margin-bottom: 40px; }
     .gold-title { font-size: 50px; letter-spacing: 15px; margin: 0; }
     .product-title { font-family: 'Cinzel', serif; color: #F7E7CE; font-size: 26px; margin-top: 10px; }
     
@@ -32,26 +32,26 @@ st.markdown("""
 # 3. CABECERA
 st.markdown('<div class="header-box"><p class="gold-text gold-title">OPHAY TAROT</p></div>', unsafe_allow_html=True)
 
-# 4. FUNCIÓN DE RENDERIZADO
+# 4. FUNCIÓN PARA DIBUJAR PRODUCTOS
 def draw_item(img_path, name, price, desc):
     c1, c2 = st.columns([1, 1.2])
     with c1:
         if os.path.exists(img_path):
             st.image(img_path, use_container_width=True)
         else:
-            st.warning(f"No se ve: {img_path}")
+            st.warning(f"No se encuentra: {img_path}")
             
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
         st.write(f"_{desc}_")
         st.markdown(f'<p style="color:#D4AF37; font-size:24px; font-weight:bold;">{price} €</p>', unsafe_allow_html=True)
-        st.link_button("LO QUIERO", "https://wa.me/34600000000")
+        st.link_button("RESERVAR", "https://wa.me/34600000000")
     st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
 
-# 5. LISTADO DE PRODUCTOS (Líneas revisadas para evitar cortes)
-draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión mística para desvelar tu futuro.")
-draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Mazo premium con detalles dorados.")
-draw_item("Amatista.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
+# 5. LISTADO DE PRODUCTOS (Nombres de archivos verificados)
+draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para guiar tu camino espiritual.")
+draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
+draw_item("Amatista.jpg", "AMATISTA SAGRADA", "15", "Energía de purificación bajo la luna llena.")
 
-# 6. FOOTER
+# 6. PIE DE PÁGINA
 st.markdown("<center><p style='color:#333; letter-spacing:10px; font-size:10px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
