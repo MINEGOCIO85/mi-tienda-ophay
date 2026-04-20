@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO MÍSTICO
+# 2. ESTILO MÍSTICO (Diseño Blindado)
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,700&family=Inter:wght@300;400&display=swap');
@@ -37,20 +37,25 @@ st.markdown("""
 st.markdown('<p class="gold-title">OPHAY TAROT</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Lecturas Sagradas & Arte Esotérico</p>', unsafe_allow_html=True)
 
-# 4. FUNCIÓN
+# 4. FUNCIÓN DE PRODUCTO
 def draw_item(img, nom, precio, txt, link):
     c1, c2 = st.columns([1, 1.2])
-    with c1: st.image(img, use_container_width=True)
+    with c1:
+        st.image(img, use_container_width=True)
     with c2:
         st.subheader(nom)
         st.markdown(f'<p class="desc">{txt}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="price">{precio} €</p>', unsafe_allow_html=True)
         st.link_button("RESERVAR LECTURA", link)
 
-# 5. PRODUCTOS (Con la URL de la imagen que creamos)
-draw_item("https://raw.githubusercontent.com/OphayTarot/assets/main/lectura_destino.jpg", "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar tu camino sagrado.", "https://wa.me/34600000000")
-draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=700", "MAZO DE TAROT RIDER", "45", "Edición de lujo con acabados dorados y guía mística.", "https://wa.me/34600000000")
-draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700", "CRISTAL AMATISTA", "15", "Piedra natural cargada bajo la luz de la luna llena.", "https://wa.me/34600000000")
-draw_item("https://images.unsplash.com/photo-1601314167099-232775b3d6fd?w=700", "VELA RITUAL SAGRADA", "12", "Aroma para atraer claridad mental y energía positiva.", "https://wa.me/34600000000")
+# 5. LISTADO DE PRODUCTOS (Enlaces estables verificados)
+draw_item("https://images.unsplash.com/photo-1590424744257-fdb03ed7880d?w=800", "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar tu camino sagrado y conectar con tu propósito.", "https://wa.me/34600000000")
 
-st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • 2026</p></center>", unsafe_allow_html=True)
+draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=800", "MAZO DE TAROT RIDER", "45", "Edición de lujo con acabados dorados y guía mística para la interpretación.", "https://wa.me/34600000000")
+
+draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800", "CRISTAL AMATISTA", "15", "Piedra natural de alta vibración cargada bajo la luz de la luna llena.", "https://wa.me/34600000000")
+
+draw_item("https://images.unsplash.com/photo-1601314167099-232775b3d6fd?w=800", "VELA RITUAL SAGRADA", "12", "Aroma artesanal para atraer claridad mental y purificar tu energía positiva.", "https://wa.me/34600000000")
+
+# PIE DE PÁGINA
+st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • 2026</p></center>", unsafe_allow_
