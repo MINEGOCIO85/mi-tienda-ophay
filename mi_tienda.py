@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO CSS (Diseño místico blindado)
+# 2. ESTILO CSS "TAROTOO STYLE"
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,700&family=Inter:wght@300;400&display=swap');
@@ -28,19 +28,18 @@ st.markdown("""
     }
     div.stButton > button:hover { background-color: #C5A059 !important; color: #1a1a2e !important; box-shadow: 0px 0px 15px #C5A059; }
     [data-testid="stHorizontalBlock"] { padding: 40px 0px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); align-items: center; }
-    img { border-radius: 8px; box-shadow: 0px 5px 20px rgba(0,0,0,0.5); }
+    img { border-radius: 8px; box-shadow: 0px 10px 30px rgba(0,0,0,0.5); }
     </style>
     """, unsafe_allow_html=True)
 
 # 3. CABECERA
 st.markdown('<p class="gold-title">OPHAY TAROT</p>', unsafe_allow_html=True)
-st.markdown('<p class="sub-title">Lecturas Sagradas & Arte Esotérico</p>', unsafe_allow_html=True)
+st.markdown('<p class="sub-title">Édition Limitée • Magie & Destin</p>', unsafe_allow_html=True)
 
 # 4. FUNCIÓN DE PRODUCTO
 def draw_item(img, nom, precio, txt, link):
     c1, c2 = st.columns([1, 1.2])
     with c1:
-        # Imagen con enlace directo de alta disponibilidad
         st.image(img, use_container_width=True)
     with c2:
         st.subheader(nom)
@@ -48,19 +47,23 @@ def draw_item(img, nom, precio, txt, link):
         st.markdown(f'<p class="price">{precio} €</p>', unsafe_allow_html=True)
         st.link_button("RESERVAR LECTURA", link)
 
-# 5. PRODUCTOS (Usando enlaces directos que SIEMPRE funcionan en Streamlit)
+# 5. LISTADO DE LOS 4 PRODUCTOS (Imágenes estables verificadas)
 
-# PRODUCTO 1: LECTURA DEL DESTINO (Imagen mística real de Tarot)
+# 1. LECTURA
 draw_item("https://images.unsplash.com/photo-1572025442646-866d16c84a54?w=800", 
-          "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar tu camino sagrado y conectar con tu propósito.", "https://wa.me/34600000000")
+          "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar los hilos de tu futuro.", "https://wa.me/34600000000")
 
-# PRODUCTO 2: MAZO DE TAROT
+# 2. MAZO
 draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=800", 
-          "MAZO DE TAROT RIDER", "45", "Edición de lujo con acabados dorados y guía mística para la interpretación.", "https://wa.me/34600000000")
+          "MAZO TAROT LUXE", "45", "Cartas con bordes dorados de alta calidad espiritual.", "https://wa.me/34600000000")
 
-# PRODUCTO 3: CRISTALES
+# 3. CRISTAL
 draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800", 
-          "CRISTAL AMATISTA", "15", "Piedra natural de alta vibración cargada bajo la luz de la luna llena.", "https://wa.me/34600000000")
+          "AMATISTA SAGRADA", "15", "Cristal de poder para armonizar tus energías.", "https://wa.me/34600000000")
+
+# 4. VELA
+draw_item("https://images.unsplash.com/photo-1554123168-b400f9c804ca?w=800", 
+          "VELA DE RITUAL", "12", "Luz y aroma para tus sesiones de meditación.", "https://wa.me/34600000000")
 
 # PIE DE PÁGINA
-st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • 2026</p></center>", unsafe_allow_html=True)
+st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • EL UNIVERSO TE GUÍA • 2026</p></center>", unsafe_allow_html=True)
