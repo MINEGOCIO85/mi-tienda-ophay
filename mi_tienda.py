@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN DE PÁGINA
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO DE LUJO
+# 2. ESTILO DE LUJO (Oro y Noche)
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
@@ -35,7 +35,7 @@ st.markdown('<div class="header-box"><p class="gold-text gold-title">OPHAY TAROT
 def draw_item(url_img, name, price, desc):
     c1, c2 = st.columns([1, 1.2])
     with c1:
-        # Cargamos directamente desde la URL de GitHub
+        # Usamos st.image con la URL directa de GitHub para evitar errores de lectura
         st.image(url_img, use_container_width=True)
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
@@ -44,15 +44,20 @@ def draw_item(url_img, name, price, desc):
         st.link_button("RESERVAR", "https://wa.me/34600000000")
     st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
 
-# 5. LISTADO DE PRODUCTOS (URLs directas de GitHub)
-# Reemplaza 'MINEGOCIO85' por tu usuario si fuera diferente
+# 5. CONFIGURACIÓN DE RUTAS (IMPORTANTE: Revisa que tu usuario de GitHub sea MINEGOCIO85)
 user = "MINEGOCIO85"
 repo = "mi-tienda-ophay"
-base = f"https://raw.githubusercontent.com/{user}/{repo}/main"
+base_url = f"https://raw.githubusercontent.com/{user}/{repo}/main"
 
-draw_item(f"{base}/primera%20foto%20isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar tu futuro.")
-draw_item(f"{base}/SEGUNDA%20FOTO%20ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
-draw_item(f"{base}/3%20FOTO%20ESOTERICA.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
+# 6. LISTADO DE PRODUCTOS
+# Producto 1
+draw_item(f"{base_url}/primera%20foto%20isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar tus hilos.")
 
-# 6. FOOTER
+# Producto 2
+draw_item(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.jpg", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
+
+# Producto 3 (He usado el nombre exacto de tu último archivo subido)
+draw_item(f"{base_url}/3%20FOTO%20ESOTERICA.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
+
+# 7. FOOTER
 st.markdown("<center><p style='color:#333; letter-spacing:10px; font-size:10px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
