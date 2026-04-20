@@ -1,18 +1,19 @@
-import streamlit as st
+import streamlit st
 
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS (AQUÍ ESTÁ TODO EL DISEÑO)
+# 2. ESTILO CSS PROTEGIDO
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
 .main,[data-testid="stAppViewContainer"]{ background-color: #050505; }
 .oro { font-family: 'Cinzel'; color: #f1c40f; font-weight: 900; text-align: center; }
 .titulo-seccion { font-family: 'Cinzel'; color: #f1c40f; font-size: 2.5rem; text-align: center; margin: 30px 0; }
-.precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 1.8rem; font-weight: 700; text-align: center; }
+.precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 0px; }
+.tiempo { font-family: 'Montserrat'; color: #bdc3c7; font-size: 0.8rem; text-align: center; margin-top: 0px; margin-bottom: 10px; font-style: italic; }
 .desc { color: #ffffff; font-family: 'Montserrat'; font-size: 0.9rem; text-align: center; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; min-height: 110px; margin-bottom: 15px; }
-.sig { color: #f1c40f; font-family: 'Cinzel'; font-weight: 700; text-align: center; font-size: 1.1rem; margin-top:15px; }
+.sig { color: #f1c40f; font-family: 'Cinzel'; font-weight: 700; text-align: center; font-size: 1.1rem; }
 .plata { color: #bdc3c7; font-family: 'Montserrat'; font-size: 0.8rem; text-align: center; font-style: italic; }
 hr { border-color: rgba(241, 196, 15, 0.3) !important; }
 </style>
@@ -22,7 +23,7 @@ hr { border-color: rgba(241, 196, 15, 0.3) !important; }
 st.markdown('<h1 class="oro" style="font-size:4rem;">OPHAY</h1>', unsafe_allow_html=True)
 st.markdown('<p class="oro">BARCELONA • PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
-# 4. PRODUCTOS (LÍNEAS LÓGICAS CORTAS)
+# 4. PRODUCTOS
 B = "https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
 W = "https://wa.me/34684668398"
 
@@ -32,6 +33,7 @@ with c1:
     st.image(B + "primera%20foto%20isoterica.png")
     st.markdown('<h2 class="oro">ORÁCULO</h2>', unsafe_allow_html=True)
     st.markdown('<p class="precio">25€</p>', unsafe_allow_html=True)
+    st.markdown('<p class="tiempo">Sesión de 30 minutos</p>', unsafe_allow_html=True)
     st.markdown('<div class="desc">Consulta privada de clarividencia ancestral.</div>', unsafe_allow_html=True)
     st.link_button("RESERVAR", W)
 
@@ -39,6 +41,7 @@ with c2:
     st.image(B + "SEGUNDA%20FOTO%20ESOTERICA.png")
     st.markdown('<h2 class="oro">RIDER LUXE</h2>', unsafe_allow_html=True)
     st.markdown('<p class="precio">45€</p>', unsafe_allow_html=True)
+    st.markdown('<p class="tiempo">Edición Limitada</p>', unsafe_allow_html=True)
     st.markdown('<div class="desc">Mazo artesanal con acabados en oro.</div>', unsafe_allow_html=True)
     st.link_button("ADQUIRIR", W)
 
@@ -46,6 +49,7 @@ with c3:
     st.image(B + "Amatista.png")
     st.markdown('<h2 class="oro">AMATISTA</h2>', unsafe_allow_html=True)
     st.markdown('<p class="precio">19,95€</p>', unsafe_allow_html=True)
+    st.markdown('<p class="tiempo">Pieza Seleccionada</p>', unsafe_allow_html=True)
     st.markdown('<div class="desc">Geoda sagrada de alta pureza.</div>', unsafe_allow_html=True)
     st.link_button("SOLICITAR", W)
 
@@ -55,8 +59,8 @@ st.markdown('<h2 class="titulo-seccion">HORÓSCOPO ELITE</h2>', unsafe_allow_htm
 
 Z = [("♈ ARIES","Fuego."),("♌ LEO","Brillo."),("♐ SAGITARIO","Fortuna."),
      ("♉ TAURO","Exito."),("♍ VIRGO","Orden."),("♑ CAPRICORNIO","Rigor."),
-     (" Gemini GÉMINIS","Palabra."),(" Libra LIBRA","Paz."),(" Aquarius ACUARIO","Visión."),
-     (" Cancer CÁNCER","Lunar."),(" Scorpio ESCORPIO","Poder."),(" Pisces PISCIS","Unión.")]
+     ("♊ GÉMINIS","Palabra."),("♎ LIBRA","Paz."),("♒ ACUARIO","Visión."),
+     ("♋ CÁNCER","Lunar."),("♏ ESCORPIO","Poder."),(" Pisces PISCIS","Unión.")]
 
 hz = st.columns(4)
 for i, (n, t) in enumerate(Z):
@@ -79,4 +83,4 @@ with r3:
     st.markdown('<p class="oro">✨ CANELA</p>', unsafe_allow_html=True)
     st.markdown('<p class="plata">Sople hacia adentro el primer día del mes.</p>', unsafe_allow_html=True)
 
-st.markdown("<br><p style='text-align:center;color:#444;'>© OPHAY BCN</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align:center;color:#444;'>© MMXXVI OPHAY BCN</p>", unsafe_allow_html=True)
