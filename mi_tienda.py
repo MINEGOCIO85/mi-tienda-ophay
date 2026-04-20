@@ -12,13 +12,13 @@ CSS = """<style>
 .txt{color:#ccc;font-family:'Montserrat';font-size:0.75rem;text-align:center;font-weight:400;line-height:1.5;margin-bottom:25px;}
 .card{background:#050505;border:1px solid #111;padding:15px;border-top:2px solid #d4af37;text-align:center;}
 .btn{display:block;border:1px solid #bf953f;color:#bf953f!important;padding:8px;font-weight:900;text-decoration:none;font-size:0.7rem;margin-top:10px;}
-.box{border:1px double #d4af37;padding:20px;margin-top:20px;text-align:center;background:#050505;}
+.box{border:1px double #d4af37;padding:20px;margin-top:20px;text-align:center;background:#050505;min-height:180px;}
 </style>"""
 st.markdown(CSS, unsafe_allow_html=True)
 
 # 3. CABECERA
 st.markdown('<h1 class="oro" style="font-size:3.5rem;margin:0;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown('<p style="color:#d4af37;text-align:center;font-size:0.6rem;letter-spacing:8px;">PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
+st.markdown('<p style="color:#d4af37;text-align:center;font-size:0.6rem;letter-spacing:8px;">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
 # 4. TIENDA
 B = "https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
@@ -63,15 +63,16 @@ cols3[1].markdown(f'<p class="sig">♑ CAPRICORNIO</p><p class="txt">{T10}</p>',
 cols3[2].markdown(f'<p class="sig">♒ ACUARIO</p><p class="txt">{T11}</p>', unsafe_allow_html=True)
 cols3[3].markdown(f'<p class="sig">♓ PISCIS</p><p class="txt">{T12}</p>', unsafe_allow_html=True)
 
-# 6. RITUALES
-st.markdown("<br><h2 class='oro' style='font-size:2rem;'>RITUALES OPHAY</h2>", unsafe_allow_html=True)
+# 6. LOS 3 RITUALES SAGRADOS
+st.markdown("<br><h2 class='oro' style='font-size:2rem;'>BIENESTAR OPHAY</h2>", unsafe_allow_html=True)
 
-r1, r2 = st.columns(2)
+r1, r2, r3 = st.columns(3)
 with r1:
     st.markdown('<div class="box"><p class="oro">🌿 LAUREL</p>', unsafe_allow_html=True)
-    st.markdown('<p class="txt">Quema laurel y visualiza luz dorada para renovar tu hogar.</p></div>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Quema laurel seco para purificar y renovar la vibracion.</p></div>', unsafe_allow_html=True)
 with r2:
     st.markdown('<div class="box"><p class="oro">🧂 SAL Y HIELO</p>', unsafe_allow_html=True)
-    st.markdown('<p class="txt">Pon sal gruesa en un vaso, escribe lo negativo en papel y al congelador 9 dias.</p></div>', unsafe_allow_html=True)
-
-st.markdown("<br><p style='text-align:center;color:#333;font-size:0.5rem;'>© OPHAY BCN</p>", unsafe_allow_html=True)
+    st.markdown('<p class="txt">Pon sal y tu peticion en un vaso al congelador 9 dias.</p></div>', unsafe_allow_html=True)
+with r3:
+    st.markdown('<div class="box"><p class="oro">✨ CANELA</p>', unsafe_allow_html=True)
+    st.markdown('
