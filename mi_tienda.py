@@ -1,93 +1,69 @@
 import streamlit as st
 
-# 1. CONFIGURACIÓN
-st.set_page_config(page_title="OPHAY", layout="wide")
+# 1. SETUP PROFESIONAL
+st.set_page_config(page_title="OPHAY Elite", layout="wide")
 
-# 2. ESTILO CSS: ORO Y PLATA IMPACTANTE
+# 2. CSS NIVEL DIOS (ORO PURO, PLATA REAL Y ANIMACIÓN)
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;900&display=swap');
 .main { background-color: #050505; }
 [data-testid="stAppViewContainer"] { background-color: #050505; }
-.oro {
-    font-family: serif;
-    background: linear-gradient(#cfb53b, #fcf6ba, #aa8232);
+
+/* ORO LÍQUIDO ANIMADO */
+.oro-dios {
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa8232);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: bold; text-align: center;
+    font-weight: 900; text-align: center;
+    animation: shine 3s linear infinite;
 }
-.plata {
-    font-family: sans-serif;
-    background: linear-gradient(145deg, #fff, #888, #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 900; font-size: 1.1rem; text-transform: uppercase;
+
+@keyframes shine { to { background-position: 200% center; } }
+
+.boutique-god {
+    color: #d4af37; font-family: 'Montserrat'; font-weight: 900;
+    text-align: center; letter-spacing: 12px; font-size: 0.8rem;
+    text-transform: uppercase; margin-bottom: 50px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
-.desc { color: #777; font-size: 0.8rem; text-align: center; font-style: italic; }
-.box { border-left: 5px solid #d4af37; padding: 15px; background: #000; border-radius: 10px; }
-.h { color: #d4af37; font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; }
+
+.plata-god {
+    font-family: 'Montserrat'; font-weight: 900; font-size: 1.1rem;
+    background: linear-gradient(145deg, #ffffff, #888888, #ffffff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-transform: uppercase; line-height: 1.5;
+}
+
+.card {
+    background: #000; border: 1px solid #1a1a1a; padding: 20px;
+    border-radius: 15px; border-bottom: 4px solid #d4af37;
+    transition: 0.3s;
+}
+.card:hover { border-bottom: 4px solid #fff; transform: translateY(-5px); }
+
+.box-destino {
+    background: #000; border-left: 8px solid #d4af37;
+    padding: 30px; border-radius: 0 20px 20px 0; margin-bottom: 20px;
+}
+.h-dia { color: #d4af37; font-size: 0.85rem; letter-spacing: 5px; font-weight: 900; }
 </style>
 """, unsafe_allow_html=True)
 
-# 3. CABECERA
-st.markdown('<h1 class="oro" style="font-size:3.5rem;margin:0;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown('<p style="color:#d4af37;text-align:center;letter-spacing:10px;font-size:0.7rem;font-weight:900;">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
+# 3. CABECERA IMPACTANTE
+st.markdown('<h1 class="oro-dios" style="font-size:5rem; margin-bottom:0;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<p class="boutique-god">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
-# 4. TIENDA CON DESCRIPCIONES LUJO
+# 4. TIENDA NIVEL BOUTIQUE
 u, r = "MINEGOCIO85", "mi-tienda-ophay"
 b = f"https://raw.githubusercontent.com/{u}/{r}/main"
-col = st.columns(3)
+c = st.columns(3)
 
-with col[0]:
+with c[0]:
+    st.markdown('<div class="card">', unsafe_allow_html=True)
     st.image(f"{b}/primera%20foto%20isoterica.png")
-    st.markdown('<p class="oro" style="font-size:1.2rem;">ORÁCULO 25€</p>', unsafe_allow_html=True)
-    st.markdown('<p class="desc">Seda y revelaciones ancestrales.</p>', unsafe_allow_html=True)
-with col[1]:
-    st.image(f"{b}/SEGUNDA%20FOTO%20ESOTERICA.png")
-    st.markdown('<p class="oro" style="font-size:1.2rem;">RIDER LUXE 45€</p>', unsafe_allow_html=True)
-    st.markdown('<p class="desc">Oro puro y estuche de terciopelo.</p>', unsafe_allow_html=True)
-with col[2]:
-    st.image(f"{b}/Amatista.png")
-    st.markdown('<p class="oro" style="font-size:1.2rem;">AMATISTA 15€</p>', unsafe_allow_html=True)
-    st.markdown('<p class="desc">Energía y protección natural.</p>', unsafe_allow_html=True)
-
-# 5. DESTINO SEMANAL
-st.markdown("<br><h2 class='oro'>✨ DESTINO SEMANAL ✨</h2>", unsafe_allow_html=True)
-t = st.tabs(["🌱 TIERRA", "🔥 FUEGO", "💨 AIRE", "💧 AGUA"])
-
-with t[0]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<p class="h">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">FRUTOS DE TU ESFUERZO LLEGAN.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">PAGO CONFIRMADO AL FIN.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="h" style="margin-top:10px;">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">LIMPIA TU HOGAR. ATRAE ABUNDANCIA.</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-with t[1]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<p class="h">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">MARTE IMPULSA TU NEGOCIO.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">CIERRA TRATOS Y MUEVE ECONOMÍA.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="h" style="margin-top:10px;">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">DOMINGO SEÑAL CLAVE. INSTINTO.</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-with t[2]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<p class="h">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">MERCURIO TE DA LA PALABRA.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">HABLA SIN MIEDO, TE ESCUCHARÁN.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="h" style="margin-top:10px;">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">OPORTUNIDAD DEL PASADO LLEGA.</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-with t[3]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<p class="h">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">SUEÑOS VÍVIDOS. TU VOZ MANDA.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">NO DUDES DE TU SENSACIÓN.</p>', unsafe_allow_html=True)
-    st.markdown('<p class="h" style="margin-top:10px;">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">USA AMATISTA PARA PROTEGERTE.</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown("<br><p style='text-align:center;color:#444;font-size:0.7rem;'>© MMXXVI OPHAY COLLECTION</p>", unsafe_allow_html=True)
+    st.markdown('<p class="oro-dios" style="font-size:1.5rem;">ORÁCULO MÍSTICO</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#eee; font-size:0.85rem; text-align:center; font-weight:bold;">SESIÓN PRIVADA DE 45 MINUTOS</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#888; font-size:0.8rem; text-align:center; font-style:
