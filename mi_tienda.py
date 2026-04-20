@@ -9,11 +9,12 @@ STYLE = """
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@100;400;700&display=swap');
 .main,[data-testid="stAppViewContainer"]{background-color:#000;}
 .oro{font-family:'Cinzel';background:linear-gradient(180deg,#bf953f,#fcf6ba,#aa8232);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900;text-align:center;}
+.plata{color:#C0C0C0;font-family:'Montserrat';font-size:0.7rem;text-align:center;font-weight:400;line-height:1.4;margin-top:10px;}
 .sig{color:#d4af37;font-family:'Cinzel';font-weight:700;margin-top:20px;font-size:1.1rem;text-align:center;}
 .txt{color:#ccc;font-family:'Montserrat';font-size:0.75rem;text-align:center;font-weight:400;line-height:1.5;margin-bottom:25px;}
 .card{background:#050505;border:1px solid #111;padding:15px;border-top:2px solid #d4af37;text-align:center;}
 .btn{display:block;border:1px solid #bf953f;color:#bf953f!important;padding:10px;font-weight:900;text-decoration:none;font-size:0.75rem;margin-top:10px;}
-.box{border:1px double #d4af37;padding:25px;margin-top:20px;text-align:center;background:#050505;min-height:250px;}
+.box{border:1px double #d4af37;padding:25px;margin-top:20px;text-align:center;background:#050505;min-height:300px;}
 </style>
 """
 st.markdown(STYLE, unsafe_allow_html=True)
@@ -53,30 +54,9 @@ for i, (n, t) in enumerate(Z):
         st.markdown(f'<p class="sig">{n}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="txt">{t}</p>', unsafe_allow_html=True)
 
-# 6. RITUALES (CONSTRUCCIÓN SEGURA POR FRAGMENTOS)
-st.markdown('<h2 class="oro">BIENESTAR</h2>', unsafe_allow_html=True)
-
+# 6. RITUALES (PASOS EN PLATA)
+st.markdown('<h2 class="oro">BIENESTAR SAGRADO</h2>', unsafe_allow_html=True)
 r1, r2, r3 = st.columns(3)
 
-# Ritual 1
 with r1:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<p class="oro">🌿 LAUREL</p>', unsafe_allow_html=True)
-    st.markdown('<p class="txt">Quema laurel seco para purificar.</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# Ritual 2
-with r2:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<p class="oro">🧂 SAL</p>', unsafe_allow_html=True)
-    st.markdown('<p class="txt">Vaso al hielo durante 9 dias.</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# Ritual 3
-with r3:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<p class="oro">✨ CANELA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="txt">Sopla canela en su umbral.</p>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown("<p style='text-align:center;color:#444;'>© OPHAY BCN</p>", unsafe_allow_html=True)
+    st.markdown('<div class="
