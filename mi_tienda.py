@@ -54,5 +54,5 @@ draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=800", 
 draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800", "CRISTAL AMATISTA", "15", "Piedra natural de alta vibración.", "https://wa.me/34600000000")
 draw_item("https://images.unsplash.com/photo-1601314167099-232775b3d6fd?w=800", "VELA RITUAL SAGRADA", "12", "Aroma para purificar tu energía.", "https://wa.me/34600000000")
 
-# PIE DE PÁGINA (Línea corta para evitar errores de copia)
+# 6. PIE DE PÁGINA
 st.markdown("<center><small>OPHAY TAROT • 2026</small></center>", unsafe_allow_html=True)
