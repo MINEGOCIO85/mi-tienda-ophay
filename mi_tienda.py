@@ -31,18 +31,15 @@ st.markdown("""
 
 st.markdown('<div class="header-box"><p class="gold-text gold-title">OPHAY TAROT</p></div>', unsafe_allow_html=True)
 
-# 4. FUNCIÓN MULTI-BÚSQUEDA
-def draw_item(lista_nombres, name, price, desc):
+# 4. FUNCIÓN RENDERIZADO
+def draw_item(img_source, name, price, desc):
     c1, c2 = st.columns([1, 1.2])
     with c1:
-        encontrado = False
-        for nombre in lista_nombres:
-            if os.path.exists(nombre):
-                st.image(nombre, use_container_width=True)
-                encontrado = True
-                break
-        if not encontrado:
-            st.warning("Imagen en camino...")
+        # Si es una URL de internet o un archivo que existe, lo muestra
+        if img_source.startswith("http") or os.path.exists(img_source):
+            st.image(img_source, use_container_width=True)
+        else:
+            st.warning("Cargando imagen...")
             
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
@@ -51,9 +48,12 @@ def draw_item(lista_nombres, name, price, desc):
         st.link_button("RESERVAR", "https://wa.me/34600000000")
     st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
 
-# 5. LISTADO DE PRODUCTOS (Líneas revisadas y cerradas)
-draw_item(["primera foto isoterica.png"], "LECTURA DEL DESTINO", "25", "Sesión para desvelar tu futuro.")
-draw_item(["SEGUNDA FOTO ESOTERICA.png", "SEGUNDA FOTO ESOTERICA.jpg"], "MAZO RIDER LUXE", "45", "Edición premium con detalles oro.")
-draw_item(["3 FOTO ESOTERICA.jpg", "Amatista.jpg", "amatista.jpg"], "AMATISTA SAGRADA", "15", "Energía bajo la luna llena.")
+# 5. PRODUCTOS (He puesto el link directo a la foto de la amatista para que no falle)
+draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión para desvelar tu futuro.")
+draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles oro.")
+
+# Usamos la ruta de respaldo por si el archivo local falla
+amatista_url = "https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/3%20FOTO%20ESOTERICA.jpg"
+draw_item(amatista_url, "AMATISTA SAGRADA", "15", "Energía pura bajo la luna llena.")
 
 st.markdown("<center><p style='color:#333; letter-spacing:10px; font-size:10px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
