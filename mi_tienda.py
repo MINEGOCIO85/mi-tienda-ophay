@@ -1,8 +1,60 @@
-HOROSCOPO
-TypeError: This app has encountered an error. The original error message is redacted to prevent data leaks. Full error details have been recorded in the logs (if you're on Streamlit Cloud, click on 'Manage app' in the lower right of your app).
-Traceback:
-File "/mount/src/mi-tienda-ophay/mi_tienda.py", line 44, in <module>
-    with f1a: st.markdown('<p class="sig">ARIES</p><p class="txt">Lidera con fuerza.<br>Marte te apoya.</p>',u=1)
-              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-File "/home/adminuser/venv/lib/python3.14/site-packages/streamlit/runtime/metrics_util.py", line 563, in wrapped_func
-    result = non_optional_func(*args, **kwargs)
+import streamlit as st
+
+# 1. SETUP
+st.set_page_config(page_title="OPHAY ELITE", layout="wide")
+
+# 2. ESTILO
+st.markdown("""<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Montserrat:wght@100;700&display=swap');
+.main,[data-testid="stAppViewContainer"]{background-color:#000;}
+.oro{font-family:'Cinzel';background:linear-gradient(180deg,#bf953f,#fcf6ba,#aa8232);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900;text-align:center;}
+.sig{color:#d4af37;font-family:'Cinzel';font-weight:700;margin-top:15px;font-size:1rem;text-align:center;}
+.txt{color:#ccc;font-family:'Montserrat';font-size:0.8rem;text-align:center;font-weight:100;margin-bottom:20px;}
+.card{background:#050505;border:1px solid #111;padding:15px;border-top:2px solid #d4af37;text-align:center;}
+.btn{display:block;border:1px solid #bf953f;color:#bf953f!important;padding:8px;font-weight:900;text-decoration:none;font-size:0.7rem;margin-top:10px;}
+</style>""", unsafe_allow_html=True)
+
+# 3. CABECERA
+st.markdown('<h1 class="oro" style="font-size:3.5rem;margin:0;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<p style="color:#d4af37;text-align:center;font-size:0.6rem;">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
+
+# 4. PRODUCTOS
+B="https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
+W="https://wa.me/34684668398?text="
+c1,c2,c3=st.columns(3)
+
+with c1:
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    st.image(B+"primera%20foto%20isoterica.png")
+    st.markdown('<p class="oro" style="font-size:1.4rem;">ORACULO</p><a href="'+W+'Cita" class="btn">RESERVAR</a></div>',unsafe_allow_html=True)
+with c2:
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    st.image(B+"SEGUNDA%20FOTO%20ESOTERICA.png")
+    st.markdown('<p class="oro" style="font-size:1.4rem;">RIDER LUXE</p><a href="'+W+'Mazo" class="btn">ADQUIRIR</a></div>',unsafe_allow_html=True)
+with c3:
+    st.markdown('<div class="card">',unsafe_allow_html=True)
+    st.image(B+"Amatista.png")
+    st.markdown('<p class="oro" style="font-size:1.4rem;">AMATISTA</p><a href="'+W+'Piedra" class="btn">CONSULTAR</a></div>',unsafe_allow_html=True)
+
+# 5. ZODIACO
+st.markdown("<br><h2 class='oro' style='font-size:2.2rem;'>HOROSCOPO</h2>",unsafe_allow_html=True)
+
+f1, f2, f3, f4 = st.columns(4)
+f1.markdown('<p class="sig">ARIES</p><p class="txt">Lidera con fuerza.</p>', unsafe_allow_html=True)
+f2.markdown('<p class="sig">TAURO</p><p class="txt">Exito financiero.</p>', unsafe_allow_html=True)
+f3.markdown('<p class="sig">GEMINIS</p><p class="txt">Claridad mental.</p>', unsafe_allow_html=True)
+f4.markdown('<p class="sig">CANCER</p><p class="txt">Paz en tu hogar.</p>', unsafe_allow_html=True)
+
+f5, f6, f7, f8 = st.columns(4)
+f5.markdown('<p class="sig">LEO</p><p class="txt">Brilla con tu luz.</p>', unsafe_allow_html=True)
+f6.markdown('<p class="sig">VIRGO</p><p class="txt">Orden y abundancia.</p>', unsafe_allow_html=True)
+f7.markdown('<p class="sig">LIBRA</p><p class="txt">Equilibrio total.</p>', unsafe_allow_html=True)
+f8.markdown('<p class="sig">ESCORPIO</p><p class="txt">Transformacion.</p>', unsafe_allow_html=True)
+
+f9, fa, fb, fc = st.columns(4)
+f9.markdown('<p class="sig">SAGITARIO</p><p class="txt">Nuevos horizontes.</p>', unsafe_allow_html=True)
+fa.markdown('<p class="sig">CAPRICORNIO</p><p class="txt">Recoge tus frutos.</p>', unsafe_allow_html=True)
+fb.markdown('<p class="sig">ACUARIO</p><p class="txt">Innovacion pura.</p>', unsafe_allow_html=True)
+fc.markdown('<p class="sig">PISCIS</p><p class="txt">Sigue tu intuicion.</p>', unsafe_allow_html=True)
+
+st.markdown("<br><p style='text-align:center;color:#333;font-size:0.5rem;'>© OPHAY BCN</p>",unsafe_allow_html=True)
