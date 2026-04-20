@@ -40,11 +40,16 @@ def draw_item(img_path, name, price, desc):
         if os.path.exists(img_path):
             st.image(img_path, use_container_width=True)
         else:
-            st.warning(f"Archivo '{img_path}' no detectado en GitHub.")
-            st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Amethyst_Crystal.jpg/800px-Amethyst_Crystal.jpg", use_container_width=True)
+            st.warning(f"No se detecta: {img_path}")
             
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
         st.write(f"_{desc}_")
         st.markdown(f'<p style="color:#D4AF37; font-size:24px; font-weight:bold;">{price} €</p>', unsafe_allow_html=True)
-        st.link_button(f"LO QUIERO", "
+        # LÍNEA CORREGIDA ABAJO
+        st.link_button("LO QUIERO", "https://wa.me/34600000000")
+    st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
+
+# 5. LISTADO DE PRODUCTOS (Usa tus nombres exactos de GitHub)
+draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Una sesión mística para desvelar los hilos de tu futuro.")
+draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Ed
