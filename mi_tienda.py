@@ -1,91 +1,99 @@
 import streamlit as st
 
-# 1. CONFIGURACIÓN DE PÁGINA
-st.set_page_config(page_title="Ophay Tarot | Boutique", page_icon="🌙", layout="centered")
+# 1. CONFIGURACIÓN
+st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO "OPHAY NOIR & GOLD"
+# 2. ESTILO BOUTIQUE DE LUJO (CSS PURO)
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300&display=swap');
     
-    .stApp { background-color: #0f1116; color: #e5e7eb; }
+    .stApp { background-color: #0a0a0c; color: #ffffff; }
     
-    .main-title {
+    .header-box {
+        text-align: center;
+        padding: 50px 0;
+        border-bottom: 1px solid #C5A059;
+        margin-bottom: 50px;
+    }
+    
+    .gold-title {
         font-family: 'Cinzel', serif;
         color: #C5A059;
-        text-align: center;
-        font-size: 55px;
+        font-size: 50px;
         letter-spacing: 15px;
-        margin-top: 20px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        margin: 0;
     }
     
-    .gold-line {
-        height: 2px;
-        background: linear-gradient(to right, transparent, #C5A059, transparent);
-        margin: 20px 0 40px 0;
+    /* Marco místico que sustituye a la foto rota */
+    .tarot-frame {
+        width: 100%;
+        height: 350px;
+        border: 2px solid #C5A059;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Cinzel', serif;
+        font-size: 80px;
+        color: rgba(197, 160, 89, 0.3);
+        background: radial-gradient(circle, #1a1a2e 0%, #0a0a0c 100%);
+        box-shadow: inset 0 0 50px rgba(197, 160, 89, 0.2);
+        margin-bottom: 20px;
     }
 
-    .product-card {
-        background: rgba(255, 255, 255, 0.03);
-        padding: 20px;
-        border-radius: 2px;
-        border: 1px solid rgba(197, 160, 89, 0.2);
-        margin-bottom: 30px;
-        transition: 0.3s;
+    .product-title {
+        font-family: 'Cinzel', serif;
+        color: #F7E7CE;
+        font-size: 24px;
+        margin-top: 10px;
     }
     
-    .product-card:hover { border-color: #C5A059; box-shadow: 0 0 15px rgba(197, 160, 89, 0.1); }
+    .price-tag {
+        font-family: 'Inter', sans-serif;
+        color: #C5A059;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
 
-    h3 { font-family: 'Cinzel', serif !important; color: #F7E7CE !important; font-size: 24px !important; }
-    
-    .price-tag { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 22px; font-weight: bold; }
-    
     div.stButton > button {
-        background-color: transparent !important;
-        color: #C5A059 !important;
-        border: 1px solid #C5A059 !important;
+        background-color: #C5A059 !important;
+        color: #0a0a0c !important;
+        font-family: 'Cinzel', serif !important;
+        border: none !important;
         border-radius: 0px !important;
         width: 100%;
-        letter-spacing: 2px;
-        font-family: 'Cinzel', serif;
+        padding: 15px;
+        transition: 0.4s;
     }
     
-    div.stButton > button:hover { background-color: #C5A059 !important; color: #0f1116 !important; }
-    
-    img { border-radius: 2px; }
+    div.stButton > button:hover {
+        background-color: #F7E7CE !important;
+        transform: translateY(-3px);
+    }
     </style>
     """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<h1 class="main-title">OPHAY TAROT</h1>', unsafe_allow_html=True)
-st.markdown('<div class="gold-line"></div>', unsafe_allow_html=True)
+st.markdown('<div class="header-box"><p class="gold-title">OPHAY TAROT</p><p style="letter-spacing:5px; color:#5c6b89;">LECTURAS SAGRADAS</p></div>', unsafe_allow_html=True)
 
-# 4. LISTADO DE PRODUCTOS
-def product(img, name, price, desc):
-    with st.container():
-        col1, col2 = st.columns([1, 1.2])
-        with col1:
-            st.image(img, use_container_width=True)
-        with col2:
-            st.subheader(name)
-            st.write(f"*{desc}*")
-            st.markdown(f'<p class="price-tag">{price}€</p>', unsafe_allow_html=True)
-            st.link_button(f"RESERVAR {name}", "https://wa.me/34600000000")
-        st.markdown('<div style="margin-bottom: 50px;"></div>', unsafe_allow_html=True)
+# 4. LISTADO DE PRODUCTOS (4 PRODUCTOS)
+def draw_product(simbolo, nombre, precio, desc):
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        # Aquí creamos un "Arte Místico" con el símbolo en lugar de una foto que se rompa
+        st.markdown(f'<div class="tarot-frame">{simbolo}</div>', unsafe_allow_html=True)
+    with col2:
+        st.markdown(f'<p class="product-title">{nombre}</p>', unsafe_allow_html=True)
+        st.write(f"_{desc}_")
+        st.markdown(f'<p class="price-tag">{precio} €</p>', unsafe_allow_html=True)
+        st.link_button(f"RESERVAR {nombre}", "https://wa.me/34600000000")
+    st.markdown('<br><br>', unsafe_allow_html=True)
 
-# PRODUCTOS CON IMÁGENES SELECCIONADAS POR ESTÉTICA Y ESTABILIDAD
-product("https://www.worldhistory.org/img/r/p/1000x1200/16601.jpg", 
-        "LECTURA SAGRADA", "25", "Una inmersión profunda en tu destino a través de los arcanos mayores.")
-
-product("https://upload.wikimedia.org/wikipedia/commons/3/33/RWS_Tarot_06_Lovers.jpg", 
-        "MAZO RIDER LUXE", "45", "Edición artesanal con grabados en pan de oro y estuche de seda.")
-
-product("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Amethyste_2.jpg/800px-Amethyste_2.jpg", 
-        "CRISTAL DE PODER", "15", "Amatista de Uruguay cargada bajo el influjo de la luna llena.")
-
-product("https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Candle_in_the_dark.jpg/800px-Candle_in_the_dark.jpg", 
-        "VELA RITUALIZADA", "12", "Alquimia de aceites esenciales para la purificación del hogar.")
+# Los 4 productos con símbolos esotéricos elegantes
+draw_product("👁", "LECTURA DEL DESTINO", "25", "Una conexión profunda con tu hilo espiritual y propósito de vida.")
+draw_product("⚔️", "MAZO RIDER LUXE", "45", "78 cartas con bordes dorados, estuche de seda y guía mística.")
+draw_product("✨", "AMATISTA SAGRADA", "15", "Cristal de alta vibración para la transmutación energética.")
+draw_product("🔥", "VELA DE RITUAL", "12", "Cera de soja alquímica para iluminar tus meditaciones.")
 
 # PIE DE PÁGINA
-st.markdown("<br><br><center><p style='color:#5c6b89; font-size:10px; letter-spacing:5px;'>OPHAY • PARIS • 2026</p></center>", unsafe_allow_html=True)
+st.markdown("<center><p style='color:#5c6b89; font-size:10px; letter-spacing:8px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
