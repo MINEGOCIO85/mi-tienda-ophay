@@ -1,84 +1,89 @@
 import streamlit as st
 
-# 1. SETUP DE PÁGINA
-st.set_page_config(page_title="OPHAY | Elite Esoteric", layout="wide")
+# 1. AJUSTES TÉCNICOS
+st.set_page_config(page_title="OPHAY | Elite", layout="wide")
 
-# 2. CSS DE ALTO CONTRASTE
+# 2. ESTILO CSS: ORO, PLATA Y NEGRO PURO
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;800&display=swap');
-
-    .main { background-color: #050505; color: #FFFFFF; }
-    [data-testid="stAppViewContainer"] { background-color: #050505; }
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@800&display=swap');
+    .main { background-color: #000000; color: #FFFFFF; }
+    [data-testid="stAppViewContainer"] { background-color: #000000; }
     
-    .oro-title {
+    .oro {
         font-family: 'Cinzel', serif;
-        background: linear-gradient(145deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa8232);
+        background: linear-gradient(to bottom, #cfb53b 0%, #fcf6ba 30%, #d4af37 50%, #aa8232 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        font-weight: 800; text-align: center; letter-spacing: 3px;
+        font-weight: bold; text-align: center;
     }
-
-    .plata-sub {
+    .plata {
         font-family: 'Montserrat', sans-serif;
-        background: linear-gradient(145deg, #888, #fff, #999, #eee, #777);
+        background: linear-gradient(to bottom, #e2e2e2 0%, #ffffff 40%, #999999 60%, #666666 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+        font-weight: 800; text-transform: uppercase;
     }
-
-    .card-dark {
-        background: rgba(20, 20, 20, 0.9);
-        border: 2px solid #333;
-        padding: 25px;
-        border-radius: 15px;
-        margin-bottom: 20px;
+    .box {
+        background: #0a0a0a; border: 2px solid #1a1a1a;
+        padding: 30px; border-radius: 20px; margin-top: 10px;
     }
-
-    .day-header {
-        color: #d4af37;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.9rem;
-        font-weight: 300;
-        letter-spacing: 5px;
-        border-bottom: 1px solid #222;
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-    }
+    .header-dia { color: #d4af37; font-size: 0.8rem; letter-spacing: 4px; border-bottom: 1px solid #222; margin-bottom: 10px; }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. LOGOTIPO OPHAY
-st.markdown('<h1 class="oro-title" style="font-size:4rem;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown("<p style='text-align:center; color:#555; letter-spacing:10px; font-size:0.8rem;'>BARCELONA • PRIVATE BOUTIQUE</p>", unsafe_allow_html=True)
+# 3. CABECERA
+st.markdown('<h1 class="oro" style="font-size:4rem; margin:0;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown("<p style='text-align:center; color:#444; letter-spacing:8px;'>BARCELONA PRIVATE</p>", unsafe_allow_html=True)
 
-# 4. PRODUCTOS
+# 4. TIENDA RÁPIDA
 u, r = "MINEGOCIO85", "mi-tienda-ophay"
 b = f"https://raw.githubusercontent.com/{u}/{r}/main"
-col_p1, col_p2, col_p3 = st.columns(3)
-with col_p1: st.image(f"{b}/primera%20foto%20isoterica.png", caption="ORÁCULO 25€")
-with col_p2: st.image(f"{b}/SEGUNDA%20FOTO%20ESOTERICA.png", caption="RIDER LUXE 45€")
-with col_p3: st.image(f"{b}/Amatista.png", caption="AMATISTA 15€")
+c1, c2, c3 = st.columns(3)
+with c1: st.image(f"{b}/primera%20foto%20isoterica.png", caption="ORÁCULO 25€")
+with c2: st.image(f"{b}/SEGUNDA%20FOTO%20ESOTERICA.png", caption="RIDER LUXE 45€")
+with c3: st.image(f"{b}/Amatista.png", caption="AMATISTA 15€")
 
-# 5. LECTURAS
-# CORRECCIÓN AQUÍ: Usamos comillas simples para las clases CSS
-st.markdown("<br><h2 class='oro-title'>✨ EL CAMINO DEL DESTINO ✨</h2>", unsafe_allow_html=True)
+# 5. DESTINO SEMANAL
+st.markdown("<br><h2 class='oro' style='font-size:2.5rem;'>✨ DESTINO SEMANAL ✨</h2>", unsafe_allow_html=True)
 tabs = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
 
-def render_signo(signos, camino, lun_mie, fin_sem):
-    st.markdown('<div class="card-dark">', unsafe_allow_html=True)
-    st.markdown(f'<h2 class="oro-title" style="font-size:1.8rem; text-align:left;">{signos}</h2>', unsafe_allow_html=True)
-    st.markdown(f'<h3 class="plata-sub" style="font-size:1rem; margin-bottom:25px;">{camino}</h3>', unsafe_allow_html=True)
-    
-    st.markdown('<p class="day-header">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.markdown(f'<p style="font-size:1.2rem; font-weight:700; color:#fff;">{lun_mie}</p>', unsafe_allow_html=True)
-    
-    st.markdown('<p class="day-header" style="margin-top:20px;">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.markdown(f'<p style="font-size:1.2rem; font-weight:700; color:#fff;">{fin_sem}</p>', unsafe_allow_html=True)
+with tabs[0]:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro">ARIES • LEO • SAGITARIO</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DE LA ACCIÓN</h3>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">MARTE IMPULSA TU NEGOCIO. CIERRA TRATOS YA.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">SEÑAL CLAVE EL DOMINGO. ESCUCHA TU INSTINTO.</p>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-with tabs[0]:
-    render_signo("ARIES • LEO • SAGITARIO", "EL CAMINO DE LA ACCIÓN", 
-                 "MARTE IMPULSA TU NEGOCIO. CIERRA TRATOS YA.", 
-                 "SEÑAL CLAVE EL DOMINGO. ESCUCHA TU INSTINTO.")
-
 with tabs[1]:
-    render_signo("TAURO • VIRGO • CAPRICORNIO", "EL CAMINO DE LA COSECHA",
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro">TAURO • VIRGO • CAPRICORNIO</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DE LA COSECHA</h3>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">FRUTOS ECONÓMICOS. PAGO CONFIRMADO.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">LIMPIA TU HOGAR. ATRAE ABUNDANCIA PURA.</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with tabs[2]:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro">GÉMINIS • LIBRA • ACUARIO</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DE LA VERDAD</h3>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">MERCURIO TE DA VOZ. HABLA SIN MIEDO.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">ENCUENTRO CLAVE CON ALGUIEN DEL PASADO.</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with tabs[3]:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro">CÁNCER • ESCORPIO • PISCIS</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DEL INSTINTO</h3>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">SUEÑOS VÍVIDOS. TU VOZ INTERIOR MANDA.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:1.3rem; font-weight:bold;">USA TU AMATISTA. FILTRA ENERGÍAS EXTERNAS.</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown("<br><br><p style='text-align:center;' class='plata'>© MMXXVI OPHAY COLLECTION</p>", unsafe_allow_html=True)
