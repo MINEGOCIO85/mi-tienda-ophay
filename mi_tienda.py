@@ -3,102 +3,118 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO ORO & NOCHE (CSS MEJORADO)
+# 2. ESTILO "DARK LUXURY" (Inspirado en boutiques de alta gama)
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital@1&family=Inter:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital@1&display=swap');
     
-    .stApp { background-color: #08080a; color: #e0e0e0; }
+    .stApp { background-color: #050505; color: #d4d4d4; }
     
-    .gold-text {
-        background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    .gold-title {
+        font-family: 'Cinzel', serif;
+        background: linear-gradient(to bottom, #cfb53b 0%, #8b7500 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-family: 'Cinzel', serif;
+        text-align: center;
+        font-size: 55px;
+        letter-spacing: 12px;
         font-weight: 700;
+        margin-bottom: 0px;
     }
 
-    .header-box {
+    .sub-header {
         text-align: center;
-        padding: 60px 0;
-        border-bottom: 1px solid rgba(191, 149, 63, 0.2);
+        font-family: 'Cinzel', serif;
+        color: #555;
+        letter-spacing: 5px;
+        font-size: 12px;
         margin-bottom: 50px;
     }
-    
-    .product-name {
-        font-family: 'Cinzel', serif;
-        color: #F7E7CE;
-        font-size: 24px;
-        letter-spacing: 2px;
-        margin-bottom: 8px;
+
+    .product-card {
+        border-bottom: 1px solid rgba(207, 181, 59, 0.1);
+        padding-bottom: 40px;
+        margin-bottom: 40px;
     }
-    
+
+    h3 {
+        font-family: 'Cinzel', serif !important;
+        color: #cfb53b !important;
+        letter-spacing: 2px !important;
+        font-size: 22px !important;
+    }
+
+    .description {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        color: #999;
+        line-height: 1.6;
+    }
+
     .price {
-        color: #C5A059;
-        font-size: 22px;
-        font-weight: bold;
-        letter-spacing: 3px;
+        font-family: 'Cinzel', serif;
+        color: #cfb53b;
+        font-size: 20px;
         margin-top: 15px;
     }
 
+    /* Botón Minimalista de Lujo */
     div.stButton > button {
         background-color: transparent !important;
-        color: #C5A059 !important;
-        border: 1px solid #C5A059 !important;
+        color: #cfb53b !important;
+        border: 1px solid #cfb53b !important;
         border-radius: 0px !important;
-        width: 100%;
-        padding: 15px;
-        transition: 0.5s ease;
-        font-family: 'Cinzel', serif;
-        letter-spacing: 2px;
+        font-family: 'Cinzel', serif !important;
+        letter-spacing: 3px !important;
+        padding: 10px 30px !important;
+        transition: 0.4s !important;
     }
-    
+
     div.stButton > button:hover {
-        background-color: #C5A059 !important;
-        color: #08080a !important;
-        box-shadow: 0px 0px 20px rgba(197, 160, 89, 0.3);
+        background-color: #cfb53b !important;
+        color: #000 !important;
+        box-shadow: 0px 0px 15px rgba(207, 181, 59, 0.4);
     }
 
     img {
-        border-radius: 2px;
-        filter: sepia(20%) contrast(110%);
-        box-shadow: 0px 10px 30px rgba(0,0,0,0.9);
-        border: 1px solid rgba(191, 149, 63, 0.1);
+        filter: grayscale(30%) contrast(120%) brightness(80%);
+        border: 1px solid rgba(207, 181, 59, 0.2);
     }
     </style>
     """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<div class="header-box"><p class="gold-text" style="font-size:50px; letter-spacing:15px; margin:0;">OPHAY TAROT</p><p style="color:#666; letter-spacing:8px; font-size:10px; margin-top:10px;">EL ARTE DE LEER EL ALMA</p></div>', unsafe_allow_html=True)
+st.markdown('<p class="gold-title">OPHAY</p>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">TAROT & ALQUIMIA</p>', unsafe_allow_html=True)
 
 # 4. FUNCIÓN DE PRODUCTO
-def item(img_url, nombre, precio, desc):
+def product(img, name, price, desc):
     col1, col2 = st.columns([1, 1.2])
     with col1:
-        st.image(img_url, use_container_width=True)
+        st.image(img, use_container_width=True)
     with col2:
-        st.markdown(f'<p class="product-name">{nombre}</p>', unsafe_allow_html=True)
-        st.markdown(f"<p style='color:#a0a0a0; font-family:\"Playfair Display\", serif; font-style:italic; font-size:15px; line-height:1.6;'>{desc}</p>", unsafe_allow_html=True)
-        st.markdown(f'<p class="price">{precio} €</p>', unsafe_allow_html=True)
-        st.link_button(f"CONSULTAR", "https://wa.me/34600000000")
-    st.write("<div style='margin-bottom:60px'></div>", unsafe_allow_html=True)
+        st.subheader(name)
+        st.markdown(f'<p class="description">{desc}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p class="price">{price} €</p>', unsafe_allow_html=True)
+        st.link_button(f"RESERVAR", "https://wa.me/34600000000")
 
-# 5. LISTADO CON FOTOS ESOTÉRICAS REALES
-# Foto 1: Lectura mística con velas y sombras
-item("https://images.unsplash.com/photo-1572025442646-866d16c84a54?auto=format&fit=crop&q=80&w=800", 
-     "LECTURA DEL DESTINO", "25", "Una inmersión profunda en las energías que guían tu presente y futuro.")
+# 5. PRODUCTOS (Selección de imágenes de alto impacto visual)
 
-# Foto 2: Mazo de cartas con detalles dorados
-item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?auto=format&fit=crop&q=80&w=800", 
-     "MAZO RIDER LUXE", "45", "78 arcanos en impresión de alta calidad con cantos metalizados.")
+# PRODUCTO 1: LECTURA (Mano esotérica y cartas)
+product("https://images.unsplash.com/photo-1635352739091-628f80459966?q=80&w=800", 
+        "Lectura del Destino", "25", "Una consulta privada para descifrar los mensajes del cosmos y tu linaje espiritual.")
 
-# Foto 3: Amatista de gran tamaño sobre altar
-item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=800", 
-     "AMATISTA SAGRADA", "15", "Cristal de transmutación cargado ritualmente para protección.")
+# PRODUCTO 2: MAZO (Terciopelo y oro)
+product("https://images.unsplash.com/photo-1606132473187-575796249f3e?q=80&w=800", 
+        "Mazo Rider Luxe", "45", "78 cartas con cantos metalizados en oro y acabados de tacto suave para rituales.")
 
-# Foto 4: Vela negra de ritual en la oscuridad
-item("https://images.unsplash.com/photo-1601314167099-232775b3d6fd?auto=format&fit=crop&q=80&w=800", 
-     "VELA DE RITUAL", "12", "Alquimia de aceites y cera para purificar y atraer claridad.")
+# PRODUCTO 3: AMATISTA (Vibración alta)
+product("https://images.unsplash.com/photo-1567883124527-33c1b28d747b?q=80&w=800", 
+        "Amatista Sagrada", "15", "Drusa de cristal natural seleccionada por su pureza y capacidad de transmutación energética.")
 
-# PIE DE PÁGINA
-st.markdown("<center><p style='color:#444; font-size:9px; letter-spacing:6px; margin-top:40px;'>OPHAY • PARIS • MMXXVI</p></center>", unsafe_allow_html=True)
+# PRODUCTO 4: VELA (Ritual oscuro)
+product("https://images.unsplash.com/photo-1534073828943-f801091bb18c?q=80&w=800", 
+        "Vela de Ritual", "12", "Cera de soja negra ungida con aceites sagrados para la protección y el destierro.")
+
+# 6. FOOTER
+st.markdown("<br><br><center><p style='color:#333; font-size:10px; letter-spacing:10px;'>OPHAY • PARIS • MMXXVI</p></center>", unsafe_allow_html=True)
