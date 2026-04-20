@@ -3,79 +3,82 @@ import streamlit as st
 # Configuración de la página
 st.set_page_config(page_title="Ophay Tarot | Boutique", layout="wide")
 
-# ESTILO GALLERY LUXE (SIN ERRORES)
+# ESTILO LUXE CON ILUMINACIÓN (VIBRANTE)
 st.markdown("""
     <style>
     .main { background-color: #050505; color: #ffffff; }
     [data-testid="stAppViewContainer"] { background-color: #050505; }
     
-    /* Cabecera */
-    .header-container {
-        text-align: center;
-        padding: 30px 0;
-        border-bottom: 1px solid #1a150e;
-        margin-bottom: 40px;
-    }
-    
+    /* Título con degradado de oro real */
     .logo-main {
-        color: #d4af37;
-        font-size: 2.8rem;
-        letter-spacing: 10px;
+        background: linear-gradient(to bottom, #fcf6ba 0%, #d4af37 40%, #aa8a2e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 3.5rem;
+        letter-spacing: 12px;
         font-family: 'serif';
+        text-align: center;
         margin: 0;
+        font-weight: bold;
     }
 
-    /* Tarjetas de Producto */
+    /* Tarjetas con resplandor (Glow) */
     .product-card {
         background: #0a0a0a;
-        border: 1px solid #1c1810;
-        padding: 25px;
+        border: 1px solid #221d14;
+        padding: 30px;
         text-align: center;
-        border-radius: 2px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(212, 175, 55, 0.05); /* Luz ambiental suave */
+        transition: all 0.5s ease;
+    }
+    
+    .product-card:hover {
+        box-shadow: 0px 0px 30px rgba(212, 175, 55, 0.2); /* Brilla al acercarse */
+        border-color: #d4af37;
     }
 
     .product-title {
         color: #d4af37;
-        font-size: 1.1rem;
-        letter-spacing: 2px;
-        margin: 15px 0 5px 0;
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+        margin: 20px 0 10px 0;
         font-family: 'serif';
     }
 
-    .product-price {
-        color: #ffffff;
-        font-size: 1rem;
-        margin-bottom: 20px;
-        opacity: 0.8;
-    }
-
-    /* Botón Dorado */
+    /* Botón con efecto de luz */
     .stButton>button {
-        background-color: #d4af37 !important;
+        background: linear-gradient(145deg, #d4af37, #b8962e) !important;
         color: #000000 !important;
         font-weight: bold !important;
         text-transform: uppercase;
         letter-spacing: 2px;
         border: none !important;
-        border-radius: 0px !important;
+        border-radius: 4px !important;
         width: 100%;
-        height: 45px;
+        height: 48px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
     }
     
     .stButton>button:hover {
-        background-color: #ffffff !important;
+        background: #ffffff !important;
+        box-shadow: 0px 0px 20px #d4af37; /* Destello dorado */
     }
 
-    /* Marco para imágenes */
+    /* Imágenes con marco de luz */
     [data-testid="stImage"] img {
-        border: 1px solid #d4af37;
-        padding: 4px;
+        border-radius: 5px;
+        border: 1px solid #332b1a;
+        transition: border 0.5s;
+    }
+    .product-card:hover img {
+        border-color: #d4af37;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# CABECERA
-st.markdown('<div class="header-container"><h1 class="logo-main">OPHAY</h1><p style="color: #665c40; letter-spacing: 4px; font-size: 0.7rem;">TAROT BOUTIQUE • BARCELONA</p></div>', unsafe_allow_html=True)
+# CABECERA ILUMINADA
+st.markdown('<div style="text-align:center; padding: 40px 0;"><h1 class="logo-main">OPHAY</h1><p style="color: #d4af37; letter-spacing: 6px; font-size: 0.8rem; opacity: 0.6;">ALTA CLARIVIDENCIA • BARCELONA</p></div>', unsafe_allow_html=True)
 
 user = "MINEGOCIO85"
 repo = "mi-tienda-ophay"
@@ -85,27 +88,5 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/primera%20foto%20isoterica.png", width=210)
-    st.markdown('<div class="product-title">ORÁCULO DEL DESTINO</div>', unsafe_allow_html=True)
-    st.markdown('<div class="product-price">25 €</div>', unsafe_allow_html=True)
-    st.link_button("RESERVAR", "https://wa.me/34684668398")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-with col2:
-    st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png", width=210)
-    st.markdown('<div class="product-title">MAZO RIDER LUXE</div>', unsafe_allow_html=True)
-    st.markdown('<div class="product-price">45 €</div>', unsafe_allow_html=True)
-    st.link_button("ADQUIRIR", "https://wa.me/34684668398")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-with col3:
-    st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/Amatista.png", width=210)
-    st.markdown('<div class="product-title">AMATISTA SAGRADA</div>', unsafe_allow_html=True)
-    st.markdown('<div class="product-price">15 €</div>', unsafe_allow_html=True)
-    st.link_button("COMPRAR", "https://wa.me/34684668398")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# PIE DE PÁGINA (CORREGIDO)
-st.markdown("<br><br><p style='text-align: center; color: #333; font-size: 0.6rem; letter-spacing: 3px;'>© MMXXVI OPHAY COLLECTION</p>", unsafe_allow_html=True)
+    st.image(f"{base_url}/primera%20foto%20isoterica.png", width=220)
+    st.markdown('<div class="product-title">ORÁCULO</div>', unsafe_allow_html
