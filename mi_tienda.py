@@ -18,7 +18,7 @@ st.markdown("""
         font-family: 'Inter', sans-serif; color: #94a3b8; text-align: center;
         letter-spacing: 5px; font-size: 10px; text-transform: uppercase; margin-bottom: 50px;
     }
-    h3 { font-family: 'Cinzel', serif !important; color: #F7E7CE !important; letter-spacing: 2px; }
+    h3 { font-family: 'Cinzel', serif !important; color: #F7E7CE !important; letter-spacing: 2px; border:none !important; }
     .desc { font-family: 'Playfair Display', serif !important; color: #d1d5db !important; font-size: 14px !important; font-style: italic; line-height: 1.8; }
     .price { font-family: 'Inter', sans-serif !important; color: #C5A059 !important; font-weight: 600; font-size: 20px; }
     div.stButton > button {
@@ -47,7 +47,7 @@ def draw_item(img, nom, precio, txt, link):
         st.markdown(f'<p class="price">{precio} €</p>', unsafe_allow_html=True)
         st.link_button("RESERVAR LECTURA", link)
 
-# 5. LISTADO DE LOS 4 PRODUCTOS (Imágenes estables verificadas)
+# 5. LISTADO DE LOS 4 PRODUCTOS (Fotos actualizadas y estables)
 
 # 1. LECTURA
 draw_item("https://images.unsplash.com/photo-1572025442646-866d16c84a54?w=800", 
@@ -61,9 +61,5 @@ draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=800",
 draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800", 
           "AMATISTA SAGRADA", "15", "Cristal de poder para armonizar tus energías.", "https://wa.me/34600000000")
 
-# 4. VELA
-draw_item("https://images.unsplash.com/photo-1554123168-b400f9c804ca?w=800", 
-          "VELA DE RITUAL", "12", "Luz y aroma para tus sesiones de meditación.", "https://wa.me/34600000000")
-
-# PIE DE PÁGINA
-st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • EL UNIVERSO TE GUÍA • 2026</p></center>", unsafe_allow_html=True)
+# 4. VELA (ENLACE NUEVO Y ESTABLE)
+draw_item("
