@@ -1,9 +1,9 @@
 import streamlit as st
 
-# 1. SETUP
+# 1. AJUSTES
 st.set_page_config(page_title="OPHAY Elite", layout="wide")
 
-# 2. ESTILO CSS
+# 2. ESTILO CSS "ORO & OXFORD"
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@800&display=swap');
@@ -25,81 +25,80 @@ st.markdown("""
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         font-weight: 800; text-transform: uppercase;
     }
-    .box {
+    .box-zod {
         background-color: #000; border: 1px solid #222;
-        padding: 25px; border-radius: 20px; border-left: 4px solid #d4af37;
+        padding: 30px; border-radius: 20px; border-left: 5px solid #d4af37;
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
     }
     .h-dia { 
-        color: #d4af37; font-size: 0.8rem; letter-spacing: 5px; 
-        border-bottom: 1px solid #1a1a1a; margin: 15px 0 5px 0;
+        color: #d4af37; font-size: 0.85rem; letter-spacing: 4px; 
+        border-bottom: 1px solid #1a1a1a; margin: 20px 0 10px 0;
     }
+    .precio { color: #d4af37; font-weight: bold; font-size: 1.1rem; }
     </style>
     """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<h1 class="oro" style="font-size:3rem;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown("<p style='text-align:center;color:#444;letter-spacing:5px;'>BARCELONA PRIVATE</p>", unsafe_allow_html=True)
+st.markdown('<h1 class="oro" style="font-size:3.5rem;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;color:#444;letter-spacing:6px;'>BARCELONA PRIVATE BOUTIQUE</p>", unsafe_allow_html=True)
 
-# 4. TIENDA (LÍNEAS CORTAS ANTI-CORTE)
-u = "MINEGOCIO85"
-r = "mi-tienda-ophay"
+# 4. TIENDA CON PRECIOS Y DESCRIPCIÓN
+u, r = "MINEGOCIO85", "mi-tienda-ophay"
 b = f"https://raw.githubusercontent.com/{u}/{r}/main"
 
-img1 = f"{b}/primera%20foto%20isoterica.png"
-img2 = f"{b}/SEGUNDA%20FOTO%20ESOTERICA.png"
-img3 = f"{b}/Amatista.png"
-
 c1, c2, c3 = st.columns(3)
-with c1: st.image(img1, caption="ORÁCULO 25€")
-with c2: st.image(img2, caption="RIDER LUXE 45€")
-with c3: st.image(img3, caption="AMATISTA 15€")
+with c1:
+    st.image(f"{b}/primera%20foto%20isoterica.png")
+    st.markdown('<div style="text-align:center;"><p class="oro">ORÁCULO MÍSTICO</p><p class="precio">25€</p></div>', unsafe_allow_html=True)
+with c2:
+    st.image(f"{b}/SEGUNDA%20FOTO%20ESOTERICA.png")
+    st.markdown('<div style="text-align:center;"><p class="oro">TAROT RIDER LUXE</p><p class="precio">45€</p></div>', unsafe_allow_html=True)
+with c3:
+    st.image(f"{b}/Amatista.png")
+    st.markdown('<div style="text-align:center;"><p class="oro">PIEDRA AMATISTA</p><p class="precio">15€</p></div>', unsafe_allow_html=True)
 
-# 5. DESTINO SEMANAL
-st.markdown("<br><h2 class='oro'>✨ DESTINO SEMANAL ✨</h2>", unsafe_allow_html=True)
+# 5. DESTINO SEMANAL COMPLETO
+st.markdown("<br><h2 class='oro' style='font-size:2.5rem;'>✨ DESTINO SEMANAL ✨</h2>", unsafe_allow_html=True)
 t = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
 
-# BLOQUE FUEGO
 with t[0]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<h2 class="oro">ARIES LEO SAGITARIO</h2>', unsafe_allow_html=True)
-    st.markdown('<h3 class="plata">CAMINO ACCIÓN</h3>', unsafe_allow_html=True)
+    st.markdown('<div class="box-zod">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro" style="text-align:left;">ARIES • LEO • SAGITARIO</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DE LA ACCIÓN</h3>', unsafe_allow_html=True)
     st.markdown('<p class="h-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.write("**MARTE IMPULSA TU NEGOCIO. CIERRA TRATOS YA.**")
+    st.write("### MARTE IMPULSA TU NEGOCIO. ES MOMENTO DE CERRAR TRATOS Y MOVER ENERGÍA.")
     st.markdown('<p class="h-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.write("**SEÑAL CLAVE DOMINGO. ESCUCHA TU INSTINTO.**")
+    st.write("### SEÑAL CLAVE EL DOMINGO. ESCUCHA TU INSTINTO ANTES DE ACTUAR.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# BLOQUE TIERRA
 with t[1]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<h2 class="oro">TAURO VIRGO CAPRICORNIO</h2>', unsafe_allow_html=True)
-    st.markdown('<h3 class="plata">CAMINO COSECHA</h3>', unsafe_allow_html=True)
-    st.markdown('<p class="h-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.write("**FRUTOS ECONÓMICOS. PAGO CONFIRMADO.**")
+    st.markdown('<div class="box-zod">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro" style="text-align:left;">TAURO • VIRGO • CAPRICORNIO</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DE LA COSECHA</h3>', unsafe_allow_html=True)
+    st.markdown('<p class="header-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
+    st.write("### FRUTOS ECONÓMICOS LLEGAN A TI. UN PAGO PENDIENTE SERÁ CONFIRMADO.")
     st.markdown('<p class="h-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.write("**LIMPIA TU HOGAR. ATRAE ABUNDANCIA.**")
+    st.write("### LIMPIA TU HOGAR DE ENERGÍAS DENSAS. ATRAE LA ABUNDANCIA PURA.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# BLOQUE AIRE
 with t[2]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<h2 class="oro">GÉMINIS LIBRA ACUARIO</h2>', unsafe_allow_html=True)
-    st.markdown('<h3 class="plata">CAMINO VERDAD</h3>', unsafe_allow_html=True)
+    st.markdown('<div class="box-zod">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro" style="text-align:left;">GÉMINIS • LIBRA • ACUARIO</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DE LA VERDAD</h3>', unsafe_allow_html=True)
     st.markdown('<p class="h-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.write("**MERCURIO TE DA VOZ. HABLA SIN MIEDO.**")
+    st.write("### MERCURIO TE DA LA PALABRA JUSTA. HABLA SIN MIEDO, TE ESCUCHARÁN.")
     st.markdown('<p class="h-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.write("**ENCUENTRO CLAVE CON ALGUIEN PASADO.**")
+    st.write("### UN ENCUENTRO CLAVE CON ALGUIEN DEL PASADO TRAERÁ UNA OPORTUNIDAD.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# BLOQUE AGUA
 with t[3]:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
-    st.markdown('<h2 class="oro">CÁNCER ESCORPIO PISCIS</h2>', unsafe_allow_html=True)
-    st.markdown('<h3 class="plata">CAMINO INSTINTO</h3>', unsafe_allow_html=True)
+    st.markdown('<div class="box-zod">', unsafe_allow_html=True)
+    st.markdown('<h2 class="oro" style="text-align:left;">CÁNCER • ESCORPIO • PISCIS</h2>', unsafe_allow_html=True)
+    st.markdown('<h3 class="plata">EL CAMINO DEL INSTINTO</h3>', unsafe_allow_html=True)
     st.markdown('<p class="h-dia">LUNES A MIÉRCOLES</p>', unsafe_allow_html=True)
-    st.write("**SUEÑOS VÍVIDOS. TU VOZ INTERIOR MANDA.**")
+    st.write("### SUEÑOS MUY VÍVIDOS. TU VOZ INTERIOR MANDA, NO DUDES DE ELLA.")
     st.markdown('<p class="h-dia">FIN DE SEMANA</p>', unsafe_allow_html=True)
-    st.write("**USA TU AMATISTA. FILTRA ENERGÍAS.**")
+    st.write("### USA TU AMATISTA PARA PROTEGERTE. FILTRA LAS ENERGÍAS EXTERNAS.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown("<br><p style='text-align:center;' class='plata'>© MMXXVI OPHAY</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align:center;' class='plata'>© MMXXVI OPHAY COLLECTION • BCN</p>", unsafe_allow_html=True)
