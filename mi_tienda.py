@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO MÍSTICO (Inspirado en Tarotoo)
+# 2. ESTILO MÍSTICO
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,700&family=Inter:wght@300;400&display=swap');
@@ -37,7 +37,7 @@ st.markdown("""
 st.markdown('<p class="gold-title">OPHAY TAROT</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Lecturas Sagradas & Arte Esotérico</p>', unsafe_allow_html=True)
 
-# 4. FUNCIÓN (Compacta)
+# 4. FUNCIÓN
 def draw_item(img, nom, precio, txt, link):
     c1, c2 = st.columns([1, 1.2])
     with c1: st.image(img, use_container_width=True)
@@ -47,12 +47,8 @@ def draw_item(img, nom, precio, txt, link):
         st.markdown(f'<p class="price">{precio} €</p>', unsafe_allow_html=True)
         st.link_button("RESERVAR LECTURA", link)
 
-# 5. PRODUCTOS (En una sola línea para evitar cortes)
-
-# --- PRODUCTO 1: INTEGRACIÓN DE LA IMGEN GENERADA ---
-draw_item("image_0.png", "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar tu camino sagrado.", "https://wa.me/34600000000")
-
-# --- PRODUCTOS RESTANTES ---
+# 5. PRODUCTOS (Con la URL de la imagen que creamos)
+draw_item("https://raw.githubusercontent.com/OphayTarot/assets/main/lectura_destino.jpg", "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar tu camino sagrado.", "https://wa.me/34600000000")
 draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=700", "MAZO DE TAROT RIDER", "45", "Edición de lujo con acabados dorados y guía mística.", "https://wa.me/34600000000")
 draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700", "CRISTAL AMATISTA", "15", "Piedra natural cargada bajo la luz de la luna llena.", "https://wa.me/34600000000")
 draw_item("https://images.unsplash.com/photo-1601314167099-232775b3d6fd?w=700", "VELA RITUAL SAGRADA", "12", "Aroma para atraer claridad mental y energía positiva.", "https://wa.me/34600000000")
