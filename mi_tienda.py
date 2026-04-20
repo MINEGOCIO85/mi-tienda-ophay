@@ -1,85 +1,121 @@
 import streamlit as st
 
-# Configuración de la página para aprovechar todo el espacio
-st.set_page_config(page_title="Ophay Tarot", layout="wide", initial_sidebar_state="collapsed")
+# Configuración de la página
+st.set_page_config(page_title="Ophay Tarot", layout="centered")
 
-# ESTILO "TODO A LA VISTA" (Compacto y Elegante)
+# ESTILO LUXURY VERTICAL
 st.markdown("""
     <style>
-    /* Eliminar espacios blancos de arriba */
-    .block-container { padding-top: 1rem; padding-bottom: 0rem; }
     .main { background-color: #000000; color: #ffffff; }
     [data-testid="stAppViewContainer"] { background-color: #000000; }
     
-    /* Centrar imágenes y reducir su margen inferior */
-    [data-testid="stImage"] {
-        display: flex;
-        justify-content: center;
-        margin-bottom: -10px;
+    /* Títulos Principales */
+    h1 { 
+        color: #d4af37 !important; 
+        text-align: center; 
+        font-family: 'serif'; 
+        letter-spacing: 5px;
+        font-size: 2.5rem !important;
+        margin-bottom: 0px;
     }
     
-    h1 { color: #d4af37 !important; text-align: center; font-size: 1.8rem !important; margin-bottom: 0px; }
-    h3 { color: #d4af37 !important; text-align: center; font-size: 1.1rem !important; margin-top: 5px; }
-    .precio-oro { color: #d4af37 !important; text-align: center; font-weight: bold; font-size: 1.2rem; margin-top: -10px; }
-    
-    .descripcion-texto {
-        color: #b0b0b0 !important;
+    .subtitulo {
+        color: #d4af37;
         text-align: center;
-        font-style: italic;
-        font-size: 0.85rem;
-        margin: 5px auto 10px auto;
-        line-height: 1.2;
+        letter-spacing: 3px;
+        font-size: 0.8rem;
+        margin-bottom: 40px;
+        opacity: 0.7;
     }
 
-    /* BOTONES MÁS COMPACTOS */
+    /* Contenedor de Producto */
+    .producto-container {
+        text-align: center;
+        margin-bottom: 60px;
+        border-bottom: 1px solid #1a1a1a;
+        padding-bottom: 40px;
+    }
+
+    .nombre-producto {
+        color: #d4af37;
+        font-family: 'serif';
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-top: 20px;
+    }
+
+    .precio {
+        color: #ffffff;
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .descripcion {
+        color: #888888;
+        font-style: italic;
+        font-size: 1rem;
+        max-width: 300px;
+        margin: 0 auto 25px auto;
+        line-height: 1.5;
+    }
+
+    /* Botón tipo "Apple" o Marca de Lujo */
     .stButton>button {
-        background: linear-gradient(145deg, #d4af37, #b8962e) !important;
-        color: #000000 !important;
-        font-weight: bold !important;
-        border-radius: 20px !important;
-        border: none !important;
-        width: 90%;
-        height: 35px;
-        font-size: 0.8rem !important;
-        margin: 0 auto;
-        display: block;
+        background-color: transparent !important;
+        color: #d4af37 !important;
+        border: 1px solid #d4af37 !important;
+        border-radius: 0px !important; /* Cuadrado es más serio y elegante */
+        width: 250px;
+        height: 50px;
+        font-weight: lighter !important;
+        letter-spacing: 2px;
+        transition: all 0.4s;
     }
     
-    hr { margin: 0.5rem 0; }
+    .stButton>button:hover {
+        background-color: #d4af37 !important;
+        color: #000000 !important;
+    }
+
+    /* Ajustar imágenes */
+    [data-testid="stImage"] img {
+        border-radius: 5px;
+        filter: grayscale(20%); /* Un toque más artístico */
+    }
     </style>
     """, unsafe_allow_html=True)
 
-# Título muy compacto
-st.markdown("<h1>🌙 OPHAY TAROT</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #d4af37; font-size: 0.7rem; letter-spacing: 2px;'>ALTA CLARIVIDENCIA</p>", unsafe_allow_html=True)
-st.markdown("---")
+# CABECERA
+st.markdown("<h1>OPHAY</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subtitulo'>ALTA CLARIVIDENCIA • BARCELONA</p>", unsafe_allow_html=True)
 
 user = "MINEGOCIO85"
 repo = "mi-tienda-ophay"
 base_url = f"https://raw.githubusercontent.com/{user}/{repo}/main"
 
-# Usamos columnas que en móvil se apilan pero ocupan poco espacio
-col1, col2, col3 = st.columns(3)
+# --- PRODUCTO 1 ---
+st.image(f"{base_url}/primera%20foto%20isoterica.png", use_container_width=True)
+st.markdown("<div class='nombre-producto'>ORÁCULO DEL DESTINO</div>", unsafe_allow_html=True)
+st.markdown("<div class='precio'>25 €</div>", unsafe_allow_html=True)
+st.markdown("<div class='descripcion'>Desvela los hilos invisibles de tu camino. Una inmersión profunda en tu energía personal.</div>", unsafe_allow_html=True)
+st.link_button("AGENDAR SESIÓN", "https://wa.me/34684668398")
+st.markdown("<br><br>", unsafe_allow_html=True)
 
-with col1:
-    st.image(f"{base_url}/primera%20foto%20isoterica.png", width=140)
-    st.markdown("### ORÁCULO")
-    st.markdown("<p class='precio-oro'>25 €</p>", unsafe_allow_html=True)
-    st.markdown("<div class='descripcion-texto'>\"Inmersión profunda en tu energía personal.\"</div>", unsafe_allow_html=True)
-    st.link_button("RESERVAR", "https://wa.me/34684668398")
+# --- PRODUCTO 2 ---
+st.image(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png", use_container_width=True)
+st.markdown("<div class='nombre-producto'>MAZO RIDER LUXE</div>", unsafe_allow_html=True)
+st.markdown("<div class='precio'>45 €</div>", unsafe_allow_html=True)
+st.markdown("<div class='descripcion'>Edición sagrada para conectar con tu intuición a través de un arte sublime.</div>", unsafe_allow_html=True)
+st.link_button("ADQUIRIR PIEZA", "https://wa.me/34684668398")
+st.markdown("<br><br>", unsafe_allow_html=True)
 
-with col2:
-    st.image(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png", width=140)
-    st.markdown("### MAZO RIDER")
-    st.markdown("<p class='precio-oro'>45 €</p>", unsafe_allow_html=True)
-    st.markdown("<div class='descripcion-texto'>\"Arte sagrado para conectar con tu intuición.\"</div>", unsafe_allow_html=True)
-    st.link_button("ADQUIRIR", "https://wa.me/34684668398")
+# --- PRODUCTO 3 ---
+st.image(f"{base_url}/Amatista.png", use_container_width=True)
+st.markdown("<div class='nombre-producto'>AMATISTA SAGRADA</div>", unsafe_allow_html=True)
+st.markdown("<div class='precio'>15 €</div>", unsafe_allow_html=True)
+st.markdown("<div class='descripcion'>Gema de transmutación purificada bajo el influjo lunar para protección.</div>", unsafe_allow_html=True)
+st.link_button("SOLICITAR", "https://wa.me/34684668398")
 
-with col3:
-    st.image(f"{base_url}/Amatista.png", width=140)
-    st.markdown("### AMATISTA")
-    st.markdown("<p class='precio-oro'>15 €</p>", unsafe_allow_html=True)
-    st.markdown("<div class='descripcion-texto'>\"Gema lunar para protección y paz espiritual.\"</div>", unsafe_allow_html=True)
-    st.link_button("SOLICITAR", "https://wa.me/34684668398")
-
-st.markdown("<p style='text-align: center; color: #444444; font-size: 0.6rem; margin-top: 20px;'>OPHAY • BARCELONA</p>", unsafe_allow_html=True)
+# PIE DE PÁGINA
+st.markdown("<br><br><p style='text-align: center; color: #333; letter-spacing: 5px;'>MMXXVI</p><br>", unsafe_allow_html=True)
