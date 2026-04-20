@@ -1,10 +1,9 @@
 import streamlit as st
-import os
 
-# 1. CONFIGURACIÓN
+# 1. CONFIGURACIÓN DE PÁGINA
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO ORO METÁLICO
+# 2. ESTILO DE LUJO
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
@@ -33,14 +32,11 @@ st.markdown("""
 st.markdown('<div class="header-box"><p class="gold-text gold-title">OPHAY TAROT</p></div>', unsafe_allow_html=True)
 
 # 4. FUNCIÓN PARA DIBUJAR PRODUCTOS
-def draw_item(img_path, name, price, desc):
+def draw_item(url_img, name, price, desc):
     c1, c2 = st.columns([1, 1.2])
     with c1:
-        if os.path.exists(img_path):
-            st.image(img_path, use_container_width=True)
-        else:
-            # Si no encuentra el nombre con espacios, probamos quitándolos
-            st.warning(f"Asegúrate de que '{img_path}' esté en GitHub")
+        # Cargamos directamente desde la URL de GitHub
+        st.image(url_img, use_container_width=True)
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
         st.write(f"_{desc}_")
@@ -48,12 +44,15 @@ def draw_item(img_path, name, price, desc):
         st.link_button("RESERVAR", "https://wa.me/34600000000")
     st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
 
-# 5. LISTADO DE PRODUCTOS (Nombres exactos de tus archivos)
-draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar tu futuro.")
-draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
+# 5. LISTADO DE PRODUCTOS (URLs directas de GitHub)
+# Reemplaza 'MINEGOCIO85' por tu usuario si fuera diferente
+user = "MINEGOCIO85"
+repo = "mi-tienda-ophay"
+base = f"https://raw.githubusercontent.com/{user}/{repo}/main"
 
-# He cambiado "Amatista.jpg" por el nombre exacto que subiste antes:
-draw_item("3 FOTO ESOTERICA.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
+draw_item(f"{base}/primera%20foto%20isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar tu futuro.")
+draw_item(f"{base}/SEGUNDA%20FOTO%20ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
+draw_item(f"{base}/3%20FOTO%20ESOTERICA.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
 
 # 6. FOOTER
 st.markdown("<center><p style='color:#333; letter-spacing:10px; font-size:10px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
