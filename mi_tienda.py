@@ -1,48 +1,47 @@
 import streamlit as st
 
 # 1. CONFIGURACIÓN DE PÁGINA
-st.set_page_config(page_title="OPHAY | Boutique & Destino", layout="wide")
+st.set_page_config(page_title="OPHAY | Boutique & Horóscopo", layout="wide")
 
-# 2. ESTILO CSS "LUXURY & MYSTIC"
+# 2. ESTILO CSS "DIARIO MÍSTICO"
 st.markdown("""
     <style>
-    .main { background-color: #080808; color: #FFFFFF; }
-    [data-testid="stAppViewContainer"] { background-color: #080808; }
+    .main { background-color: #0a0a0a; color: #FFFFFF; }
+    [data-testid="stAppViewContainer"] { background-color: #0a0a0a; }
     
     .logo-text {
-        font-family: 'serif'; text-align: center; font-size: 3.5rem; letter-spacing: 15px;
+        font-family: 'serif'; text-align: center; font-size: 3.5rem; letter-spacing: 12px;
         background: linear-gradient(145deg, #ffffff, #d4af37, #aa8a2e);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        font-weight: bold; margin: 0;
+        font-weight: bold; margin-bottom: 0px;
     }
 
     .card {
-        background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
-        padding: 20px; border-radius: 15px; text-align: center; height: 100%;
+        background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.2);
+        padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px;
     }
 
     .fecha-banner {
         text-align: center; color: #d4af37; font-family: 'serif';
         font-size: 1.1rem; letter-spacing: 3px; border: 1px solid #d4af37;
-        padding: 8px 20px; width: fit-content; margin: 20px auto; border-radius: 50px;
+        padding: 8px 20px; width: fit-content; margin: 30px auto; border-radius: 50px;
     }
 
     .camino-box {
-        background: #111; border-radius: 20px; padding: 25px;
-        border-left: 5px solid #d4af37; margin-top: 10px;
+        background: #111111; border-radius: 20px; padding: 25px;
+        border-left: 5px solid #d4af37; margin-top: 15px;
     }
 
-    .signo-header { color: #d4af37; font-family: 'serif'; font-size: 1.5rem; margin-bottom: 5px; }
+    .signo-header { color: #d4af37; font-family: 'serif'; font-size: 1.6rem; margin-bottom: 5px; }
     .meta-camino { color: #aa8a2e; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-    .prediction-text { color: #cccccc; font-size: 1rem; line-height: 1.6; margin-top: 10px; }
+    .prediction-text { color: #cccccc; font-size: 1.05rem; line-height: 1.7; margin-top: 10px; }
     
-    .stTabs [data-baseweb="tab"] { color: #666 !important; font-weight: bold; font-size: 1.1rem !important; }
-    .stTabs [aria-selected="true"] { color: #d4af37 !important; border-bottom-color: #d4af37 !important; }
+    .stTabs [data-baseweb="tab"] { color: #777 !important; font-weight: bold; font-size: 1.1rem !important; }
+    .stTabs [aria-selected="true"] { color: #d4af37 !important; border-bottom: 2px solid #d4af37 !important; }
     
-    /* Botón personalizado */
     .stButton>button {
-        background-color: #d4af37 !important; color: black !important;
-        border-radius: 20px !important; font-weight: bold !important; width: 100%;
+        background-color: #d4af37 !important; color: #000 !important;
+        border-radius: 25px !important; font-weight: bold !important; width: 100%;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -69,4 +68,12 @@ with col2:
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.image(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png")
     st.markdown('<div style="color:#d4af37; font-weight:bold; margin-top:10px;">RIDER LUXE</div><div style="margin-bottom:15px;">45€</div>', unsafe_allow_html=True)
-    st.link_button("ADQUIR
+    st.link_button("ADQUIRIR", "https://wa.me/34684668398")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.image(f"{base_url}/Amatista.png")
+    st.markdown('<div style="color:#d4af37; font-weight:bold; margin-top:10px;">AMATISTA</div><div style="margin-bottom:15px;">15€</div>', unsafe_allow_html=True)
+    st.link_button("COMPRAR", "https://wa.me/34684668398")
+    st.markdown('</div>', unsafe_allow_html=
