@@ -21,34 +21,39 @@ st.markdown("""<style>
 st.markdown('<h1 class="oro" style="font-size:5rem;margin:0;">OPHAY</h1>', unsafe_allow_html=True)
 st.markdown('<p style="color:#d4af37;text-align:center;letter-spacing:15px;font-weight:900;font-size:0.8rem;margin-bottom:50px;">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
-# 4. TIENDA CON WHATSAPP CORRECTO (34684668398)
+# 4. TIENDA CON MENSAJES ELEGANTES
 b = "https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
-wa = "https://wa.me/34684668398?text="
+# El número correcto
+num = "34684668398"
+
 c1, c2, c3 = st.columns(3)
 
 with c1:
+    msg1 = "Saludos%20OPHAY.%20Deseo%20solicitar%20una%20reserva%20para%20la%20sesion%20de%20Oraculo.%20Quedo%20a%20la%20espera%20de%20disponibilidad."
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.image(b+"primera%20foto%20isoterica.png")
     st.markdown('<p class="oro" style="font-size:1.8rem;">ORÁCULO</p>', unsafe_allow_html=True)
     st.markdown('<p class="desc">CANALIZACIÓN PRIVADA DE 45 MINUTOS. CLARIDAD TOTAL SOBRE TU DESTINO Y GUÍA ESPIRITUAL.</p>', unsafe_allow_html=True)
     st.markdown('<p class="oro" style="font-size:2.2rem;">25€</p>', unsafe_allow_html=True)
-    st.markdown('<a href="'+wa+'Hola%20OPHAY,%20quiero%20reservar%20el%20Oraculo" class="btn">SOLICITAR ACCESO</a></div>', unsafe_allow_html=True)
+    st.markdown(f'<a href="https://wa.me/{num}?text={msg1}" class="btn">SOLICITAR CITA PREVIA</a></div>', unsafe_allow_html=True)
 
 with c2:
+    msg2 = "Hola%20OPHAY.%20Me%20gustaria%20adquirir%20el%20mazo%20Rider%20Luxe%20de%20coleccionista.%20¿Podrian%20confirmarme%20el%20envio?"
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.image(b+"SEGUNDA%20FOTO%20ESOTERICA.png")
     st.markdown('<p class="oro" style="font-size:1.8rem;">RIDER LUXE</p>', unsafe_allow_html=True)
     st.markdown('<p class="desc">MAZO DE COLECCIONISTA CON CANTOS EN ORO. UNA HERRAMIENTA SAGRADA DE ALTA GAMA.</p>', unsafe_allow_html=True)
     st.markdown('<p class="oro" style="font-size:2.2rem;">45€</p>', unsafe_allow_html=True)
-    st.markdown('<a href="'+wa+'Hola%20OPHAY,%20quiero%20el%20Tarot%20Rider%20Luxe" class="btn">ADQUIRIR PIEZA</a></div>', unsafe_allow_html=True)
+    st.markdown(f'<a href="https://wa.me/{num}?text={msg2}" class="btn">ADQUIRIR PIEZA</a></div>', unsafe_allow_html=True)
 
 with c3:
+    msg3 = "Saludos.%20Estoy%20interesado%20en%20la%20Amatista%20natural%20de%20la%20Boutique.%20¿Sigue%20disponible%20esta%20pieza?"
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.image(b+"Amatista.png")
     st.markdown('<p class="oro" style="font-size:1.8rem;">AMATISTA</p>', unsafe_allow_html=True)
     st.markdown('<p class="desc">GEODA NATURAL DE ALTA VIBRACIÓN. TRANSMUTACIÓN ENERGÉTICA Y PROTECCIÓN DEL HOGAR.</p>', unsafe_allow_html=True)
     st.markdown('<p class="oro" style="font-size:2.2rem;">15€</p>', unsafe_allow_html=True)
-    st.markdown('<a href="'+wa+'Hola%20OPHAY,%20me%20interesa%20la%20Amatista" class="btn">SOLICITAR PIEZA</a></div>', unsafe_allow_html=True)
+    st.markdown(f'<a href="https://wa.me/{num}?text={msg3}" class="btn">GESTIONAR COMPRA</a></div>', unsafe_allow_html=True)
 
 # 5. DESTINO
 st.markdown("<br><br><h2 class='oro' style='font-size:3.5rem;'>✨ DESTINO ✨</h2>", unsafe_allow_html=True)
