@@ -1,9 +1,9 @@
 import streamlit as st
 
-# 1. CONFIGURACIÓN
+# 1. CONFIG
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. CSS FUERZA BRUTA (PLATA CROMADO Y ORO)
+# 2. CSS FUERZA BRUTA
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Montserrat:wght@900&display=swap');
@@ -35,30 +35,34 @@ st.markdown('<h1 class="oro" style="font-size:5rem;">OPHAY</h1>', unsafe_allow_h
 st.markdown('<p style="color:#d4af37;text-align:center;letter-spacing:10px;font-weight:900;">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
 # 4. TIENDA
-u, r = "MINEGOCIO85", "mi-tienda-ophay"
-img_b = "https://raw.githubusercontent.com/" + u + "/" + r + "/main/"
+u = "MINEGOCIO85"
+r = "mi-tienda-ophay"
+base = "https://raw.githubusercontent.com/" + u + "/" + r + "/main/"
 c1, c2, c3 = st.columns(3)
 
-# Producto 1
+# PRODUCTO 1
 with c1:
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.image(img_b + "primera%20foto%20isoterica.png")
+    st.image(base + "primera%20foto%20isoterica.png")
     st.markdown('<p class="oro" style="font-size:1.5rem;">ORÁCULO</p>', unsafe_allow_html=True)
-    st.markdown('<p style="color:#fff;font-weight:900;">45 MINUTOS DE CLARIDAD</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:#fff;font-weight:900;">45 MINUTOS CLARIDAD</p>', unsafe_allow_html=True)
     st.markdown('<p class="oro" style="font-size:2rem;">25€</p>', unsafe_allow_html=True)
     st.markdown('<a href="https://wa.me/34600000000" class="btn">RESERVAR</a>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Producto 2
+# PRODUCTO 2
 with c2:
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.image(img_b + "SEGUNDA%20FOTO%20ESOTERICA.png")
+    st.image(base + "SEGUNDA%20FOTO%20ESOTERICA.png")
     st.markdown('<p class="oro" style="font-size:1.5rem;">RIDER LUXE</p>', unsafe_allow_html=True)
     st.markdown('<p style="color:#fff;font-weight:900;">MAZO PREMIUM ORO</p>', unsafe_allow_html=True)
     st.markdown('<p class="oro" style="font-size:2rem;">45€</p>', unsafe_allow_html=True)
     st.markdown('<a href="https://wa.me/34600000000" class="btn">COMPRAR</a>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Producto 3
+# PRODUCTO 3
 with c3:
-    st.markdown('<div class="card">
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.image(base + "Amatista.png")
+    st.markdown('<p class="oro" style="font-size:1.5rem;">AMATISTA</p>', unsafe_allow_html=True)
+    st.markdown('
