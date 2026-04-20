@@ -3,7 +3,7 @@ import streamlit as st
 # 1. AJUSTES
 st.set_page_config(page_title="OPHAY Elite", layout="wide")
 
-# 2. CSS: PLATA Y ORO EXTREMO
+# 2. ESTILO CSS: ORO Y PLATA EXTREMO
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@900&display=swap');
@@ -15,6 +15,16 @@ st.markdown("""
         background: linear-gradient(to bottom, #cfb53b, #fcf6ba, #aa8232);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         font-weight: bold; text-align: center;
+    }
+
+    /* ESTILO BARCELONA PRIVATE BOUTIQUE */
+    .oro-boutique {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(to right, #cfb53b, #fcf6ba, #aa8232);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        font-weight: 800; text-align: center;
+        letter-spacing: 12px; font-size: 0.8rem;
+        text-transform: uppercase; margin-bottom: 30px;
     }
     
     .plata-fuerte {
@@ -33,9 +43,9 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. CABECERA
-st.markdown('<h1 class="oro" style="font-size:3rem;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown("<p style='text-align:center;color:#444;font-size:0.7rem;'>BCN PRIVATE BOUTIQUE</p>", unsafe_allow_html=True)
+# 3. CABECERA RESALTADA
+st.markdown('<h1 class="oro" style="font-size:4rem; margin-bottom:0;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<p class="oro-boutique">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
 # 4. TIENDA
 u, r = "MINEGOCIO85", "mi-tienda-ophay"
