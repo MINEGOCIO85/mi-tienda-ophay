@@ -1,10 +1,9 @@
 import streamlit as st
-import os
 
-# 1. CONFIGURACIÓN DE LUJO
+# 1. CONFIGURACIÓN
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
 
-# 2. ESTILO ORO Y NOCHE ( Luxury Dark CSS )
+# 2. ESTILO ORO METÁLICO
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
@@ -24,9 +23,8 @@ st.markdown("""
         color: #0a0a0c !important;
         font-family: 'Cinzel', serif !important; font-weight: bold !important;
         border: none !important; border-radius: 0px !important; width: 100%; padding: 15px;
-        letter-spacing: 2px;
     }
-    img { border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 4px; box-shadow: 0px 10px 20px rgba(0,0,0,0.8); }
+    img { border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 4px; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -34,18 +32,11 @@ st.markdown("""
 st.markdown('<div class="header-box"><p class="gold-text gold-title">OPHAY TAROT</p></div>', unsafe_allow_html=True)
 
 # 4. FUNCIÓN PARA DIBUJAR PRODUCTOS
-def draw_item(img_path, name, price, desc):
+def draw_item(url_img, name, price, desc):
     c1, c2 = st.columns([1, 1.2])
     with c1:
-        # Aquí está el truco: Buscamos el nombre EXACTO que tienes en GitHub
-        if os.path.exists(img_path):
-            st.image(img_path, use_container_width=True)
-        else:
-            # Aviso elegante si no encuentra el archivo real, con foto de respaldo
-            st.error(f"Falta imagen: {img_path}")
-            st.caption("Asegúrate de que el nombre en GitHub coincida letra por letra.")
-            st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Amethyst_Crystal.jpg/800px-Amethyst_Crystal.jpg", use_container_width=True)
-            
+        # Usamos la URL directa para evitar el error de PIL
+        st.image(url_img, use_container_width=True)
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
         st.write(f"_{desc}_")
@@ -53,16 +44,18 @@ def draw_item(img_path, name, price, desc):
         st.link_button("RESERVAR", "https://wa.me/34600000000")
     st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
 
-# 5. LISTADO DE PRODUCTOS ( ¡Nombres de archivos verificados! )
+# 5. LISTADO CON LINKS DIRECTOS (Remplaza 'MINEGOCIO85' si tu usuario es distinto)
+# Nota: He usado las URL "raw" que nunca fallan.
+user = "MINEGOCIO85"
+repo = "mi-tienda-ophay"
 
-# Producto 1
-draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión mística para desvelar los hilos de tu futuro.")
+url1 = f"https://raw.githubusercontent.com/{user}/{repo}/main/primera%20foto%20isoterica.png"
+url2 = f"https://raw.githubusercontent.com/{user}/{repo}/main/SEGUNDA%20FOTO%20ESOTERICA.png"
+url3 = f"https://raw.githubusercontent.com/{user}/{repo}/main/Amatista.jpg"
 
-# Producto 2
-draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro y simbología sagrada.")
+draw_item(url1, "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar los hilos de tu futuro.")
+draw_item(url2, "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
+draw_item(url3, "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
 
-# Producto 3 ( ¡Corregido con la 'A' mayúscula! )
-draw_item("Amatista.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder transmutador bajo la influencia de la luna llena.")
-
-# 6. PIE DE PÁGINA (Footer)
+# 6. FOOTER
 st.markdown("<center><p style='color:#333; letter-spacing:10px; font-size:10px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
