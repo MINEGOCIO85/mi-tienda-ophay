@@ -22,13 +22,12 @@ st.markdown("""
     .desc { font-family: 'Playfair Display', serif !important; color: #d1d5db !important; font-size: 14px !important; font-style: italic; line-height: 1.8; }
     .price { font-family: 'Inter', sans-serif !important; color: #C5A059 !important; font-weight: 600; font-size: 20px; }
     div.stButton > button {
-        background: transparent !important; color: #F7E7CE !important; font-family: 'Inter', sans-serif !important;
-        text-transform: uppercase; letter-spacing: 3px; font-size: 11px; border-radius: 0px !important;
-        border: 1px solid #C5A059 !important; padding: 15px; width: 100%; transition: 0.4s;
+        background: transparent !important; color: #F7E7CE !important; border: 1px solid #C5A059 !important;
+        text-transform: uppercase; letter-spacing: 3px; font-size: 11px; padding: 15px; width: 100%;
     }
-    div.stButton > button:hover { background-color: #C5A059 !important; color: #1a1a2e !important; box-shadow: 0px 0px 15px #C5A059; }
+    div.stButton > button:hover { background-color: #C5A059 !important; color: #1a1a2e !important; }
     [data-testid="stHorizontalBlock"] { padding: 40px 0px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); align-items: center; }
-    img { border-radius: 8px; box-shadow: 0px 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(197, 160, 89, 0.1); }
+    img { border-radius: 8px; box-shadow: 0px 10px 30px rgba(0,0,0,0.5); }
     </style>
     """, unsafe_allow_html=True)
 
@@ -36,34 +35,31 @@ st.markdown("""
 st.markdown('<p class="gold-title">OPHAY TAROT</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-title">Conexión Ancestral • 2026</p>', unsafe_allow_html=True)
 
-# 4. FUNCIÓN DE RENDERIZADO
-def draw_item(img, nom, precio, txt, link):
+# 4. FUNCIÓN
+def draw_item(img, nom, precio, txt):
     c1, c2 = st.columns([1, 1.2])
-    with c1:
-        st.image(img, use_container_width=True)
+    with c1: st.image(img, use_container_width=True)
     with c2:
         st.subheader(nom)
         st.markdown(f'<p class="desc">{txt}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="price">{precio} €</p>', unsafe_allow_html=True)
-        st.link_button("RESERVAR LECTURA", link)
+        st.link_button("RESERVAR", "https://wa.me/34600000000")
 
-# 5. PRODUCTOS (Enlaces verificados de alta estabilidad)
+# 5. PRODUCTOS (URLs Ultra-estables)
+# 1. LECTURA
+draw_item("https://cdn.pixabay.com/photo/2019/11/04/13/28/tarot-4601131_1280.jpg", 
+          "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar los hilos de tu futuro espiritual.")
 
-# LECTURA - Cartas místicas
-draw_item("https://images.unsplash.com/photo-1590424744257-fdb03ed7880d?w=800", 
-          "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar los hilos de tu futuro espiritual.", "https://wa.me/34600000000")
+# 2. MAZO
+draw_item("https://cdn.pixabay.com/photo/2020/01/26/19/27/tarot-4795556_1280.jpg", 
+          "MAZO TAROT LUXE", "45", "Edición de coleccionista con acabados dorados y diseño místico.")
 
-# MAZO - Cartas doradas
-draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=800", 
-          "MAZO TAROT LUXE", "45", "Edición de coleccionista con acabados dorados y tacto de terciopelo.", "https://wa.me/34600000000")
+# 3. CRISTAL
+draw_item("https://cdn.pixabay.com/photo/2016/09/23/11/35/amethyst-1689392_1280.jpg", 
+          "AMATISTA SAGRADA", "15", "Piedra de alta vibración para limpiar tu aura y tu hogar.")
 
-# CRISTAL - Amatista real
-draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800", 
-          "AMATISTA SAGRADA", "15", "Piedra de alta vibración para limpiar tu aura y hogar.", "https://wa.me/34600000000")
+# 4. VELA
+draw_item("https://cdn.pixabay.com/photo/2017/08/17/10/47/candle-2650808_1280.jpg", 
+          "VELA DE RITUAL", "12", "Cera natural preparada para atraer claridad y paz interior.")
 
-# VELA - Ritual esotérico (Nueva foto estable, sin delfines)
-draw_item("https://images.unsplash.com/photo-1602146461980-b2861213370e?w=800", 
-          "VELA DE RITUAL", "12", "Cera natural preparada para atraer claridad y paz interior.", "https://wa.me/34600000000")
-
-# PIE DE PÁGINA
-st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • EL UNIVERSO TE GUÍA</p></center>", unsafe_allow_html=True)
+st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • 2026</p></center>", unsafe_allow_html=True)
