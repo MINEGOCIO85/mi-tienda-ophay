@@ -8,7 +8,7 @@ DESC_ORACULO = "SESIÓN PRIVADA DE 45 MINUTOS. CLARIDAD ABSOLUTA Y GUÍA ESPIRIT
 DESC_TAROT = "MAZO PREMIUM CON BORDES DE ORO. CALIDAD DE COLECCIONISTA."
 DESC_AMATISTA = "GEODA NATURAL SELECCIONADA. PROTECCIÓN Y TRANSMUTACIÓN PURA."
 
-# 3. CSS FUERZA BRUTA
+# 3. CSS FUERZA BRUTA + PLATA DINÁMICO
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Montserrat:wght@900&display=swap');
@@ -22,11 +22,17 @@ st.markdown("""
     font-weight: 900; text-align: center;
 }
 
+/* PLATA FUERTE TIPO ACERO REAL */
 .plata-bruta {
-    font-family: 'Montserrat'; font-weight: 900; font-size: 1.3rem;
-    background: linear-gradient(145deg, #fff, #666, #fff);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    text-transform: uppercase; line-height: 1.1;
+    font-family: 'Montserrat'; 
+    font-weight: 900; 
+    font-size: 1.4rem; 
+    background: linear-gradient(90deg, #888 0%, #fff 45%, #eee 55%, #666 100%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase; 
+    line-height: 1.1;
+    filter: drop-shadow(0px 2px 4px rgba(255,255,255,0.1));
 }
 
 .card-bruta { 
