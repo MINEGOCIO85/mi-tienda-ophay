@@ -10,7 +10,6 @@ st.markdown("""
     
     .stApp { background-color: #0a0a0c; color: #ffffff; }
     
-    /* Efecto Oro Metálico */
     .gold-text {
         background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
         -webkit-background-clip: text;
@@ -33,7 +32,6 @@ st.markdown("""
         filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
     }
     
-    /* Marco con borde de oro fundido */
     .tarot-frame {
         width: 100%;
         height: 350px;
@@ -63,7 +61,6 @@ st.markdown("""
         font-weight: bold;
     }
 
-    /* Botón Oro de Lujo */
     div.stButton > button {
         background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%) !important;
         color: #0a0a0c !important;
@@ -95,13 +92,23 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# 4. LISTADO DE PRODUCTOS
+# 4. FUNCIÓN DE RENDERIZADO
 def draw_product(simbolo, nombre, precio, desc):
     col1, col2 = st.columns([1, 1])
     with col1:
         st.markdown(f'<div class="tarot-frame">{simbolo}</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(f'<p class="product-title">{nombre}</p>', unsafe_allow_html=True)
-        st.write(f"<p style='color:#d1d5db; font-style:italic;'>{desc}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='color:#d1d5db; font-style:italic;'>{desc}</p>", unsafe_allow_html=True)
         st.markdown(f'<p class="price-tag">{precio} €</p>', unsafe_allow_html=True)
-        st.link_button(f"SOLICITAR {nombre}", "
+        st.link_button(f"SOLICITAR {nombre}", "https://wa.me/34600000000")
+    st.markdown('<br><br>', unsafe_allow_html=True)
+
+# 5. PRODUCTOS
+draw_product("👁", "LECTURA DEL DESTINO", "25", "Desvela los secretos de tu hilo espiritual.")
+draw_product("🃏", "MAZO RIDER LUXE", "45", "Edición premium con cantos dorados.")
+draw_product("✨", "AMATISTA SAGRADA", "15", "Energía pura para tu altar personal.")
+draw_product("🕯️", "VELA DE RITUAL", "12", "Luz ungida para la purificación espiritual.")
+
+# 6. PIE DE PÁGINA
+st.markdown("<center><p style='color:#5c6b89; font-size:10px; letter-spacing:10px;'>OPHAY • PARIS • MMXXVI</p></center>", unsafe_allow_html=True)
