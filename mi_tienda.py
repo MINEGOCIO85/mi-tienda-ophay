@@ -1,4 +1,4 @@
-import streamlit st
+import streamlit as st
 
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
@@ -54,33 +54,4 @@ with c3:
     st.link_button("SOLICITAR", W)
 
 # 5. HORÓSCOPO
-st.markdown('<hr>', unsafe_allow_html=True)
-st.markdown('<h2 class="titulo-seccion">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
-
-Z = [("♈ ARIES","Fuego."),("♌ LEO","Brillo."),("♐ SAGITARIO","Fortuna."),
-     ("♉ TAURO","Exito."),("♍ VIRGO","Orden."),("♑ CAPRICORNIO","Rigor."),
-     ("♊ GÉMINIS","Palabra."),("♎ LIBRA","Paz."),("♒ ACUARIO","Visión."),
-     ("♋ CÁNCER","Lunar."),("♏ ESCORPIO","Poder."),(" Pisces PISCIS","Unión.")]
-
-hz = st.columns(4)
-for i, (n, t) in enumerate(Z):
-    with hz[i % 4]:
-        st.markdown(f'<p class="sig">{n}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p style="color:white;text-align:center;">{t}</p>', unsafe_allow_html=True)
-
-# 6. RITUALES
-st.markdown('<hr>', unsafe_allow_html=True)
-st.markdown('<h2 class="titulo-seccion">BIENESTAR</h2>', unsafe_allow_html=True)
-
-r1, r2, r3 = st.columns(3)
-with r1:
-    st.markdown('<p class="oro">🌿 LAUREL</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">Queme 3 hojas secas para limpiar su hogar.</p>', unsafe_allow_html=True)
-with r2:
-    st.markdown('<p class="oro">🧂 SAL</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">Vaso con sal al hielo 9 días para protección.</p>', unsafe_allow_html=True)
-with r3:
-    st.markdown('<p class="oro">✨ CANELA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="plata">Sople hacia adentro el primer día del mes.</p>', unsafe_allow_html=True)
-
-st.markdown("<br><p style='text-align:center;color:#444;'>© MMXXVI OPHAY BCN</p>", unsafe_allow_html=True)
+st.markdown('<hr>', unsafe_allow_
