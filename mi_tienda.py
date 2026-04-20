@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACION
 st.set_page_config(page_title="OPHAY", layout="wide")
 
-# 2. CAJA FUERTE DE ESTILOS (AQUÍ NO SE CORTA)
+# 2. CAJA FUERTE DE ESTILOS
 STYLE = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@100;400;700&display=swap');
@@ -18,7 +18,7 @@ STYLE = """
 """
 st.markdown(STYLE, unsafe_allow_html=True)
 
-# 3. CABECERA SEGURA
+# 3. CABECERA
 st.markdown('<h1 class="oro">OPHAY</h1>', unsafe_allow_html=True)
 st.markdown('<p class="oro" style="font-size:0.7rem;">PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
@@ -40,7 +40,7 @@ with c3:
     st.markdown('<p class="oro">AMATISTA</p>', unsafe_allow_html=True)
     st.markdown(f'<a href="{W}Piedra" class="btn">CONSULTAR</a>', unsafe_allow_html=True)
 
-# 5. ZODIACO (SIN LÍNEAS LARGAS)
+# 5. HOROSCOPO
 st.markdown('<h2 class="oro">HORÓSCOPO</h2>', unsafe_allow_html=True)
 Z = [("♈ ARIES","Fuego vital."),("♌ LEO","Brillo solar."),("♐ SAGITARIO","Fortuna."),
      ("♉ TAURO","Exito real."),("♍ VIRGO","Orden total."),("♑ CAPRICORNIO","Disciplina."),
@@ -53,12 +53,30 @@ for i, (n, t) in enumerate(Z):
         st.markdown(f'<p class="sig">{n}</p>', unsafe_allow_html=True)
         st.markdown(f'<p class="txt">{t}</p>', unsafe_allow_html=True)
 
-# 6. RITUALES (TEXTOS AMPLIADOS EN VARIABLES)
+# 6. RITUALES (CONSTRUCCIÓN SEGURA POR FRAGMENTOS)
 st.markdown('<h2 class="oro">BIENESTAR</h2>', unsafe_allow_html=True)
-R1 = "Quema laurel seco para purificar su hogar y atraer luz dorada."
-R2 = "Congele sus miedos en un caliz con sal marina durante 9 dias."
-R3 = "Sople canela en su umbral para atraer abundancia infinita."
 
 r1, r2, r3 = st.columns(3)
+
+# Ritual 1
 with r1:
-    st.markdown(f'<div class="box"><p class="oro">🌿 LAUREL</
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<p class="oro">🌿 LAUREL</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Quema laurel seco para purificar.</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Ritual 2
+with r2:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<p class="oro">🧂 SAL</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Vaso al hielo durante 9 dias.</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# Ritual 3
+with r3:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<p class="oro">✨ CANELA</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Sopla canela en su umbral.</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown("<p style='text-align:center;color:#444;'>© OPHAY BCN</p>", unsafe_allow_html=True)
