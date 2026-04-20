@@ -1,79 +1,81 @@
 import streamlit as st
 
-# 1. CONFIGURACIÓN DE PÁGINA
-st.set_page_config(page_title="OPHAY | Boutique & Horóscopo", layout="wide")
+# 1. AJUSTES TÉCNICOS
+st.set_page_config(page_title="OPHAY | Boutique & Destino", layout="wide")
 
-# 2. ESTILO CSS "DIARIO MÍSTICO"
+# 2. ESTILO VISUAL (Gris Oxford y Dorado)
 st.markdown("""
     <style>
-    .main { background-color: #0a0a0a; color: #FFFFFF; }
-    [data-testid="stAppViewContainer"] { background-color: #0a0a0a; }
-    
+    .main { background-color: #0d0d0d; color: #eee; }
+    [data-testid="stAppViewContainer"] { background-color: #0d0d0d; }
     .logo-text {
-        font-family: 'serif'; text-align: center; font-size: 3.5rem; letter-spacing: 12px;
-        background: linear-gradient(145deg, #ffffff, #d4af37, #aa8a2e);
+        font-family: serif; text-align: center; font-size: 3.5rem; letter-spacing: 12px;
+        background: linear-gradient(145deg, #fff, #d4af37, #aa8a2e);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        font-weight: bold; margin-bottom: 0px;
+        font-weight: bold; margin: 0;
     }
-
     .card {
-        background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.2);
-        padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px;
+        background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
+        padding: 20px; border-radius: 15px; text-align: center;
     }
-
     .fecha-banner {
-        text-align: center; color: #d4af37; font-family: 'serif';
-        font-size: 1.1rem; letter-spacing: 3px; border: 1px solid #d4af37;
-        padding: 8px 20px; width: fit-content; margin: 30px auto; border-radius: 50px;
+        text-align: center; color: #d4af37; border: 1px solid #d4af37;
+        padding: 8px; width: fit-content; margin: 20px auto; border-radius: 50px; font-size: 0.9rem;
     }
-
     .camino-box {
-        background: #111111; border-radius: 20px; padding: 25px;
-        border-left: 5px solid #d4af37; margin-top: 15px;
+        background: #111; border-radius: 15px; padding: 20px;
+        border-left: 5px solid #d4af37; margin-top: 10px;
     }
-
-    .signo-header { color: #d4af37; font-family: 'serif'; font-size: 1.6rem; margin-bottom: 5px; }
-    .meta-camino { color: #aa8a2e; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-    .prediction-text { color: #cccccc; font-size: 1.05rem; line-height: 1.7; margin-top: 10px; }
-    
-    .stTabs [data-baseweb="tab"] { color: #777 !important; font-weight: bold; font-size: 1.1rem !important; }
-    .stTabs [aria-selected="true"] { color: #d4af37 !important; border-bottom: 2px solid #d4af37 !important; }
-    
+    .signo-header { color: #d4af37; font-family: serif; font-size: 1.4rem; margin: 0; }
+    .meta-camino { color: #aa8a2e; font-size: 0.7rem; font-weight: bold; letter-spacing: 2px; }
+    .stTabs [data-baseweb="tab"] { color: #777 !important; font-weight: bold; }
+    .stTabs [aria-selected="true"] { color: #d4af37 !important; border-bottom-color: #d4af37 !important; }
     .stButton>button {
         background-color: #d4af37 !important; color: #000 !important;
-        border-radius: 25px !important; font-weight: bold !important; width: 100%;
+        border-radius: 20px !important; font-weight: bold !important; width: 100%;
     }
     </style>
     """, unsafe_allow_html=True)
 
 # 3. CABECERA
 st.markdown('<h1 class="logo-text">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown("<p style='text-align:center; color:#d4af37; letter-spacing:5px; font-size:0.8rem;'>BARCELONA • PRIVATE BOUTIQUE</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;color:#d4af37;letter-spacing:5px;font-size:0.8rem;margin-bottom:30px;'>BARCELONA • PRIVATE BOUTIQUE</p>", unsafe_allow_html=True)
 
-user = "MINEGOCIO85"
-repo = "mi-tienda-ophay"
-base_url = f"https://raw.githubusercontent.com/{user}/{repo}/main"
+# 4. PRODUCTOS
+u, r = "MINEGOCIO85", "mi-tienda-ophay"
+b = f"https://raw.githubusercontent.com/{u}/{r}/main"
 
-# 4. TIENDA
-col1, col2, col3 = st.columns(3)
-
-with col1:
+c1, c2, c3 = st.columns(3)
+with c1:
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/primera%20foto%20isoterica.png")
-    st.markdown('<div style="color:#d4af37; font-weight:bold; margin-top:10px;">ORÁCULO</div><div style="margin-bottom:15px;">25€</div>', unsafe_allow_html=True)
+    st.image(f"{b}/primera%20foto%20isoterica.png")
+    st.markdown('<div style="color:#d4af37;font-weight:bold;margin-top:10px;">ORÁCULO</div><div>25€</div><br>', unsafe_allow_html=True)
     st.link_button("RESERVAR", "https://wa.me/34684668398")
     st.markdown('</div>', unsafe_allow_html=True)
-
-with col2:
+with c2:
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png")
-    st.markdown('<div style="color:#d4af37; font-weight:bold; margin-top:10px;">RIDER LUXE</div><div style="margin-bottom:15px;">45€</div>', unsafe_allow_html=True)
+    st.image(f"{b}/SEGUNDA%20FOTO%20ESOTERICA.png")
+    st.markdown('<div style="color:#d4af37;font-weight:bold;margin-top:10px;">RIDER LUXE</div><div>45€</div><br>', unsafe_allow_html=True)
     st.link_button("ADQUIRIR", "https://wa.me/34684668398")
     st.markdown('</div>', unsafe_allow_html=True)
-
-with col3:
+with c3:
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/Amatista.png")
-    st.markdown('<div style="color:#d4af37; font-weight:bold; margin-top:10px;">AMATISTA</div><div style="margin-bottom:15px;">15€</div>', unsafe_allow_html=True)
+    st.image(f"{b}/Amatista.png")
+    st.markdown('<div style="color:#d4af37;font-weight:bold;margin-top:10px;">AMATISTA</div><div>15€</div><br>', unsafe_allow_html=True)
     st.link_button("COMPRAR", "https://wa.me/34684668398")
-    st.markdown('</div>', unsafe_allow_html=
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# 5. HORÓSCOPO SEMANAL POR FECHAS
+st.markdown("<br><br><h2 style='text-align:center;color:#d4af37;font-family:serif;'>✨ EL CAMINO DE LA SEMANA ✨</h2>", unsafe_allow_html=True)
+st.markdown('<div class="fecha-banner">📅 SEMANA DEL 20 AL 26 DE ABRIL, 2026</div>', unsafe_allow_html=True)
+
+ts = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
+
+with ts[0]:
+    st.markdown("""<div class="camino-box"><p class="signo-header">Aries, Leo, Sagitario</p><span class="meta-camino">EL CAMINO DE LA ACCIÓN</span><p style="color:#ccc;margin-top:10px;"><b>Inicio de semana:</b> Energía de Marte a tope. Cierra tratos lunes o martes.<br><b>Fin de semana:</b> El fuego pide calma. El domingo recibirás una señal intuitiva clave.</p></div>""", unsafe_allow_html=True)
+with ts[1]:
+    st.markdown("""<div class="camino-box"><p class="signo-header">Tauro, Virgo, Capricornio</p><span class="meta-camino">EL CAMINO DE LA COSECHA</span><p style="color:#ccc;margin-top:10px;"><b>Inicio de semana:</b> Orden financiero. Un pago pendiente se confirma.<br><b>Fin de semana:</b> Limpia tu espacio personal. El orden atraerá abundancia para mayo.</p></div>""", unsafe_allow_html=True)
+with ts[2]:
+    st.markdown("""<div class="camino-box"><p class="signo-header">Géminis, Libra, Acuario</p><span class="meta-camino">EL CAMINO DE LA VERDAD</span><p style="color:#ccc;margin-top:10px;"><b>Inicio de semana:</b> Mercurio te da elocuencia. Habla hoy, no lo dejes para mañana.<br><b>Fin de semana:</b> Evento social inesperado. Alguien del pasado trae una propuesta chula.</p></div>""", unsafe_allow_html=True)
+with ts[3]:
+    st.markdown("""<div class="camino-box"><p class="signo-header">Cáncer, Escorpio, Piscis</p><span class="meta-camino">EL CAMINO DEL INSTINTO</span><p style="color:#ccc;margin-top:10px;"><b>Inicio de semana:</b> Sueños muy vívidos. Escucha
