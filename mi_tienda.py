@@ -3,124 +3,123 @@ import streamlit as st
 # Configuración de la página
 st.set_page_config(page_title="Ophay Tarot | Boutique & Horóscopo", layout="wide")
 
-# ESTILO LUXE VIBRANTE + SECCIÓN HORÓSCOPO
+# ESTILO LUXE CON PROFUNDIDAD (MÁS LUZ Y CONTRASTE)
 st.markdown("""
     <style>
-    .main { background-color: #050505; color: #ffffff; }
-    [data-testid="stAppViewContainer"] { background-color: #050505; }
+    /* Fondo con degradado para que no sea negro total */
+    .main { 
+        background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); 
+        color: #ffffff; 
+    }
+    [data-testid="stAppViewContainer"] { 
+        background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); 
+    }
     
+    /* Logo con brillo extra */
     .logo-main {
-        background: linear-gradient(to bottom, #fcf6ba 0%, #d4af37 40%, #aa8a2e 100%);
+        background: linear-gradient(to bottom, #ffffff 0%, #d4af37 50%, #aa8a2e 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: 3rem;
-        letter-spacing: 10px;
+        font-size: 3.5rem;
+        letter-spacing: 12px;
         font-family: 'serif';
         text-align: center;
         font-weight: bold;
-        margin: 0;
+        filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.3));
     }
 
+    /* Tarjetas más claras para resaltar */
     .product-card {
-        background: #0a0a0a;
-        border: 1px solid #221d14;
-        padding: 20px;
+        background: rgba(255, 255, 255, 0.05); /* Gris muy suave translúcido */
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        padding: 25px;
         text-align: center;
-        border-radius: 10px;
-        box-shadow: 0px 0px 15px rgba(212,175,55,0.1);
-        margin-bottom: 20px;
-    }
-    
-    .horoscopo-header {
-        color: #d4af37;
-        font-family: 'serif';
-        text-align: center;
-        font-size: 2rem;
-        letter-spacing: 5px;
-        margin-top: 50px;
-    }
-
-    .horoscopo-texto {
-        background: #111;
-        padding: 20px;
         border-radius: 15px;
-        border-left: 5px solid #d4af37;
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #e0e0e0;
-    }
-
-    .stButton>button {
-        background: linear-gradient(145deg, #d4af37, #b8962e) !important;
-        color: #000000 !important;
-        font-weight: bold !important;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        border: none !important;
-        width: 100%;
-        height: 45px;
+        backdrop-filter: blur(10px);
+        margin-bottom: 20px;
+        transition: 0.4s;
     }
     
-    [data-testid="stImage"] img { border-radius: 5px; border: 1px solid #332b1a; }
+    .product-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #d4af37;
+        transform: translateY(-5px);
+    }
+
+    /* Títulos y textos con más luz */
+    .product-title {
+        color: #fcf6ba; /* Oro clarito */
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        font-family: 'serif';
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        color: #888;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    .stTabs [aria-selected="true"] {
+        color: #d4af37 !important;
+        border-bottom-color: #d4af37 !important;
+    }
+
+    /* Botón vibrante */
+    .stButton>button {
+        background: #d4af37 !important;
+        color: #000000 !important;
+        font-weight: 900 !important;
+        border: none !important;
+        box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.4);
+    }
     </style>
     """, unsafe_allow_html=True)
 
 # --- CABECERA ---
-st.markdown('<div style="text-align:center; padding: 30px 0;"><h1 class="logo-main">OPHAY</h1><p style="color:#d4af37; letter-spacing:5px; font-size:0.8rem; opacity:0.7;">ALTA CLARIVIDENCIA • BARCELONA</p></div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center; padding: 40px 0;"><h1 class="logo-main">OPHAY</h1><p style="color:#d4af37; letter-spacing:5px; font-size:0.9rem; font-weight:bold;">ALTA CLARIVIDENCIA • BARCELONA</p></div>', unsafe_allow_html=True)
 
 user = "MINEGOCIO85"
 repo = "mi-tienda-ophay"
 base_url = f"https://raw.githubusercontent.com/{user}/{repo}/main"
 
-# --- SECCIÓN TIENDA ---
+# --- TIENDA ---
 col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/primera%20foto%20isoterica.png", width=200)
-    st.markdown('<div style="color:#d4af37; font-size:1.1rem; font-family:serif; margin-top:10px;">ORÁCULO</div><div style="color:white; margin-bottom:15px;">25 €</div>', unsafe_allow_html=True)
-    st.link_button("RESERVAR", "https://wa.me/34684668398")
+    st.image(f"{base_url}/primera%20foto%20isoterica.png", width=220)
+    st.markdown('<div class="product-title">ORÁCULO</div><div style="color:#fff; font-size:1.3rem; margin-bottom:15px; font-weight:bold;">25 €</div>', unsafe_allow_html=True)
+    st.link_button("RESERVAR SESIÓN", "https://wa.me/34684668398")
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png", width=200)
-    st.markdown('<div style="color:#d4af37; font-size:1.1rem; font-family:serif; margin-top:10px;">RIDER LUXE</div><div style="color:white; margin-bottom:15px;">45 €</div>', unsafe_allow_html=True)
-    st.link_button("ADQUIRIR", "https://wa.me/34684668398")
+    st.image(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png", width=220)
+    st.markdown('<div class="product-title">RIDER LUXE</div><div style="color:#fff; font-size:1.3rem; margin-bottom:15px; font-weight:bold;">45 €</div>', unsafe_allow_html=True)
+    st.link_button("ADQUIRIR MAZO", "https://wa.me/34684668398")
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col3:
     st.markdown('<div class="product-card">', unsafe_allow_html=True)
-    st.image(f"{base_url}/Amatista.png", width=200)
-    st.markdown('<div style="color:#d4af37; font-size:1.1rem; font-family:serif; margin-top:10px;">AMATISTA</div><div style="color:white; margin-bottom:15px;">15 €</div>', unsafe_allow_html=True)
-    st.link_button("COMPRAR", "https://wa.me/34684668398")
+    st.image(f"{base_url}/Amatista.png", width=220)
+    st.markdown('<div class="product-title">AMATISTA</div><div style="color:#fff; font-size:1.3rem; margin-bottom:15px; font-weight:bold;">15 €</div>', unsafe_allow_html=True)
+    st.link_button("COMPRAR GEMA", "https://wa.me/34684668398")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# --- SECCIÓN HORÓSCOPO SEMANAL ---
-st.markdown("---")
-st.markdown('<h2 class="horoscopo-header">✨ TU DESTINO SEMANAL ✨</h2>', unsafe_allow_html=True)
-st.markdown("<p style='text-align:center; color:#888;'>Consulta tu signo gratis. Actualizado por Ophay.</p>", unsafe_allow_html=True)
+# --- HORÓSCOPO ---
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown('<h2 style="text-align:center; color:#d4af37; font-family:serif; letter-spacing:4px;">✨ HORÓSCOPO SEMANAL ✨</h2>', unsafe_allow_html=True)
 
-tab1, tab2, tab3, tab4 = st.tabs(["FUEGO", "TIERRA", "AIRE", "AGUA"])
+tab1, tab2, tab3, tab4 = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
 
-with tab1: # Aries, Leo, Sagitario
-    st.markdown("**Aries (♈):** Esta semana vas a fuego. No dejes que nadie apague tu brillo, pero ojo con las discusiones tontas.")
-    st.markdown("**Leo (♌):** Eres el centro de atención. El universo te debe una, y te la va a pagar estos días.")
-    st.markdown("**Sagitario (♐):** Una aventura inesperada llama a tu puerta. Di que sí, no seas aburrido/a.")
+with tab1:
+    st.info("**Aries, Leo, Sagitario:** La energía de Marte te empuja a tomar decisiones valientes. No esperes a que las cosas pasen, ¡haz que pasen! Tu número es el 7.")
+with tab2:
+    st.info("**Tauro, Virgo, Capricornio:** Semana de estabilidad financiera. Un proyecto que dabas por perdido revive. Mantén los pies en la tierra pero la mente en tus metas.")
+with tab3:
+    st.info("**Géminis, Libra, Acuario:** La comunicación es tu fuerte estos días. Recibirás un mensaje importante de alguien que no esperabas. Abre tu mente.")
+with tab4:
+    st.info("**Cáncer, Escorpio, Piscis:** Tus emociones están a flor de piel. Es un buen momento para una limpieza energética con amatista. Confía en tu instinto.")
 
-with tab2: # Tauro, Virgo, Capricornio
-    st.markdown("**Tauro (♉):** El dinero se mueve. Revisa bien esos gastos, pero date un capricho pequeño.")
-    st.markdown("**Virgo (♍):** Orden en la mente, orden en la vida. Alguien del pasado vuelve, tú decides si abres.")
-    st.markdown("**Capricornio (♑):** Tu esfuerzo por fin se nota. Respira, que vas por el buen camino.")
-
-with tab3: # Géminis, Libra, Acuario
-    st.markdown("**Géminis (♊):** Tu lengua es un arma esta semana. Úsala para seducir, no para herir.")
-    st.markdown("**Libra (♎):** El equilibrio llega tras la tormenta. Una noticia familiar te dará paz.")
-    st.markdown("**Acuario (♒):** Tu creatividad está por las nubes. Es el momento de ese proyecto loco.")
-
-with tab4: # Cáncer, Escorpio, Piscis
-    st.markdown("**Cáncer (♋):** Saca los pañuelos, pero de alegría. Una reconciliación está muy cerca.")
-    st.markdown("**Escorpio (♏):** Tu magnetismo es brutal hoy. Vas a conseguir lo que te propongas.")
-    st.markdown("**Piscis (♓):** Escucha tus sueños. Tu intuición está más afilada que nunca, no la ignores.")
-
-st.markdown("<br><p style='text-align:center; color:#444; font-size:0.7rem; letter-spacing:3px;'>PRIVATE COLLECTION • BARCELONA</p>", unsafe_allow_html=True)
+st.markdown("<br><br><p style='text-align:center; color:#666; font-size:0.8rem; letter-spacing:3px;'>© MMXXVI OPHAY PRIVATE COLLECTION</p>", unsafe_allow_html=True)
