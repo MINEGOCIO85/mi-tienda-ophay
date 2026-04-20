@@ -1,64 +1,26 @@
 import streamlit as st
 
 # 1. CONFIGURACIÓN
-st.set_page_config(page_title="OPHAY", layout="wide")
+st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. CSS DE ALTA CONEXIÓN VISUAL
+# 2. ESTILO MAESTRO
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
-
 .main,[data-testid="stAppViewContainer"]{ background-color: #050505; }
-
-/* Títulos con brillo metálico */
-.titulo-joya {
-    font-family: 'Cinzel';
-    color: #f1c40f;
-    text-shadow: 0px 0px 10px rgba(241, 196, 15, 0.3);
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 0px;
-}
-
-/* Descripción con foco visual */
-.foco-texto {
-    color: #ffffff;
-    font-family: 'Montserrat';
-    font-size: 0.95rem;
-    text-align: center;
-    line-height: 1.6;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-    padding: 15px;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-/* Etiquetas de categoría */
-.tag-plata {
-    color: #bdc3c7;
-    font-family: 'Montserrat';
-    font-size: 0.65rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Ajuste de imágenes */
-[data-testid="stImage"] img {
-    border-radius: 10px;
-    border: 1px solid rgba(241, 196, 15, 0.2);
-}
+.oro { font-family: 'Cinzel'; color: #f1c40f; font-weight: 900; text-align: center; }
+.precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 1.2rem; font-weight: 700; text-align: center; margin: 10px 0; }
+.desc { color: #ffffff; font-family: 'Montserrat'; font-size: 0.85rem; text-align: center; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; }
+.sig { color: #f1c40f; font-family: 'Cinzel'; font-weight: 700; text-align: center; margin-top: 15px; }
+.plata { color: #bdc3c7; font-family: 'Montserrat'; font-size: 0.75rem; text-align: center; font-style: italic; }
 </style>
 """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<h1 class="titulo-joya" style="font-size:4rem;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown('<p class="tag-plata" style="color:#f1c40f;">Barcelona Private Boutique</p>', unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown('<h1 class="oro" style="font-size:3.5rem;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<p class="oro" style="letter-spacing:8px; font-size:0.7rem;">BARCELONA • PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
-# 4. PRODUCTOS CON CONEXIÓN VISUAL
+# 4. PRODUCTOS (CON PRECIO Y WHATSAPP)
 B = "https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
 W = "https://wa.me/34684668398?text="
 
@@ -66,43 +28,58 @@ c1, c2, c3 = st.columns(3)
 
 with c1:
     st.image(B + "primera%20foto%20isoterica.png")
-    st.markdown('<span class="tag-plata">Servicio Exclusivo</span>', unsafe_allow_html=True)
-    st.markdown('<h2 class="titulo-joya">ORÁCULO</h2>', unsafe_allow_html=True)
-    st.markdown('<div class="foco-texto">Descubra los secretos de su destino con una consulta privada de alta precisión. Sabiduría ancestral para tiempos modernos.</div>', unsafe_allow_html=True)
-    st.link_button("AGENDAR SESIÓN", f"{W}Cita_Oraculo")
+    st.markdown('<h2 class="oro">ORÁCULO</h2>', unsafe_allow_html=True)
+    st.markdown('<p class="precio">60€</p>', unsafe_allow_html=True)
+    st.markdown('<div class="desc">Consulta privada de clarividencia. Revelamos los hilos invisibles de su destino con alta precisión mística.</div>', unsafe_allow_html=True)
+    st.link_button("💬 RESERVAR POR WHATSAPP", f"{W}Hola, deseo reservar una sesión de Oráculo")
 
 with c2:
     st.image(B + "SEGUNDA%20FOTO%20ESOTERICA.png")
-    st.markdown('<span class="tag-plata">Edición Coleccionista</span>', unsafe_allow_html=True)
-    st.markdown('<h2 class="titulo-joya">RIDER LUXE</h2>', unsafe_allow_html=True)
-    st.markdown('<div class="foco-texto">El mazo definitivo. Acabados en oro y tacto aterciopelado para una conexión superior con el arte del Tarot.</div>', unsafe_allow_html=True)
-    st.link_button("ADQUIRIR AHORA", f"{W}Rider_Gold")
+    st.markdown('<h2 class="oro">RIDER LUXE</h2>', unsafe_allow_html=True)
+    st.markdown('<p class="precio">45€</p>', unsafe_allow_html=True)
+    st.markdown('<div class="desc">Edición artesanal con acabados en oro. El mazo definitivo para una conexión superior con el Tarot.</div>', unsafe_allow_html=True)
+    st.link_button("💬 COMPRAR POR WHATSAPP", f"{W}Hola, quiero adquirir el mazo Rider Luxe Gold")
 
 with c3:
     st.image(B + "Amatista.png")
-    st.markdown('<span class="tag-plata">Piedra Sagrada</span>', unsafe_allow_html=True)
-    st.markdown('<h2 class="titulo-joya">AMATISTA</h2>', unsafe_allow_html=True)
-    st.markdown('<div class="foco-texto">Geoda seleccionada a mano por su pureza vibracional. El amuleto definitivo para proteger su santuario personal.</div>', unsafe_allow_html=True)
-    st.link_button("SOLICITAR PIEZA", f"{W}Amatista_Luxe")
+    st.markdown('<h2 class="oro">AMATISTA</h2>', unsafe_allow_html=True)
+    st.markdown('<p class="precio">35€</p>', unsafe_allow_html=True)
+    st.markdown('<div class="desc">Geoda sagrada seleccionada por su pureza. Ideal para proteger su santuario y transmutar energías.</div>', unsafe_allow_html=True)
+    st.link_button("💬 SOLICITAR POR WHATSAPP", f"{W}Hola, me interesa la pieza de Amatista Sagrada")
 
-# 5. DIVISOR DORADO ELEGANTE
-st.markdown("<hr style='border: 0; height: 1px; background: linear-gradient(90deg, transparent, #f1c40f, transparent); margin: 50px 0;'>", unsafe_allow_html=True)
+# 5. HORÓSCOPO COMPLETO
+st.markdown("<br><hr style='border-color:#f1c40f;'><br>", unsafe_allow_html=True)
+st.markdown('<h2 class="oro" style="font-size:2.5rem;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
 
-# 6. BIENESTAR (DISEÑO MÁS LIMPIO)
-st.markdown('<h2 class="titulo-joya">ALQUIMIA DE BIENESTAR</h2>', unsafe_allow_html=True)
-st.markdown("<br>", unsafe_allow_html=True)
+Z = [("♈ ARIES","Fuego vital."),("♌ LEO","Brillo solar."),("♐ SAGITARIO","Fortuna."),
+     ("♉ TAURO","Exito real."),("♍ VIRGO","Orden total."),("♑ CAPRICORNIO","Disciplina."),
+     ("♊ GÉMINIS","Palabra viva."),("♎ LIBRA","Equilibrio."),("♒ ACUARIO","Vision."),
+     ("♋ CÁNCER","Paz lunar."),("♏ ESCORPIO","Magnetismo."),("♓ PISCIS","Conexion.")]
+
+hz = st.columns(4)
+for i, (n, t) in enumerate(Z):
+    with hz[i % 4]:
+        st.markdown(f'<p class="sig">{n}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:white; text-align:center; font-size:0.8rem;">{t}</p>', unsafe_allow_html=True)
+
+# 6. RITUALES (PASO A PASO)
+st.markdown("<br><hr style='border-color:#f1c40f;'><br>", unsafe_allow_html=True)
+st.markdown('<h2 class="oro" style="font-size:2rem;">BIENESTAR SAGRADO</h2>', unsafe_allow_html=True)
 
 r1, r2, r3 = st.columns(3)
 with r1:
-    st.markdown('<p class="titulo-joya" style="font-size:1.2rem;">🌿 LIMPIEZA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="foco-texto" style="font-size:0.8rem;">Queme tres hojas de laurel seco. Limpie su aura y su hogar de sombras del pasado.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="oro">🌿 LAUREL</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:white; text-align:center; font-size:0.8rem;">Queme tres hojas de laurel para limpiar su hogar de sombras del pasado.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="plata">Paso: Recorra de dentro hacia fuera visualizando luz.</p>', unsafe_allow_html=True)
 
 with r2:
-    st.markdown('<p class="titulo-joya" style="font-size:1.2rem;">🧂 PROTECCIÓN</p>', unsafe_allow_html=True)
-    st.markdown('<p class="foco-texto" style="font-size:0.8rem;">Vaso de cristal, sal marina y 9 días de congelación para neutralizar envidias.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="oro">🧂 SAL Y HIELO</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:white; text-align:center; font-size:0.8rem;">Neutralice envidias. Use un vaso de cristal con sal marina y su intención.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="plata">Paso: Deje 9 días en el congelador y luego deseche.</p>', unsafe_allow_html=True)
 
 with r3:
-    st.markdown('<p class="titulo-joya" style="font-size:1.2rem;">✨ ABUNDANCIA</p>', unsafe_allow_html=True)
-    st.markdown('<p class="foco-texto" style="font-size:0.8rem;">Canela en polvo en el umbral. Deje que el flujo del dinero entre en su vida cada mes.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="oro">✨ CANELA</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color:white; text-align:center; font-size:0.8rem;">Atraiga abundancia. Sople canela en polvo el primer día de cada mes.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="plata">Paso: Desde el umbral sople hacia el interior de su casa.</p>', unsafe_allow_html=True)
 
-st.markdown("<br><p style='text-align:center; color:#333; font-family:Montserrat; font-size:0.6rem;'>© MMXXVI OPHAY BOUTIQUE BARCELONA</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align:center; color:#444;'>© MMXXVI OPHAY BOUTIQUE BARCELONA</p>", unsafe_allow_html=True)
