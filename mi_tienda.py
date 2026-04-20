@@ -3,7 +3,7 @@ import streamlit as st
 # Configuración de la página
 st.set_page_config(page_title="Ophay Tarot | Boutique Mística", layout="wide")
 
-# ESTILO NEGRO Y DORADO (Lujo absoluto)
+# ESTILO NEGRO Y DORADO PROFESIONAL
 st.markdown("""
     <style>
     .main { background-color: #000000; color: #ffffff; }
@@ -15,7 +15,14 @@ st.markdown("""
         border-radius: 5px;
         border: none;
         width: 100%;
-        height: 50px;
+        height: 45px;
+    }
+    .mystick-icon {
+        font-size: 80px;
+        color: #d4af37;
+        text-align: center;
+        display: block;
+        margin-bottom: 10px;
     }
     h1, h3 { color: #d4af37 !important; text-align: center; font-family: 'serif'; }
     p { text-align: center; }
@@ -32,27 +39,24 @@ st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    # Foto de Tarot
-    st.image("https://images.unsplash.com/photo-1590534247854-e97d5e3fe367?auto=format&fit=crop&q=80&w=400", use_container_width=True)
+    st.markdown('<span class="mystick-icon">👁️‍🗨️</span>', unsafe_allow_html=True)
     st.markdown("### ORÁCULO DEL DESTINO")
     st.markdown("<p><b>25 €</b></p>", unsafe_allow_html=True)
-    st.markdown("<p>Sesión profunda de clarividencia.</p>", unsafe_allow_html=True)
+    st.markdown("<p>Sesión profunda de clarividencia evolutiva.</p>", unsafe_allow_html=True)
     st.link_button("RESERVAR SESIÓN", "https://wa.me/34684668398")
 
 with col2:
-    # Foto de Cartas
-    st.image("https://images.unsplash.com/photo-1601049676518-d400a7b057bb?auto=format&fit=crop&q=80&w=400", use_container_width=True)
+    st.markdown('<span class="mystick-icon">🃏</span>', unsafe_allow_html=True)
     st.markdown("### MAZO RIDER LUXE")
     st.markdown("<p><b>45 €</b></p>", unsafe_allow_html=True)
-    st.markdown("<p>Edición premium detalles dorados.</p>", unsafe_allow_html=True)
+    st.markdown("<p>Edición premium con detalles artísticos.</p>", unsafe_allow_html=True)
     st.link_button("LO QUIERO", "https://wa.me/34684668398")
 
 with col3:
-    # Foto de Cristal
-    st.image("https://images.unsplash.com/photo-1567606117528-5febf1be6d5b?auto=format&fit=crop&q=80&w=400", use_container_width=True)
+    st.markdown('<span class="mystick-icon">💎</span>', unsafe_allow_html=True)
     st.markdown("### AMATISTA SAGRADA")
     st.markdown("<p><b>15 €</b></p>", unsafe_allow_html=True)
-    st.markdown("<p>Cristal purificado bajo Luna Llena.</p>", unsafe_allow_html=True)
+    st.markdown("<p>Cristal purificado para transmutación.</p>", unsafe_allow_html=True)
     st.link_button("COMPRAR", "https://wa.me/34684668398")
 
 st.markdown("---")
