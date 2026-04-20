@@ -16,9 +16,9 @@ st.markdown("""<style>
 
 # 3. CABECERA
 st.markdown('<h1 class="oro" style="font-size:3.5rem;margin:0;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown('<p style="color:#d4af37;text-align:center;font-size:0.6rem;letter-spacing:8px;">BARCELONA PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
+st.markdown('<p style="color:#d4af37;text-align:center;font-size:0.6rem;letter-spacing:8px;">PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
-# 4. PRODUCTOS
+# 4. TIENDA
 B="https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
 W="https://wa.me/34684668398?text="
 c1,c2,c3=st.columns(3)
@@ -36,18 +36,49 @@ with c3:
     st.image(B+"Amatista.png")
     st.markdown('<p class="oro" style="font-size:1.4rem;">AMATISTA</p><a href="'+W+'Piedra" class="btn">CONSULTAR</a></div>',unsafe_allow_html=True)
 
-# 5. HORÓSCOPO CON LOGOS MÍSTICOS
+# 5. HORÓSCOPO (LÍNEAS ULTRA-CORTAS ANTI-CORTE)
 st.markdown("<br><h2 class='oro' style='font-size:2.2rem;'>HOROSCOPO</h2>",unsafe_allow_html=True)
 
-# Fila 1
 f1, f2, f3, f4 = st.columns(4)
-f1.markdown('<p class="sig">♈ ARIES</p><p class="txt">Lidera con fuerza.</p>', unsafe_allow_html=True)
-f2.markdown('<p class="sig">♉ TAURO</p><p class="txt">Exito financiero.</p>', unsafe_allow_html=True)
-f3.markdown('<p class="sig">♊ GEMINIS</p><p class="txt">Claridad mental.</p>', unsafe_allow_html=True)
-f4.markdown('<p class="sig">♋ CANCER</p><p class="txt">Paz en tu hogar.</p>', unsafe_allow_html=True)
+with f1:
+    st.markdown('<p class="sig">♈ ARIES</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Lidera con fuerza.</p>', unsafe_allow_html=True)
+with f2:
+    st.markdown('<p class="sig">♉ TAURO</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Exito financiero.</p>', unsafe_allow_html=True)
+with f3:
+    st.markdown('<p class="sig">♊ GEMINIS</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Claridad mental.</p>', unsafe_allow_html=True)
+with f4:
+    st.markdown('<p class="sig">♋ CANCER</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Paz en tu hogar.</p>', unsafe_allow_html=True)
 
-# Fila 2
 f5, f6, f7, f8 = st.columns(4)
-f5.markdown('<p class="sig">♌ LEO</p><p class="txt">Brilla con tu luz.</p>', unsafe_allow_html=True)
-f6.markdown('<p class="sig">♍ VIRGO</p><p class="txt">Orden y abundancia.</p>', unsafe_allow_html=True)
-f7.markdown('<p class="sig">♎ LIBRA</p><p
+with f5:
+    st.markdown('<p class="sig">♌ LEO</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Brilla con tu luz.</p>', unsafe_allow_html=True)
+with f6:
+    st.markdown('<p class="sig">♍ VIRGO</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Orden y abundancia.</p>', unsafe_allow_html=True)
+with f7:
+    st.markdown('<p class="sig">♎ LIBRA</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Equilibrio total.</p>', unsafe_allow_html=True)
+with f8:
+    st.markdown('<p class="sig">♏ ESCORPIO</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Transformacion.</p>', unsafe_allow_html=True)
+
+f9, fa, fb, fc = st.columns(4)
+with f9:
+    st.markdown('<p class="sig">♐ SAGITARIO</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Nuevos horizontes.</p>', unsafe_allow_html=True)
+with fa:
+    st.markdown('<p class="sig">♑ CAPRI</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Recoge tus frutos.</p>', unsafe_allow_html=True)
+with fb:
+    st.markdown('<p class="sig">♒ ACUARIO</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Innovacion pura.</p>', unsafe_allow_html=True)
+with fc:
+    st.markdown('<p class="sig">♓ PISCIS</p>', unsafe_allow_html=True)
+    st.markdown('<p class="txt">Sigue tu intuicion.</p>', unsafe_allow_html=True)
+
+st.markdown("<br><p style='text-align:center;color:#333;font-size:0.5rem;'>© OPHAY BCN</p>",unsafe_allow_html=True)
