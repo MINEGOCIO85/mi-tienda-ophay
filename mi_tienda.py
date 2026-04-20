@@ -3,13 +3,13 @@ import streamlit as st
 # 1. AJUSTES TÉCNICOS
 st.set_page_config(page_title="OPHAY | Boutique & Destino", layout="wide")
 
-# 2. ESTILO VISUAL (Gris Oxford y Dorado)
+# 2. ESTILO VISUAL "MYSTIC LUXURY"
 st.markdown("""
     <style>
     .main { background-color: #0d0d0d; color: #eee; }
     [data-testid="stAppViewContainer"] { background-color: #0d0d0d; }
     .logo-text {
-        font-family: serif; text-align: center; font-size: 3.2rem; letter-spacing: 12px;
+        font-family: serif; text-align: center; font-size: 3.5rem; letter-spacing: 12px;
         background: linear-gradient(145deg, #fff, #d4af37, #aa8a2e);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         font-weight: bold; margin: 0;
@@ -18,12 +18,13 @@ st.markdown("""
         background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
         padding: 20px; border-radius: 15px; text-align: center;
     }
-    .stTabs [data-baseweb="tab"] { color: #666 !important; font-weight: bold; }
-    .stTabs [aria-selected="true"] { color: #d4af37 !important; border-bottom-color: #d4af37 !important; }
-    .stButton>button {
-        background-color: #d4af37 !important; color: #000 !important;
-        border-radius: 20px !important; font-weight: bold !important; width: 100%;
+    /* Estilo para que el horóscopo destaque */
+    .highlight-camino {
+        color: #d4af37; font-weight: bold; font-size: 1.2rem; 
+        letter-spacing: 2px; text-transform: uppercase;
     }
+    .stTabs [data-baseweb="tab"] { color: #888 !important; font-size: 1.2rem !important; }
+    .stTabs [aria-selected="true"] { color: #d4af37 !important; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -55,31 +56,36 @@ with c3:
     st.link_button("COMPRAR", "https://wa.me/34684668398")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# 5. HORÓSCOPO SEMANAL (ESTRUCTURA DE SEGURIDAD)
-st.markdown("---")
-st.markdown("<h2 style='text-align:center;color:#d4af37;font-family:serif;'>✨ EL CAMINO DE LA SEMANA ✨</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align:center;color:#aaa;'>📅 Semana del 20 al 26 de Abril, 2026</p>", unsafe_allow_html=True)
+# 5. HORÓSCOPO SEMANAL POTENCIADO
+st.markdown("<br><hr style='border-color:#333;'><br>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align:center;color:#d4af37;font-family:serif;letter-spacing:4px;'>✨ PREDICCIONES DEL DESTINO ✨</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;color:#666;'>Semana del 20 al 26 de Abril, 2026</p>", unsafe_allow_html=True)
 
-t_fuego, t_tierra, t_aire, t_agua = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
+t1, t2, t3, t4 = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
 
-with t_fuego:
-    st.subheader("Aries, Leo, Sagitario")
-    st.write("**EL CAMINO DE LA ACCIÓN**")
-    st.info("Lunes a Miércoles: Energía de Marte. Cierra tratos pronto. El domingo recibirás una señal clave.")
+with t1:
+    st.markdown("<p class='highlight-camino'>♈ ♌ ♐ EL CAMINO DE LA ACCIÓN</p>", unsafe_allow_html=True)
+    col_a, col_b = st.columns(2)
+    col_a.metric("ESTADO", "Fuerza Marte")
+    col_b.metric("DÍA CLAVE", "Miércoles")
+    st.write("---")
+    st.markdown("🌑 **Lunes a Miércoles:** La energía te impulsa a cerrar ciclos. Cierra tratos ahora.")
+    st.markdown("🌕 **Jueves a Domingo:** Recibirás una señal intuitiva clave sobre tu futuro laboral.")
 
-with t_tierra:
-    st.subheader("Tauro, Virgo, Capricornio")
-    st.write("**EL CAMINO DE LA COSECHA**")
-    st.success("Lunes a Miércoles: Orden financiero. Un pago se confirma. El orden atraerá abundancia.")
+with t2:
+    st.markdown("<p class='highlight-camino'>♉ ♍ ♑ EL CAMINO DE LA COSECHA</p>", unsafe_allow_html=True)
+    col_a, col_b = st.columns(2)
+    col_a.metric("ESTADO", "Abundancia")
+    col_b.metric("DÍA CLAVE", "Martes")
+    st.write("---")
+    st.markdown("💰 **Lunes a Miércoles:** Un pago pendiente se confirma. El universo premia tu orden.")
+    st.markdown("🏡 **Jueves a Domingo:** Limpia tu espacio personal para atraer la energía de mayo.")
 
-with t_aire:
-    st.subheader("Géminis, Libra, Acuario")
-    st.write("**EL CAMINO DE LA VERDAD**")
-    st.write("Lunes a Miércoles: Mercurio te da elocuencia. Habla hoy. Alguien trae una propuesta chula.")
-
-with t_agua:
-    st.subheader("Cáncer, Escorpio, Piscis")
-    st.write("**EL CAMINO DEL INSTINTO**")
-    st.warning("Lunes a Miércoles: Sueños vívidos. Escucha tu voz. Usa tu Amatista para protegerte.")
-
-st.markdown("<br><p style='text-align:center;color:#444;font-size:0.7rem;'>© MMXXVI OPHAY COLLECTION • BARCELONA</p>", unsafe_allow_html=True)
+with t3:
+    st.markdown("<p class='highlight-camino'>♊ ♎ ♒ EL CAMINO DE LA VERDAD</p>", unsafe_allow_html=True)
+    col_a, col_b = st.columns(2)
+    col_a.metric("ESTADO", "Elocuencia")
+    col_b.metric("DÍA CLAVE", "Sábado")
+    st.write("---")
+    st.markdown("🗣️ **Lunes a Miércoles:** Mercurio te da la palabra justa. Habla hoy, no lo dejes pasar.")
+    st.markdown("
