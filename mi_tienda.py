@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="Ophay Tarot", page_icon="🌙", layout="centered")
@@ -24,7 +25,7 @@ st.markdown("""
         font-family: 'Cinzel', serif !important; font-weight: bold !important;
         border: none !important; border-radius: 0px !important; width: 100%; padding: 15px;
     }
-    img { border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 4px; }
+    img { border: 1px solid rgba(191, 149, 63, 0.3); border-radius: 4px; box-shadow: 0px 10px 20px rgba(0,0,0,0.8); }
     </style>
     """, unsafe_allow_html=True)
 
@@ -32,10 +33,20 @@ st.markdown("""
 st.markdown('<div class="header-box"><p class="gold-text gold-title">OPHAY TAROT</p></div>', unsafe_allow_html=True)
 
 # 4. FUNCIÓN PARA DIBUJAR PRODUCTOS
-def draw_item(url_img, name, price, desc):
+def draw_item(img_path, name, price, desc):
     c1, c2 = st.columns([1, 1.2])
     with c1:
-        st.image(url_img, use_container_width=True)
+        # Intentamos cargar la imagen localmente primero
+        if os.path.exists(img_path):
+            st.image(img_path, use_container_width=True)
+        else:
+            # Si falla, intentamos con la versión en minúsculas por si acaso
+            alt_path = img_path.lower()
+            if os.path.exists(alt_path):
+                st.image(alt_path, use_container_width=True)
+            else:
+                # Si sigue sin aparecer, ponemos un aviso visual
+                st.warning(f"Buscando archivo: {img_path}...")
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
         st.write(f"_{desc}_")
@@ -43,16 +54,10 @@ def draw_item(url_img, name, price, desc):
         st.link_button("RESERVAR", "https://wa.me/34600000000")
     st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
 
-# 5. DEFINICIÓN DE RUTAS (Aquí definimos user y repo para que no dé error)
-user = "MINEGOCIO85"
-repo = "mi-tienda-ophay"
-base_url = f"https://raw.githubusercontent.com/{user}/{repo}/main"
+# 5. LISTADO DE PRODUCTOS
+draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar tu futuro.")
+draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
+draw_item("Amatista.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
 
-# 6. LISTADO DE PRODUCTOS
-# Usamos las fotos con los nombres exactos que tienes en GitHub
-draw_item(f"{base_url}/primera%20foto%20isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar los hilos de tu futuro.")
-draw_item(f"{base_url}/SEGUNDA%20FOTO%20ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
-draw_item(f"{base_url}/Amatista.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
-
-# 7. FOOTER
+# 6. FOOTER
 st.markdown("<center><p style='color:#333; letter-spacing:10px; font-size:10px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
