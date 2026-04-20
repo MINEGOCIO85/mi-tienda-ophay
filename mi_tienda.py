@@ -47,19 +47,14 @@ def draw_item(img, nom, precio, txt, link):
         st.markdown(f'<p class="price">{precio} €</p>', unsafe_allow_html=True)
         st.link_button("RESERVAR LECTURA", link)
 
-# 5. LISTADO DE LOS 4 PRODUCTOS (Fotos actualizadas y estables)
+# 5. LISTADO DE LOS 4 PRODUCTOS
+draw_item("https://images.unsplash.com/photo-1572025442646-866d16c84a54?w=800", "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar los hilos de tu futuro.", "https://wa.me/34600000000")
 
-# 1. LECTURA
-draw_item("https://images.unsplash.com/photo-1572025442646-866d16c84a54?w=800", 
-          "LECTURA DEL DESTINO", "25", "Consulta profunda para desvelar los hilos de tu futuro.", "https://wa.me/34600000000")
+draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=800", "MAZO TAROT LUXE", "45", "Cartas con bordes dorados de alta calidad espiritual.", "https://wa.me/34600000000")
 
-# 2. MAZO
-draw_item("https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?w=800", 
-          "MAZO TAROT LUXE", "45", "Cartas con bordes dorados de alta calidad espiritual.", "https://wa.me/34600000000")
+draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800", "AMATISTA SAGRADA", "15", "Cristal de poder para armonizar tus energías.", "https://wa.me/34600000000")
 
-# 3. CRISTAL
-draw_item("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800", 
-          "AMATISTA SAGRADA", "15", "Cristal de poder para armonizar tus energías.", "https://wa.me/34600000000")
+draw_item("https://images.unsplash.com/photo-1570481662006-a3a1374699e8?w=800", "VELA DE RITUAL", "12", "Luz y aroma para tus sesiones de meditación y claridad.", "https://wa.me/34600000000")
 
-# 4. VELA (ENLACE NUEVO Y ESTABLE)
-draw_item("
+# PIE DE PÁGINA
+st.markdown("<br><center><p style='color:#94a3b8; font-family:Inter; letter-spacing:4px; font-size:9px;'>OPHAY TAROT • 2026</p></center>", unsafe_allow_html=True)
