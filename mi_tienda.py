@@ -3,7 +3,7 @@ import streamlit as st
 # 1. AJUSTES TÉCNICOS
 st.set_page_config(page_title="OPHAY | Boutique & Destino", layout="wide")
 
-# 2. ESTILO VISUAL (Gris Oxford y Dorado Champagne)
+# 2. ESTILO VISUAL (Gris Oxford y Dorado)
 st.markdown("""
     <style>
     .main { background-color: #0d0d0d; color: #eee; }
@@ -18,16 +18,6 @@ st.markdown("""
         background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2);
         padding: 20px; border-radius: 15px; text-align: center;
     }
-    .fecha-banner {
-        text-align: center; color: #d4af37; border: 1px solid #d4af37;
-        padding: 8px 15px; width: fit-content; margin: 20px auto; border-radius: 50px; font-size: 0.9rem;
-    }
-    .camino-box {
-        background: #111; border-radius: 15px; padding: 20px;
-        border-left: 5px solid #d4af37; margin-top: 10px;
-    }
-    .signo-header { color: #d4af37; font-family: serif; font-size: 1.3rem; margin: 0; }
-    .meta-camino { color: #aa8a2e; font-size: 0.7rem; font-weight: bold; letter-spacing: 2px; }
     .stTabs [data-baseweb="tab"] { color: #666 !important; font-weight: bold; }
     .stTabs [aria-selected="true"] { color: #d4af37 !important; border-bottom-color: #d4af37 !important; }
     .stButton>button {
@@ -65,20 +55,31 @@ with c3:
     st.link_button("COMPRAR", "https://wa.me/34684668398")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# 5. HORÓSCOPO SEMANAL REDISEÑADO
-st.markdown("<br><br><h2 style='text-align:center;color:#d4af37;font-family:serif;'>✨ EL CAMINO DE LA SEMANA ✨</h2>", unsafe_allow_html=True)
-st.markdown('<div class="fecha-banner">📅 20 AL 26 DE ABRIL, 2026</div>', unsafe_allow_html=True)
+# 5. HORÓSCOPO SEMANAL (ESTRUCTURA DE SEGURIDAD)
+st.markdown("---")
+st.markdown("<h2 style='text-align:center;color:#d4af37;font-family:serif;'>✨ EL CAMINO DE LA SEMANA ✨</h2>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;color:#aaa;'>📅 Semana del 20 al 26 de Abril, 2026</p>", unsafe_allow_html=True)
 
-ts = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
+t_fuego, t_tierra, t_aire, t_agua = st.tabs(["🔥 FUEGO", "🌱 TIERRA", "💨 AIRE", "💧 AGUA"])
 
-with ts[0]:
-    st.markdown('<div class="camino-box">', unsafe_allow_html=True)
-    st.markdown('<p class="signo-header">Aries, Leo, Sagitario</p>', unsafe_allow_html=True)
-    st.markdown('<span class="meta-camino">EL CAMINO DE LA ACCIÓN</span>', unsafe_allow_html=True)
-    st.write("**Inicio:** Energía de Marte. Cierra tratos pronto.")
-    st.write("**Fin:** El domingo recibirás una señal intuitiva clave.")
-    st.markdown('</div>', unsafe_allow_html=True)
+with t_fuego:
+    st.subheader("Aries, Leo, Sagitario")
+    st.write("**EL CAMINO DE LA ACCIÓN**")
+    st.info("Lunes a Miércoles: Energía de Marte. Cierra tratos pronto. El domingo recibirás una señal clave.")
 
-with ts[1]:
-    st.markdown('<div class="camino-box">', unsafe_allow_html=True)
-    st.markdown('<p class
+with t_tierra:
+    st.subheader("Tauro, Virgo, Capricornio")
+    st.write("**EL CAMINO DE LA COSECHA**")
+    st.success("Lunes a Miércoles: Orden financiero. Un pago se confirma. El orden atraerá abundancia.")
+
+with t_aire:
+    st.subheader("Géminis, Libra, Acuario")
+    st.write("**EL CAMINO DE LA VERDAD**")
+    st.write("Lunes a Miércoles: Mercurio te da elocuencia. Habla hoy. Alguien trae una propuesta chula.")
+
+with t_agua:
+    st.subheader("Cáncer, Escorpio, Piscis")
+    st.write("**EL CAMINO DEL INSTINTO**")
+    st.warning("Lunes a Miércoles: Sueños vívidos. Escucha tu voz. Usa tu Amatista para protegerte.")
+
+st.markdown("<br><p style='text-align:center;color:#444;font-size:0.7rem;'>© MMXXVI OPHAY COLLECTION • BARCELONA</p>", unsafe_allow_html=True)
