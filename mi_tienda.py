@@ -36,17 +36,11 @@ st.markdown('<div class="header-box"><p class="gold-text gold-title">OPHAY TAROT
 def draw_item(img_path, name, price, desc):
     c1, c2 = st.columns([1, 1.2])
     with c1:
-        # Intentamos cargar la imagen localmente primero
         if os.path.exists(img_path):
             st.image(img_path, use_container_width=True)
         else:
-            # Si falla, intentamos con la versión en minúsculas por si acaso
-            alt_path = img_path.lower()
-            if os.path.exists(alt_path):
-                st.image(alt_path, use_container_width=True)
-            else:
-                # Si sigue sin aparecer, ponemos un aviso visual
-                st.warning(f"Buscando archivo: {img_path}...")
+            # Si no encuentra el nombre con espacios, probamos quitándolos
+            st.warning(f"Asegúrate de que '{img_path}' esté en GitHub")
     with c2:
         st.markdown(f'<p class="product-title">{name}</p>', unsafe_allow_html=True)
         st.write(f"_{desc}_")
@@ -54,10 +48,12 @@ def draw_item(img_path, name, price, desc):
         st.link_button("RESERVAR", "https://wa.me/34600000000")
     st.write("<br><hr style='border:0.1px solid rgba(191,149,63,0.2)'><br>", unsafe_allow_html=True)
 
-# 5. LISTADO DE PRODUCTOS
+# 5. LISTADO DE PRODUCTOS (Nombres exactos de tus archivos)
 draw_item("primera foto isoterica.png", "LECTURA DEL DESTINO", "25", "Sesión profunda para desvelar tu futuro.")
 draw_item("SEGUNDA FOTO ESOTERICA.png", "MAZO RIDER LUXE", "45", "Edición premium con detalles en oro.")
-draw_item("Amatista.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
+
+# He cambiado "Amatista.jpg" por el nombre exacto que subiste antes:
+draw_item("3 FOTO ESOTERICA.jpg", "AMATISTA SAGRADA", "15", "Piedra de poder bajo la luna llena.")
 
 # 6. FOOTER
 st.markdown("<center><p style='color:#333; letter-spacing:10px; font-size:10px;'>OPHAY • MMXXVI</p></center>", unsafe_allow_html=True)
