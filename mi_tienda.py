@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS DEFINITIVO (PARA CÍRCULO PERFECTO)
+# 2. ESTILO CSS "TOP ELEGANTE"
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
@@ -25,11 +25,11 @@ div[data-testid="stLinkButton"] > a {
     text-decoration: none !important;
 }
 
-/* WHATSAPP FLOTANTE - MARGEN DE SEGURIDAD TOTAL */
+/* WHATSAPP FLOTANTE - MARGEN MÁXIMO PARA REDONDA COMPLETA */
 .wa-container {
     position: fixed;
     bottom: 30px;
-    right: 15%; /* Lo alejamos bastante del borde para evitar recortes */
+    right: 18%; /* Aumentado al 18% para que el círculo nunca se corte */
     z-index: 999999;
     display: flex;
     align-items: center;
@@ -39,13 +39,14 @@ div[data-testid="stLinkButton"] > a {
 .wa-bubble {
     background-color: white;
     color: #111;
-    padding: 10px 18px;
+    padding: 10px 20px;
     border-radius: 25px 25px 0px 25px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
     box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
     white-space: nowrap;
+    text-transform: uppercase;
 }
 
 .wa-icon {
@@ -66,7 +67,7 @@ div[data-testid="stLinkButton"] > a {
 </style>
 
 <div class="wa-container">
-    <div class="wa-bubble">¿Hablamos? ✨</div>
+    <div class="wa-bubble">TOP ELEGANTE ✨</div>
     <a href="https://wa.me/34684668398" class="wa-icon" target="_blank">🟢</a>
 </div>
 """, unsafe_allow_html=True)
@@ -102,22 +103,6 @@ with c3:
     st.markdown('<div class="desc">Geoda sagrada de alta pureza. Protección.</div>', unsafe_allow_html=True)
     st.link_button("SOLICITAR", W)
 
-# 5. HORÓSCOPO (ESTRUCTURA CORREGIDA)
+# 5. HORÓSCOPO (NOMBRES CORREGIDOS AL 100%)
 st.markdown('<br><hr style="border-color:rgba(241,196,15,0.2);"><br>', unsafe_allow_html=True)
-st.markdown('<h2 class="oro" style="font-size:2rem;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
-
-# Lista blindada para evitar el error de corchetes
-signos = [
-    ("♈ ARIES", "Fuego"), ("♌ LEO", "Sol"), ("♐ SAGITARIO", "Suerte"),
-    ("♉ TAURO", "Éxito"), ("♍ VIRGO", "Orden"), ("♑ CAPRICORNIO", "Rigor"),
-    ("♊ GÉMINIS", "Mente"), ("♎ LIBRA", "Paz"), ("♒ ACUARIO", "Visión"),
-    ("♋ CÁNCER", "Luna"), ("♏ ESCORPIO", "Poder"), (" Pisces PISCIS", "Unión")
-]
-
-hz = st.columns(4)
-for idx, (nombre, tema) in enumerate(signos):
-    with hz[idx % 4]:
-        st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin:0; font-weight:bold; font-size:1rem;">{nombre}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p style="color:#888; text-align:center; font-size:0.75rem; margin-bottom:15px;">{tema}</p>', unsafe_allow_html=True)
-
-st.markdown("<br><p style='text-align:center; color:#444; font-size:0.7rem;'>© 2026 OPHAY BARCELONA</p>", unsafe_allow_html=True)
+st.markdown('<h2 class="oro" style="font-size:2rem
