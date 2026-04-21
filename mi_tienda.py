@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS "TOTAL" (FORZANDO COLORES Y POSICIÓN)
+# 2. ESTILO CSS REFORZADO
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
@@ -16,7 +16,7 @@ st.markdown("""
 .precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 2rem; font-weight: 700; text-align: center; margin:0; }
 .desc { color: #fff; font-family: 'Montserrat'; font-size: 0.9rem; text-align: center; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; min-height: 100px; margin-bottom: 15px; }
 
-/* BOTONES DE PRODUCTO (VERDE WHATSAPP) */
+/* BOTONES DE PRODUCTO */
 div[data-testid="stLinkButton"] > a {
     background-color: #25D366 !important;
     color: white !important;
@@ -29,23 +29,27 @@ div[data-testid="stLinkButton"] > a {
     text-decoration: none !important;
 }
 
-/* BOTÓN FLOTANTE DERECHA (FIJO) */
+/* BOTÓN FLOTANTE CORREGIDO (Para que no se vea a la mitad) */
 .float-wa {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px; /* Distancia desde abajo */
+    right: 30px;  /* Distancia desde la derecha */
     background-color: #25d366;
     color: white !important;
     border-radius: 50px;
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 35px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    z-index: 9999;
+    font-size: 38px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+    z-index: 999999; /* Máxima prioridad para que no se corte */
     text-decoration: none !important;
+}
+.float-wa:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
 }
 </style>
 
@@ -55,8 +59,8 @@ div[data-testid="stLinkButton"] > a {
 """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<h1 class="oro" style="font-size:4rem;">OPHAY</h1>', unsafe_allow_html=True)
-st.markdown('<p class="oro" style="letter-spacing:5px; font-size:0.8rem;">BARCELONA • PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
+st.markdown('<h1 class="oro" style="font-size:4rem; margin-top: -50px;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<p class="oro" style="letter-spacing:5px; font-size:0.8rem; margin-bottom: 40px;">BARCELONA • PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
 # 4. PRODUCTOS
 B = "https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
@@ -82,12 +86,12 @@ with c3:
     st.image(B + "Amatista.png")
     st.markdown('<h2 class="oro">AMATISTA</h2>', unsafe_allow_html=True)
     st.markdown('<p class="precio">19,95€</p>', unsafe_allow_html=True)
-    st.markdown('<div class="desc">Geoda sagrada de alta pureza. Protección.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="desc">Geoda sagrada de alta pureza. Protección espiritual.</div>', unsafe_allow_html=True)
     st.link_button("SOLICITAR", W)
 
 # 5. HORÓSCOPO (LOS 12 SIGNOS)
-st.markdown('<hr style="border-color: rgba(241, 196, 15, 0.2);">', unsafe_allow_html=True)
-st.markdown('<h2 class="oro">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
+st.markdown('<br><hr style="border-color: rgba(241, 196, 15, 0.2);"><br>', unsafe_allow_html=True)
+st.markdown('<h2 class="oro" style="font-size:2.5rem;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
 
 S = [("♈ ARIES","Fuego"),("♌ LEO","Sol"),("♐ SAGITARIO","Suerte"),
      ("♉ TAURO","Éxito"),("♍ VIRGO","Orden"),("♑ CAPRI","Rigor"),
@@ -97,7 +101,7 @@ S = [("♈ ARIES","Fuego"),("♌ LEO","Sol"),("♐ SAGITARIO","Suerte"),
 hz = st.columns(4)
 for i, (n, t) in enumerate(S):
     with hz[i % 4]:
-        st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin-bottom:0; font-weight:bold;">{n}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin-bottom:0; font-weight:bold; font-size: 1.1rem;">{n}</p>', unsafe_allow_html=True)
         st.markdown(f'<p style="color:#888; text-align:center; font-size:0.8rem; margin-top:0;">{t}</p>', unsafe_allow_html=True)
 
-st.markdown("<br><p style='text-align:center; color:#444;'>© MMXXVI OPHAY BCN</p>", unsafe_allow_html=True)
+st.markdown("<br><br><p style='text-align:center; color:#444; font-size: 0.7rem;'>© MMXXVI OPHAY BARCELONA</p>", unsafe_allow_html=True)
