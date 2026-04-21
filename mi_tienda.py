@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS REFORZADO
+# 2. ESTILO CSS "ANTIKILL" (Para que el botón se vea 100% entero)
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
@@ -29,23 +29,24 @@ div[data-testid="stLinkButton"] > a {
     text-decoration: none !important;
 }
 
-/* BOTÓN FLOTANTE CORREGIDO (Para que no se vea a la mitad) */
+/* BOTÓN FLOTANTE RE-CALIBRADO */
 .float-wa {
     position: fixed;
-    bottom: 30px; /* Distancia desde abajo */
-    right: 30px;  /* Distancia desde la derecha */
+    bottom: 40px; 
+    right: 50px; /* Lo alejamos más del borde derecho para que no se corte */
     background-color: #25d366;
     color: white !important;
-    border-radius: 50px;
-    width: 65px;
-    height: 65px;
+    border-radius: 50% !important; /* Asegura círculo perfecto */
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 38px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
-    z-index: 999999; /* Máxima prioridad para que no se corte */
+    font-size: 35px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.8);
+    z-index: 9999999; 
     text-decoration: none !important;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 .float-wa:hover {
     transform: scale(1.1);
@@ -53,13 +54,13 @@ div[data-testid="stLinkButton"] > a {
 }
 </style>
 
-<a href="https://wa.me/34684668398" class="float-wa" target="_blank">
+<a href="https://wa.me/34684668398" class="float-wa" target="_blank" title="Contactar por WhatsApp">
     🟢
 </a>
 """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<h1 class="oro" style="font-size:4rem; margin-top: -50px;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="oro" style="font-size:4rem; margin-top: -40px;">OPHAY</h1>', unsafe_allow_html=True)
 st.markdown('<p class="oro" style="letter-spacing:5px; font-size:0.8rem; margin-bottom: 40px;">BARCELONA • PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
 # 4. PRODUCTOS
@@ -89,7 +90,7 @@ with c3:
     st.markdown('<div class="desc">Geoda sagrada de alta pureza. Protección espiritual.</div>', unsafe_allow_html=True)
     st.link_button("SOLICITAR", W)
 
-# 5. HORÓSCOPO (LOS 12 SIGNOS)
+# 5. HORÓSCOPO (LOS 12 SIGNOS COMPLETOS)
 st.markdown('<br><hr style="border-color: rgba(241, 196, 15, 0.2);"><br>', unsafe_allow_html=True)
 st.markdown('<h2 class="oro" style="font-size:2.5rem;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
 
