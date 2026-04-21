@@ -3,39 +3,38 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS AVANZADO
+# 2. ESTILO CSS (ACTUALIZADO CON BOTONES VERDES)
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
 
-/* Fondo y Base */
 .main,[data-testid="stAppViewContainer"]{ background-color: #050505; }
 
-/* Títulos OPHAY */
 .oro-header { font-family: 'Cinzel'; color: #f1c40f; text-align: center; font-weight: 900; letter-spacing: 2px; }
 .sub-header { font-family: 'Montserrat'; color: #bdc3c7; text-align: center; font-size: 0.8rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 50px; }
 
-/* Tarjetas de Producto */
 .precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 2.2rem; font-weight: 700; text-align: center; margin: 0; }
 .tiempo { font-family: 'Montserrat'; color: #888; font-size: 0.75rem; text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
 .desc { color: #ffffff; font-family: 'Montserrat'; font-size: 0.95rem; text-align: center; line-height: 1.7; background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; border: 1px solid rgba(241,196,15,0.1); min-height: 140px; margin-bottom: 20px; }
 
-/* Horóscopo */
-.sig { font-family: 'Cinzel'; color: #f1c40f; font-weight: 700; text-align: center; font-size: 1.2rem; margin-top: 20px; }
-.sig-desc { color: #bdc3c7; text-align: center; font-size: 0.85rem; font-family: 'Montserrat'; }
-
-/* Botones */
+/* BOTÓN ESTILO WHATSAPP */
 .stButton>button { 
-    border: 1px solid #f1c40f !important; 
-    color: #f1c40f !important; 
+    border: 2px solid #25D366 !important; 
+    color: #25D366 !important; 
     background-color: transparent !important; 
     width: 100%; 
-    border-radius: 0px !important; 
+    border-radius: 10px !important; 
     font-family: 'Cinzel';
+    font-weight: 700;
     transition: 0.3s;
 }
-.stButton>button:hover { background-color: #f1c40f !important; color: black !important; }
+.stButton>button:hover { 
+    background-color: #25D366 !important; 
+    color: black !important; 
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
 
+.sig { font-family: 'Cinzel'; color: #f1c40f; font-weight: 700; text-align: center; font-size: 1.2rem; margin-top: 20px; }
 hr { border-color: rgba(241, 196, 15, 0.2) !important; }
 </style>
 """, unsafe_allow_html=True)
@@ -74,22 +73,20 @@ with c3:
     st.markdown('<div class="desc">Geoda de amatista pura. Ideal para transmutar la energía del hogar y proteger su paz espiritual.</div>', unsafe_allow_html=True)
     st.link_button("SOLICITAR PIEZA", W)
 
-# 5. HORÓSCOPO ELITE
+# 5. HORÓSCOPO
 st.markdown("<br><br><hr><br>", unsafe_allow_html=True)
 st.markdown('<h2 class="oro-header" style="font-size:2.5rem;">HORÓSCOPO SEMANAL</h2>', unsafe_allow_html=True)
 
 signos = [
     ("♈ ARIES","Fuego vital."),("♌ LEO","Brillo solar."),("♐ SAGITARIO","Fortuna."),
-    ("♉ TAURO","Éxito real."),("♍ VIRGO","Orden total."),("♑ CAPRICORNIO","Rigor."),
-    ("♊ GÉMINIS","Palabra."),("♎ LIBRA","Equilibrio."),("♒ ACUARIO","Visión."),
-    ("♋ CÁNCER","Paz lunar."),("♏ ESCORPIO","Poder."),("♓ PISCIS","Unión.")
+    ("♉ TAURO","Éxito real."),("♍ VIRGO","Orden."),(" Capricorn CAPRICORNIO","Rigor."),
+    (" Gemini GÉMINIS","Palabra."),(" Libra LIBRA","Paz."),(" Aquarius ACUARIO","Visión."),
+    (" Cancer CÁNCER","Lunar."),(" Scorpio ESCORPIO","Poder."),(" Pisces PISCIS","Unión.")
 ]
 
 hz = st.columns(4)
 for i, (nombre, clima) in enumerate(signos):
     with hz[i % 4]:
         st.markdown(f'<p class="sig">{nombre}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p class="sig-desc">{clima}</p>', unsafe_allow_html=True)
 
-# Footer
-st.markdown("<br><br><br><p style='text-align:center;color:#444;font-size:0.7rem;letter-spacing:2px;'>© MMXXVI OPHAY BARCELONA • LUXURY ESOTERICA</p>", unsafe_allow_html=True)
+st.markdown("<br><br><br><p style='text-align:center;color:#444;font-size:0.7rem;'>© MMXXVI OPHAY BARCELONA</p>", unsafe_allow_html=True)
