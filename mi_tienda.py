@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS "TOTAL"
+# 2. ESTILO CSS REFORZADO CON MENSAJE EMERGENTE
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
@@ -24,26 +24,51 @@ div[data-testid="stLinkButton"] > a {
     text-decoration: none !important;
 }
 
-/* BOTÓN FLOTANTE ANTI-CORTE (AJUSTADO) */
-.float-wa {
+/* CONTENEDOR WHATSAPP FLOTANTE */
+.wa-container {
     position: fixed;
-    bottom: 40px; 
-    right: 100px; /* Margen de seguridad extra */
+    bottom: 30px;
+    right: 60px; /* Margen de seguridad para que no se corte */
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* MENSAJE TIPO "BOCADILLO" */
+.wa-msg {
+    background-color: white;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px 20px 0px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
+/* CÍRCULO VERDE */
+.wa-circle {
     background-color: #25d366;
     color: white !important;
     border-radius: 50% !important;
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 38px;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.8);
-    z-index: 999999;
+    font-size: 35px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
     text-decoration: none !important;
 }
+.wa-circle:hover { transform: scale(1.1); transition: 0.3s; }
 </style>
-<a href="https://wa.me/34684668398" class="float-wa" target="_blank">🟢</a>
+
+<div class="wa-container">
+    <div class="wa-msg">¡Hola! ¿En qué puedo ayudarte? ✨</div>
+    <a href="https://wa.me/34684668398" class="wa-circle" target="_blank">🟢</a>
+</div>
 """, unsafe_allow_html=True)
 
 # 3. CABECERA
@@ -77,14 +102,14 @@ with c3:
     st.markdown('<div class="desc">Geoda sagrada de alta pureza. Protección espiritual.</div>', unsafe_allow_html=True)
     st.link_button("SOLICITAR", W)
 
-# 5. HORÓSCOPO (CORREGIDO)
+# 5. HORÓSCOPO
 st.markdown('<br><hr style="border-color:rgba(241,196,15,0.2);"><br>', unsafe_allow_html=True)
 st.markdown('<h2 class="oro" style="font-size:2.5rem;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
 
 S = [("♈ ARIES","Fuego"),("♌ LEO","Sol"),("♐ SAGI","Suerte"),
      ("♉ TAURO","Éxito"),("♍ VIRGO","Orden"),("♑ CAPRI","Rigor"),
-     (" Gemini GEMI","Mente"),(" Libra LIBR","Paz"),(" Aquarius ACUA","Visión"),
-     (" Cancer CANC","Luna"),(" Scorpio ESCO","Poder"),(" Pisces PISC","Unión")]
+     ("♊ GEMI","Mente"),("♎ LIBR","Paz"),("♒ ACUA","Visión"),
+     ("♋ CANC","Luna"),("♏ ESCO","Poder"),("♓ PISC","Unión")]
 
 hz = st.columns(4)
 for i, (n, t) in enumerate(S):
@@ -92,4 +117,4 @@ for i, (n, t) in enumerate(S):
         st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin:0; font-weight:bold;">{n}</p>', unsafe_allow_html=True)
         st.markdown(f'<p style="color:#888; text-align:center; font-size:0.8rem; margin:0;">{t}</p>', unsafe_allow_html=True)
 
-st.markdown("<br><p style='text-align:center; color:#333; font-size:0.7rem;'>© OPHAY BCN</p>", unsafe_allow_html=True)
+st.markdown("<br><p style='text-align:center; color:#333; font-size:0.7rem;'>© MMXXVI OPHAY BCN</p>", unsafe_allow_html=True)
