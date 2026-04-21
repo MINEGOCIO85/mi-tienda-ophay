@@ -3,36 +3,33 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS "BOUTIQUE TOTAL"
+# 2. ESTILO CSS "PERFECCIÓN"
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
 .main,[data-testid="stAppViewContainer"]{ background-color: #050505 !important; }
 .oro { font-family: 'Cinzel'; color: #f1c40f; text-align: center; font-weight: 900; }
 .precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 2rem; font-weight: 700; text-align: center; margin:0; }
-.desc { color: #fff; font-family: 'Montserrat'; font-size: 0.9rem; text-align: center; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; min-height: 70px; }
+.desc { color: #fff; font-family: 'Montserrat'; font-size: 0.85rem; text-align: center; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; min-height: 60px; }
 
 /* EFECTO FOTOS */
-[data-testid="stImage"] img { border-radius: 10px; transition: 0.5s; border: 1px solid #222; }
-[data-testid="stImage"] img:hover { transform: scale(1.02); border: 1px solid #f1c40f; box-shadow: 0 0 15px #f1c40f44; }
+[data-testid="stImage"] img { border-radius: 10px; transition: 0.4s; border: 1px solid #222; }
+[data-testid="stImage"] img:hover { transform: scale(1.02); border: 1px solid #f1c40f; }
 
-/* WHATSAPP POSICIÓN SEGURA */
-.wa-wrap { position: fixed; bottom: 30px; right: 20%; z-index: 999999; display: flex; align-items: center; gap: 12px; }
-.wa-bubble { background: white; color: black; padding: 8px 15px; border-radius: 20px 20px 0 20px; font-weight: 700; font-family: 'Montserrat'; font-size: 0.8rem; border: 1px solid #f1c40f; }
+/* WHATSAPP - POSICIÓN MAESTRA */
+.wa-wrap { position: fixed; bottom: 30px; right: 25%; z-index: 999999; display: flex; align-items: center; gap: 10px; }
+.wa-box { background: white; color: black; padding: 8px 15px; border-radius: 20px 20px 0 20px; font-weight: 700; font-family: 'Montserrat'; font-size: 0.8rem; border: 1px solid #f1c40f; }
 .wa-btn { background-color: #25d366; color: white !important; border-radius: 50% !important; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; text-decoration: none !important; box-shadow: 0 4px 15px #000; }
-
-/* TESTIMONIOS Y SOCIAL */
-.testi { font-style: italic; color: #bbb; text-align: center; padding: 15px; border-left: 2px solid #f1c40f; background: #111; border-radius: 0 10px 10px 0; font-size: 0.85rem; }
-.social { color: #f1c40f !important; text-decoration: none; font-weight: 600; margin: 0 10px; font-size: 0.8rem; }
 </style>
+
 <div class="wa-wrap">
-    <div class="wa-bubble">Asesoramiento Private Boutique ✨</div>
+    <div class="wa-box">Asesoramiento Private Boutique ✨</div>
     <a href="https://wa.me/34684668398" class="wa-btn" target="_blank">🟢</a>
 </div>
 """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<h1 class="oro" style="font-size:3.5rem; margin-top:-40px;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="oro" style="font-size:3.2rem; margin-top:-40px;">OPHAY</h1>', unsafe_allow_html=True)
 st.markdown('<p class="oro" style="letter-spacing:6px; font-size:0.7rem; margin-bottom:30px;">BARCELONA • PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
 # 4. PRODUCTOS
@@ -54,33 +51,24 @@ with c3:
     st.link_button("SOLICITAR", W)
 
 # 5. TESTIMONIOS Y CONTACTO
-st.markdown('<br><br>', unsafe_allow_html=True)
-t1, t2 = st.columns(2)
-t1.markdown('<div class="testi">"La lectura del oráculo me dio la claridad que necesitaba."<br>— Elena M.</div>', unsafe_allow_html=True)
-t2.markdown('<div class="testi">"El mazo Rider Luxe es una obra de arte. Envío perfecto."<br>— Marc R.</div>', unsafe_allow_html=True)
+st.markdown('<br><hr style="border-color:#f1c40f22;">', unsafe_allow_html=True)
+col_a, col_b = st.columns(2)
+col_a.markdown('<p style="color:#bbb; font-style:italic; text-align:center; font-size:0.8rem;">"Claridad inmediata en mi negocio."<br>— Elena M.</p>', unsafe_allow_html=True)
+col_b.markdown('<p style="color:#bbb; font-style:italic; text-align:center; font-size:0.8rem;">"El mazo es una joya artesanal."<br>— Marc R.</p>', unsafe_allow_html=True)
 
-st.markdown('<br><hr style="border-color:#f1c40f22;"><br>', unsafe_allow_html=True)
+st.markdown('<hr style="border-color:#f1c40f22;"><br>', unsafe_allow_html=True)
 con1, con2 = st.columns(2)
-con1.markdown('<h3 class="oro">UBICACIÓN</h3><p style="text-align:center; color:white; font-size:0.8rem;">📍 Barcelona<br>(Cita previa exclusivamente)</p>', unsafe_allow_html=True)
-con2.markdown('<h3 class="oro">HORARIO</h3><p style="text-align:center; color:white; font-size:0.8rem;">L-V: 10:00 - 20:00<br>S: 11:00 - 14:00</p>', unsafe_allow_html=True)
+con1.markdown('<h3 class="oro" style="font-size:1.2rem;">UBICACIÓN</h3><p style="text-align:center; color:white; font-size:0.8rem;">📍 Barcelona (Cita Previa)</p>', unsafe_allow_html=True)
+con2.markdown('<h3 class="oro" style="font-size:1.2rem;">HORARIO</h3><p style="text-align:center; color:white; font-size:0.8rem;">L-V: 10:00 - 20:00</p>', unsafe_allow_html=True)
 
 # 6. HORÓSCOPO
-st.markdown('<br><h2 class="oro" style="font-size:2rem;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
-sig = [("♈ ARIES","Fuego"),("♌ LEO","Sol"),("♐ SAGITARIO","Suerte"),("♉ TAURO","Éxito"),("♍ VIRGO","Orden"),("♑ CAPRICORNIO","Rigor"),("♊ GÉMINIS","Mente"),("♎ LIBRA","Paz"),("♒ ACUARIO","Visión"),("♋ CÁNCER","Luna"),("♏ ESCORPIO","Poder"),("♓ PISCIS","Unión")]
+st.markdown('<h2 class="oro" style="font-size:2rem; margin-top:20px;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
+sig = [("♈ ARIES","Fuego"),("♌ LEO","Sol"),("♐ SAGITARIO","Suerte"),(" Taurus TAURO","Éxito"),(" Virgo VIRGO","Orden"),(" Capricorn CAPRICORNIO","Rigor"),(" Gemini GÉMINIS","Mente"),(" Libra LIBRA","Paz"),(" Aquarius ACUARIO","Visión"),(" Cancer CÁNCER","Luna"),(" Scorpio ESCORPIO","Poder"),(" Pisces PISCIS","Unión")]
 hz = st.columns(4)
 for i, (n, t) in enumerate(sig):
     with hz[i % 4]:
-        st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin:0; font-weight:bold; font-size:0.9rem;">{n}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p style="color:#888; text-align:center; font-size:0.7rem; margin-bottom:10px;">{t}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin:0; font-weight:bold; font-size:0.9rem;">{n}</p><p style="color:#888; text-align:center; font-size:0.7rem; margin-bottom:10px;">{t}</p>', unsafe_allow_html=True)
 
-# 7. PIE Y LEGAL
-st.markdown('<br>', unsafe_allow_html=True)
+# 7. LEGAL
 with st.expander("⚖️ LEGAL"):
-    st.write("Responsable: OPHAY BCN. Mayores de 18 años. Los datos se tratan según RGPD.")
-
-st.markdown("""
-<div style="text-align:center; margin-top:20px;">
-    <a href="#" class="social">INSTAGRAM</a> | <a href="#" class="social">TIKTOK</a>
-</div>
-<p style='text-align:center; color:#333; font-size:0.6rem; margin-top:15px;'>© 2026 OPHAY BARCELONA</p>
-""", unsafe_allow_
+    st.markdown('<p style="font-size:0.7rem; color:#444;">© 2026 OPHAY BARCELONA. Mayores de 18 años. Servicios de entretenimiento espiritual.</p>', unsafe_allow_html=True)
