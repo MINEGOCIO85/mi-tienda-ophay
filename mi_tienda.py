@@ -1,6 +1,6 @@
 import streamlit as st
 
-# 1. CONFIGURACIÓN (Debe ser la primera línea)
+# 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
 # 2. ESTILO CSS "TOTAL"
@@ -24,22 +24,22 @@ div[data-testid="stLinkButton"] > a {
     text-decoration: none !important;
 }
 
-/* BOTÓN FLOTANTE ANTI-CORTE */
+/* BOTÓN FLOTANTE ANTI-CORTE (AJUSTADO) */
 .float-wa {
     position: fixed;
     bottom: 40px; 
-    right: 80px; /* Margen grande para que no se corte en el borde */
+    right: 100px; /* Margen de seguridad extra */
     background-color: #25d366;
     color: white !important;
     border-radius: 50% !important;
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 35px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.8);
-    z-index: 99999;
+    font-size: 38px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.8);
+    z-index: 999999;
     text-decoration: none !important;
 }
 </style>
@@ -77,14 +77,19 @@ with c3:
     st.markdown('<div class="desc">Geoda sagrada de alta pureza. Protección espiritual.</div>', unsafe_allow_html=True)
     st.link_button("SOLICITAR", W)
 
-# 5. HORÓSCOPO (REESCRITO PARA EVITAR ERRORES)
+# 5. HORÓSCOPO (CORREGIDO)
 st.markdown('<br><hr style="border-color:rgba(241,196,15,0.2);"><br>', unsafe_allow_html=True)
 st.markdown('<h2 class="oro" style="font-size:2.5rem;">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
 
 S = [("♈ ARIES","Fuego"),("♌ LEO","Sol"),("♐ SAGI","Suerte"),
      ("♉ TAURO","Éxito"),("♍ VIRGO","Orden"),("♑ CAPRI","Rigor"),
-     ("♊ GEMI","Mente"),("♎ LIBR","Paz"),("♒ ACUA","Visión"),
-     ("♋ CANC","Luna"),("♏ ESCO","Poder"),("♓ PISC","Unión")]
+     (" Gemini GEMI","Mente"),(" Libra LIBR","Paz"),(" Aquarius ACUA","Visión"),
+     (" Cancer CANC","Luna"),(" Scorpio ESCO","Poder"),(" Pisces PISC","Unión")]
 
 hz = st.columns(4)
-for i, (n, t) in enumerate
+for i, (n, t) in enumerate(S):
+    with hz[i % 4]:
+        st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin:0; font-weight:bold;">{n}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#888; text-align:center; font-size:0.8rem; margin:0;">{t}</p>', unsafe_allow_html=True)
+
+st.markdown("<br><p style='text-align:center; color:#333; font-size:0.7rem;'>© OPHAY BCN</p>", unsafe_allow_html=True)
