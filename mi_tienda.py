@@ -3,7 +3,7 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS "LUXURY & LEGAL"
+# 2. ESTILO CSS "LUXURY, LEGAL & BOTONES VISIBLES"
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
@@ -14,11 +14,24 @@ st.markdown("""
 .precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 2rem; font-weight: 700; text-align: center; margin:0; }
 .desc { color: #fff; font-family: 'Montserrat'; font-size: 0.9rem; text-align: center; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; min-height: 80px; }
 
+/* REPARACIÓN DE BOTONES DE SERVICIO */
+div[data-testid="stLinkButton"] > a {
+    background-color: #25D366 !important; /* Verde WhatsApp */
+    color: white !important; /* Texto Blanco siempre visible */
+    border-radius: 10px !important;
+    font-family: 'Montserrat' !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    border: 1px solid #ffffff33 !important;
+}
+
 /* WHATSAPP FLOTANTE - REDONDA PERFECTA */
 .wa-wrap {
     position: fixed;
     bottom: 40px;
-    right: 22%; /* Margen de seguridad total para evitar recortes */
+    right: 22%; 
     z-index: 999999;
     display: flex;
     align-items: center;
@@ -39,17 +52,17 @@ st.markdown("""
     text-decoration: none !important;
 }
 
-/* ESTILO PARA TEXTO LEGAL */
+/* TEXTO LEGAL */
 .legal-text {
     color: #888; font-family: 'Montserrat'; font-size: 0.75rem;
     text-align: justify; line-height: 1.4; background: #111;
-    padding: 20px; border-radius: 10px; border: 1px solid #222;
+    padding: 20px; border-radius: 10px;
 }
 </style>
 
 <div class="wa-wrap">
     <div class="wa-bubble">Atención Personalizada Boutique ✨</div>
-    <a href="https://wa.me/34684668398" class="wa-icon wa-btn" target="_blank">🟢</a>
+    <a href="https://wa.me/34684668398" class="wa-btn" target="_blank">🟢</a>
 </div>
 """, unsafe_allow_html=True)
 
@@ -97,29 +110,15 @@ for i, (n, t) in enumerate(signos):
         st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin:0; font-weight:bold;">{n}</p>', unsafe_allow_html=True)
         st.markdown(f'<p style="color:#888; text-align:center; font-size:0.75rem; margin-bottom:20px;">{t}</p>', unsafe_allow_html=True)
 
-# 6. SECCIÓN LEGAL (OBLIGATORIA)
+# 6. SECCIÓN LEGAL
 st.markdown('<br><br>', unsafe_allow_html=True)
 with st.expander("⚖️ INFORMACIÓN LEGAL Y PRIVACIDAD"):
     t1, t2, t3 = st.tabs(["Aviso Legal", "Privacidad", "Cookies"])
-    
     with t1:
-        st.markdown("""<div class="legal-text">
-        <b>Responsable:</b> OPHAY BARCELONA.<br>
-        <b>Finalidad:</b> Venta de productos esotéricos y servicios de consultoría.<br>
-        <b>Contacto:</b> A través del botón oficial de WhatsApp.<br>
-        Los servicios de tarot son para mayores de 18 años y tienen carácter de entretenimiento y guía espiritual.
-        </div>""", unsafe_allow_html=True)
-        
+        st.markdown('<div class="legal-text"><b>Responsable:</b> OPHAY BARCELONA.<br>Los servicios son para mayores de 18 años. Guía espiritual y entretenimiento.</div>', unsafe_allow_html=True)
     with t2:
-        st.markdown("""<div class="legal-text">
-        De acuerdo con el RGPD, le informamos que sus datos solo se utilizarán para gestionar su pedido o cita. 
-        No cedemos datos a terceros. Usted tiene derecho a acceso, rectificación y supresión de sus datos.
-        </div>""", unsafe_allow_html=True)
-        
+        st.markdown('<div class="legal-text">Sus datos solo se usan para gestionar su cita vía WhatsApp de forma privada.</div>', unsafe_allow_html=True)
     with t3:
-        st.markdown("""<div class="legal-text">
-        Esta web utiliza cookies técnicas necesarias para el funcionamiento del sitio y la conexión con WhatsApp. 
-        Al navegar por OPHAY, acepta su uso.
-        </div>""", unsafe_allow_html=True)
+        st.markdown('<div class="legal-text">Usamos cookies técnicas para la estabilidad de la web y el botón de contacto.</div>', unsafe_allow_html=True)
 
 st.markdown("<p style='text-align:center; color:#444; font-size:0.7rem; margin-top:50px;'>© MMXXVI OPHAY BARCELONA • LUXURY SPIRITUALITY</p>", unsafe_allow_html=True)
