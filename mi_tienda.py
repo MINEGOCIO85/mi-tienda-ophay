@@ -1,9 +1,9 @@
 import streamlit as st
 
-# 1. CONFIGURACIÓN (Debe ser lo primero)
+# 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS "ANTIKILL"
+# 2. ESTILO CSS "TOTAL"
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
@@ -11,12 +11,12 @@ st.markdown("""
 /* Fondo General */
 .main,[data-testid="stAppViewContainer"]{ background-color: #050505 !important; }
 
-/* Tipografías */
+/* Tipografías OPHAY */
 .oro { font-family: 'Cinzel'; color: #f1c40f; text-align: center; font-weight: 900; }
 .precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 2rem; font-weight: 700; text-align: center; margin:0; }
 .desc { color: #fff; font-family: 'Montserrat'; font-size: 0.9rem; text-align: center; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; min-height: 100px; margin-bottom: 15px; }
 
-/* BOTONES DE PRODUCTO */
+/* BOTONES DE PRODUCTO (VERDES) */
 div[data-testid="stLinkButton"] > a {
     background-color: #25D366 !important;
     color: white !important;
@@ -29,11 +29,11 @@ div[data-testid="stLinkButton"] > a {
     text-decoration: none !important;
 }
 
-/* BOTÓN FLOTANTE - AJUSTE FINAL PARA QUE NO SE CORTE */
+/* BOTÓN FLOTANTE WHATSAPP (CORREGIDO PARA QUE NO SE CORTE) */
 .float-wa {
     position: fixed;
     bottom: 30px; 
-    right: 15%; /* Lo movemos al 15% del borde para que nunca se salga de la pantalla */
+    right: 40px; /* Distancia suficiente para que no se corte en ningún navegador */
     background-color: #25d366;
     color: white !important;
     border-radius: 50% !important;
@@ -43,8 +43,8 @@ div[data-testid="stLinkButton"] > a {
     align-items: center;
     justify-content: center;
     font-size: 35px;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.9);
-    z-index: 9999999; 
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
+    z-index: 9999;
     text-decoration: none !important;
 }
 </style>
@@ -55,14 +55,15 @@ div[data-testid="stLinkButton"] > a {
 """, unsafe_allow_html=True)
 
 # 3. CABECERA
-st.markdown('<h1 class="oro" style="font-size:4rem; margin-top: -40px;">OPHAY</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="oro" style="font-size:4rem; margin-top: -30px;">OPHAY</h1>', unsafe_allow_html=True)
 st.markdown('<p class="oro" style="letter-spacing:5px; font-size:0.8rem; margin-bottom: 40px;">BARCELONA • PRIVATE BOUTIQUE</p>', unsafe_allow_html=True)
 
-# 4. PRODUCTOS (Aquí estaba el error, ahora corregido)
+# 4. PRODUCTOS
 B = "https://raw.githubusercontent.com/MINEGOCIO85/mi-tienda-ophay/main/"
 W = "https://wa.me/34684668398"
 
-c1, c2, c3 = st.columns(3) # ESTA LÍNEA ES LA QUE DABA EL ERROR
+# Definimos las columnas correctamente
+c1, c2, c3 = st.columns(3)
 
 with c1:
     st.image(B + "primera%20foto%20isoterica.png")
@@ -98,6 +99,4 @@ hz = st.columns(4)
 for i, (n, t) in enumerate(S):
     with hz[i % 4]:
         st.markdown(f'<p style="color:#f1c40f; text-align:center; font-family:Cinzel; margin-bottom:0; font-weight:bold;">{n}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p style="color:#888; text-align:center; font-size:0.8rem; margin-top:0;">{t}</p>', unsafe_allow_html=True)
-
-st.markdown("<br><br><p style='text-align:center; color:#444; font-size: 0.7rem;'>© MMXXVI OPHAY BARCELONA</p>", unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#888; text-align:center; font-size:0.8rem; margin-top:0;">
