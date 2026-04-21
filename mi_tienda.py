@@ -3,17 +3,18 @@ import streamlit as st
 # 1. CONFIGURACIÓN
 st.set_page_config(page_title="OPHAY ELITE", layout="wide")
 
-# 2. ESTILO CSS CON ICONO DE WHATSAPP
+# 2. ESTILO CSS (BOTÓN FLOTANTE Y DISEÑO)
 st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600&display=swap');
+
 .main,[data-testid="stAppViewContainer"]{ background-color: #050505; }
 .oro { font-family: 'Cinzel'; color: #f1c40f; text-align: center; font-weight: 900; }
 .precio { font-family: 'Montserrat'; color: #f1c40f; font-size: 2rem; font-weight: 700; text-align: center; margin:0; }
 .desc { color: #fff; font-family: 'Montserrat'; font-size: 0.9rem; text-align: center; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; min-height: 100px; margin-bottom: 15px; }
 
-/* BOTÓN WHATSAPP CON ICONO */
+/* BOTONES DE PRODUCTO VERDES */
 div[data-testid="stLinkButton"] > a {
     background-color: #25D366 !important;
     color: white !important;
@@ -23,18 +24,36 @@ div[data-testid="stLinkButton"] > a {
     font-weight: 700 !important;
     display: flex !important;
     justify-content: center !important;
-    align-items: center !important;
+}
+
+/* BOTÓN FLOTANTE A LA DERECHA */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none !important;
-    padding: 10px !important;
-    transition: 0.3s !important;
 }
-div[data-testid="stLinkButton"] > a:hover {
-    background-color: #128C7E !important;
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(37,211,102,0.4) !important;
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    color: white !important;
 }
-hr { border-color: rgba(241, 196, 15, 0.2); }
 </style>
+
+<a href="https://wa.me/34684668398" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 """, unsafe_allow_html=True)
 
 # 3. CABECERA
@@ -52,21 +71,21 @@ with c1:
     st.markdown('<h2 class="oro">ORÁCULO</h2>', unsafe_allow_html=True)
     st.markdown('<p class="precio">25€</p>', unsafe_allow_html=True)
     st.markdown('<div class="desc">Consulta privada de tarot y clarividencia. Sesión de 30 min.</div>', unsafe_allow_html=True)
-    st.link_button("💬 WHATSAPP", W)
+    st.link_button("RESERVAR SESIÓN", W)
 
 with c2:
     st.image(B + "SEGUNDA%20FOTO%20ESOTERICA.png")
     st.markdown('<h2 class="oro">RIDER LUXE</h2>', unsafe_allow_html=True)
     st.markdown('<p class="precio">45€</p>', unsafe_allow_html=True)
     st.markdown('<div class="desc">Mazo artesanal de alta gama. Edición Oro.</div>', unsafe_allow_html=True)
-    st.link_button("💬 COMPRAR", W)
+    st.link_button("ADQUIRIR", W)
 
 with c3:
     st.image(B + "Amatista.png")
     st.markdown('<h2 class="oro">AMATISTA</h2>', unsafe_allow_html=True)
     st.markdown('<p class="precio">19,95€</p>', unsafe_allow_html=True)
     st.markdown('<div class="desc">Geoda sagrada de alta pureza. Protección.</div>', unsafe_allow_html=True)
-    st.link_button("💬 PEDIR", W)
+    st.link_button("SOLICITAR", W)
 
 # 5. HORÓSCOPO
 st.markdown('<hr>', unsafe_allow_html=True)
@@ -74,8 +93,8 @@ st.markdown('<h2 class="oro">HORÓSCOPO ELITE</h2>', unsafe_allow_html=True)
 
 S = [("♈ ARIES","Fuego"),("♌ LEO","Sol"),("♐ SAGITARIO","Suerte"),
      ("♉ TAURO","Éxito"),("♍ VIRGO","Orden"),("♑ CAPRI","Rigor"),
-     (" Gemini GÉMINIS","Mente"),(" Libra LIBRA","Paz"),(" Aquarius ACUARIO","Visión."),
-     (" Cancer CÁNCER","Luna"),(" Scorpio ESCORPIO","Poder"),(" Pisces PISCIS","Unión")]
+     ("♊ GÉMINIS","Mente"),("♎ LIBRA","Paz"),("♒ ACUARIO","Visión"),
+     ("♋ CÁNCER","Luna"),("♏ ESCORPIO","Poder"),("♓ PISCIS","Unión")]
 
 hz = st.columns(4)
 for i, (n, t) in enumerate(S):
